@@ -20,3 +20,20 @@
 // }
 
 // }
+
+/////////////////////////////////////////////////////////
+// ArrayList vs List
+// import java.util.*;
+
+// public class Main {
+// public static void main(String[] args) {
+// List<String> al = new ArrayList<String>();
+// al.add("Geeks");
+// al.add("for");
+// al.add("Geeks");
+
+// // Print and display the elements in
+// // ArrayList class object
+// System.out.println(al);
+// }
+// }

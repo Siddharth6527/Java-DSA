@@ -122,3 +122,37 @@
 
 // For equality we can also use:
 // if(A.equals(B)) {} // A is equal to B
+
+//////////////////////////////////////////////////////////////////// Difference
+//////////////////////////////////////////////////////////////////// between
+//////////////////////////////////////////////////////////////////// List and
+//////////////////////////////////////////////////////////////////// ArrayList
+//////////////////////////////////////////////////////////////////// in Java
+/*
+ * A Collection is a group of individual objects represented as single unit.
+ * Java provides Collection Framework which defines several classes and
+ * interfaces to represent a group of objects as single unit.
+ * This framework consits of the List Interface as well as the ArrayList class.
+ */
+
+/*
+ * List is a child interface of Collection.
+ * It is an order collection of objects in which duplicates values can be
+ * stored.
+ * Since List preserves the insertion order, it allows positional access and
+ * insertion of elements.
+ * List interface is implemented by the classes of ArrayList, LinkedList,
+ * Vector, and Stack.
+ * List is an interface, and the instances of List can be created by implmenting
+ * varous classes.
+ */
+
+/*
+ * So, ArrayList is bascially a part of the collection framework and is present
+ * in java.util.package.
+ * It provides us with dynamic arrays in Java.
+ * This class implements the List interface.
+ * Similar to a List, the size of the ArrayList is increased automatically if
+ * the collection grows or shrinks, if the object is removed from collection.
+ * Java ArrayList allows us to randomly access the list
+ */

@@ -283,118 +283,315 @@
 
 //////////////////////////////////////////////////////
 // Converting lower triangular matrix to 1D Array
+// import java.util.*;
+
+// class Main {
+// static class LTMatrix {
+// // size of matrix
+// static int n;
+
+// // pointer
+// static int A[];
+
+// // stores the count to non-zero elements
+// static int tot;
+
+// // constructor
+// LTMatrix(int N) {
+// n = N;
+// tot = N * (N + 1) / 2;
+// A = new int[N * (N + 1) / 2];
+// }
+
+// void Display(boolean row) {
+// for (int i = 0; i < tot; i++) {
+// System.out.print(A[i] + " ");
+// }
+// System.out.println();
+// }
+
+// // function to generate array from given matrix by storing elements in row
+// major
+// // order
+// void setRowMajor(int i, int j, int x) {
+// if (i >= j) {
+// int index = (i * (i - 1)) / 2 + j - 1;
+// A[index] = x;
+// }
+// }
+
+// // function to generate array
+// // given matrix by storing elements
+// // in column major order
+// void setColMajor(int i, int j, int x) {
+// if (i >= j) {
+// int index = (n * (j - 1) - (((j - 2) * (j - 1)) / 2)) + (i - j);
+// A[index] = x;
+// }
+// }
+
+// // function to find the size of array
+// static int getN() {
+// return n;
+// }
+// }
+
+// // function to generate and display
+// // array in Row-Major order
+// static void displayRowMajor(int N) {
+// LTMatrix rm = new LTMatrix(N);
+
+// // generate the array in the
+// // row-major form
+// rm.setRowMajor(1, 1, 1);
+// rm.setRowMajor(2, 1, 2);
+// rm.setRowMajor(2, 2, 3);
+// rm.setRowMajor(3, 1, 4);
+// rm.setRowMajor(3, 2, 5);
+// rm.setRowMajor(3, 3, 6);
+// rm.setRowMajor(4, 1, 7);
+// rm.setRowMajor(4, 2, 8);
+// rm.setRowMajor(4, 3, 9);
+// rm.setRowMajor(4, 4, 10);
+
+// // display array elements
+// // in row-major order
+// System.out.println("Row-Wise: ");
+// rm.Display(false);
+// }
+
+// // Function to generate and display
+// // array in Column-Major Order
+// static void displayColMajor(int N) {
+// LTMatrix cm = new LTMatrix(N);
+
+// // Generate array in
+// // column-major form
+// cm.setColMajor(1, 1, 1);
+// cm.setColMajor(2, 1, 2);
+// cm.setColMajor(2, 2, 3);
+// cm.setColMajor(3, 1, 4);
+// cm.setColMajor(3, 2, 5);
+// cm.setColMajor(3, 3, 6);
+// cm.setColMajor(4, 1, 7);
+// cm.setColMajor(4, 2, 8);
+// cm.setColMajor(4, 3, 9);
+// cm.setColMajor(4, 4, 10);
+
+// // Display array elements
+// // in column-major form
+// System.out.println("Column-Wise:");
+// cm.Display(false);
+// }
+
+// public static void main(String[] args) {
+
+// // Size of row or column
+// // of square matrix
+// int N = 4;
+
+// // Function Call for row major
+// // mapping
+// displayRowMajor(N);
+
+// // Function Call for column
+// // major mapping
+// displayColMajor(N);
+// }
+// }
+
+///////////////////////////////////////////////////
+// Difference in Btw Row-Major vs Col-Major Traversal
+// import java.time.Duration;
+// import java.time.Instant;
+// import java.util.*;
+
+// class Main {
+// // taking MAX 10000 so that time difference can be shown
+// static int MAX = 10000;
+
+// static int[][] arr = new int[MAX][MAX];
+
+// static void rowMajor() {
+// int i, j;
+
+// // accessing element row wise
+// for (i = 0; i < MAX; i++) {
+// for (j = 0; j < MAX; j++) {
+// arr[i][j]++;
+// }
+// }
+// }
+
+// static void colMajor() {
+// int i, j;
+
+// // accessing element column wise
+// for (i = 0; i < MAX; i++) {
+// for (j = 0; j < MAX; j++) {
+// arr[j][i]++;
+// }
+// }
+// }
+
+// public static void main(String[] args) {
+// // time taken by row majaor order
+// Instant start = Instant.now();
+// rowMajor();
+// Instant end = Instant.now();
+// System.out.println("Row major access time: " + Duration.between(start, end));
+
+// // Time taken by column major order
+// start = Instant.now();
+// colMajor();
+// end = Instant.now();
+// System.out.println("Column major access time : " + Duration.between(start,
+// end));
+// }
+// }
+
+//////////////////////////////////////////////////////////
+// Traverse a Matrix using Recursion
+
+// public class Main {
+// // define the dimensions of the matrix
+// private static final int N = 3;
+// private static final int M = 3;
+
+// // recursive funcion to traverse the matrix
+// private static void traverse(int[][] arr, int i, int j) {
+// // if the current position is the bottom-right corner of the matrix
+// if (i == N - 1 && j == M - 1) {
+// // print the value at that position
+// System.out.println(arr[i][j]);
+// // end the recursion
+// return;
+// }
+
+// // print the value at the current position
+// System.out.println(arr[i][j] + ", ");
+
+// // if the end of the current row has not been reached
+// if (j < M - 1) {
+// // move right
+// traverse(arr, i, j + 1);
+// }
+
+// // if the end of the current column has been reached
+// else if (i < N - 1) {
+// // move down to the next row
+// traverse(arr, i + 1, 0);
+// }
+// }
+
+// public static void main(String[] args) {
+// int[][] arr = { { 1, 2, 3 }, { 4, 5, 6 }, { 7, 8, 9 } };
+
+// // start the traversal from the top-left corner of the matrix
+// traverse(arr, 0, 0);
+// }
+// }
+
+//////////////////////////////////////////////////////////////
+// Sorting a given matrix in Strict order
+// import java.util.*;
+
+// public class Main {
+//   public static void main(String[] args) {
+//     // initialize the 2D vector with some values
+//     List<List<Integer>> v = new ArrayList<>(Arrays.asList(
+//         new ArrayList<>(Arrays.asList(5, 4, 7)),
+//         new ArrayList<>(Arrays.asList(1, 3, 8)),
+//         new ArrayList<>(Arrays.asList(2, 9, 6))));
+
+//     int n = v.size();
+
+//     List<Integer> x = new ArrayList<>();
+//     for (int i = 0; i < n; i++) {
+//       for (int j = 0; j < n; j++) {
+//         x.add(v.get(i).get(j));
+//       }
+//     }
+
+//     // sorting the collection
+//     Collections.sort(x);
+
+//     int k = 0;
+//     for (int i = 0; i < n; i++) {
+//       for (int j = 0; j < n; j++) {
+//         v.get(i).set(j, x.get(k++)); // super imp
+//       }
+//     }
+
+//     System.out.println("Sorted Matrix will be: ");
+//     for (List<Integer> row : v) {
+//       for (int num : row) {
+//         System.out.print(num + " ");
+//       }
+//       System.out.println();
+//     }
+
+//   }
+// }
+
+///////////////////////////////////////////////////////////
+// Approach 2: Using temp[]
+import java.io.*;
 import java.util.*;
 
 class Main {
-  static class LTMatrix {
-    // size of matrix
-    static int n;
+  static int SIZE = 10;
 
-    // pointer
-    static int A[];
+  // function to sort the given matrix
+  static void sortMat(int mat[][], int n) {
+    // temporary matrix of size n^2
+    int temp[]= new int[n*n];
+    int k=0;
 
-    // stores the count to non-zero elements
-    static int tot;
-
-    // constructor
-    LTMatrix(int N) {
-      n = N;
-      tot = N * (N + 1) / 2;
-      A = new int[N * (N + 1) / 2];
+    // copy the elements of matrix
+    // one by one into temp[]
+    for(int i=0;i<n;i++){
+      for(int j=0j<n;j++){
+        temp[k++] = mat[i][j];
+      }
     }
 
-    void Display(boolean row) {
-      for (int i = 0; i < tot; i++) {
-        System.out.print(A[i] + " ");
+    // sort temp[]
+    Arrays.sort(temp);
+
+    // copy the elements of temp[]
+    // one by one in mat[][]
+    k=0;
+    for(int i=0;i<n;i++){
+      for(int j=0;j<n;j++){
+        mat[i][j]=temp[k++];
       }
+    }
+  }
+
+  static void printMat(int mat[][], int n) {
+    for (int i = 0; i < n; i++) {
+      for (int j = 0; j < n; j++)
+        System.out.print(mat[i][j] + " ");
       System.out.println();
     }
-
-    // function to generate array from given matrix by storing elements in row major
-    // order
-    void setRowMajor(int i, int j, int x) {
-      if (i >= j) {
-        int index = (i * (i - 1)) / 2 + j - 1;
-        A[index] = x;
-      }
-    }
-
-    // function to generate array
-    // given matrix by storing elements
-    // in column major order
-    void setColMajor(int i, int j, int x) {
-      if (i >= j) {
-        int index = (n * (j - 1) - (((j - 2) * (j - 1)) / 2)) + (i - j);
-        A[index] = x;
-      }
-    }
-
-    // function to find the size of array
-    static int getN() {
-      return n;
-    }
   }
 
-  // function to generate and display
-  // array in Row-Major order
-  static void displayRowMajor(int N) {
-    LTMatrix rm = new LTMatrix(N);
+  // Driver program to test above
+  public static void main(String args[]) {
+    int mat[][] = { { 5, 4, 7 },
+        { 1, 3, 8 },
+        { 2, 9, 6 } };
+    int n = 3;
 
-    // generate the array in the
-    // row-major form
-    rm.setRowMajor(1, 1, 1);
-    rm.setRowMajor(2, 1, 2);
-    rm.setRowMajor(2, 2, 3);
-    rm.setRowMajor(3, 1, 4);
-    rm.setRowMajor(3, 2, 5);
-    rm.setRowMajor(3, 3, 6);
-    rm.setRowMajor(4, 1, 7);
-    rm.setRowMajor(4, 2, 8);
-    rm.setRowMajor(4, 3, 9);
-    rm.setRowMajor(4, 4, 10);
+    System.out.println("Original Matrix:");
+    printMat(mat, n);
 
-    // display array elements
-    // in row-major order
-    System.out.println("Row-Wise: ");
-    rm.Display(false);
+    sortMat(mat, n);
+
+    System.out.println("Matrix After Sorting:");
+    printMat(mat, n);
+
   }
 
-  // Function to generate and display
-  // array in Column-Major Order
-  static void displayColMajor(int N) {
-    LTMatrix cm = new LTMatrix(N);
-
-    // Generate array in
-    // column-major form
-    cm.setColMajor(1, 1, 1);
-    cm.setColMajor(2, 1, 2);
-    cm.setColMajor(2, 2, 3);
-    cm.setColMajor(3, 1, 4);
-    cm.setColMajor(3, 2, 5);
-    cm.setColMajor(3, 3, 6);
-    cm.setColMajor(4, 1, 7);
-    cm.setColMajor(4, 2, 8);
-    cm.setColMajor(4, 3, 9);
-    cm.setColMajor(4, 4, 10);
-
-    // Display array elements
-    // in column-major form
-    System.out.println("Column-Wise:");
-    cm.Display(false);
-  }
-
-  public static void main(String[] args) {
-
-    // Size of row or column
-    // of square matrix
-    int N = 4;
-
-    // Function Call for row major
-    // mapping
-    displayRowMajor(N);
-
-    // Function Call for column
-    // major mapping
-    displayColMajor(N);
-  }
 }

@@ -166,3 +166,118 @@
  * After completing the above steps, print the array A[] for columns-major
  * mapping.
  */
+
+/////////////////////////////////////////
+// Row-wise vs columns-wise traversal of matrix
+/*
+ * Two common ways of traversing a matrix are row-major order and columns-major
+ * order.
+ */
+
+/*
+ * Difference:
+ * If we see acoording to time complexity, both lead to O(n^2), but when it
+ * comes to cache level one of the orders access will be faster as compare to
+ * other one.
+ * It depends on the language we are using.
+ * Like in C, store matrix in row major form so while accessing i+1th element
+ * after ith, most probably it will lead to a hit, which will further reduce the
+ * time of program.
+ */
+
+///////////////////////////////////////////////////////
+// Find sub-matrix with the given sum
+/*
+ * Given an NxN matrix and two integers S and K, the task is to find whether
+ * there exists a K x K sub-matrix with sum equal to S.
+ */
+
+/*
+ * Approach:
+ * Dynamic Programming can be used to solve this problem:
+ * Create an array dp[N+1][N+1], where dp[i][j] stores the sum of all the
+ * elements with row between 1 to i and column between 1 to j.
+ * 
+ * Once the 2-D matrix is generated, now suppose we wish to find sum of square
+ * starting with (i,j) to (i+x, j+x).
+ * 
+ * The required sum will be dp[i+x][j+x] -dp[i][j+x] -dp[i+x][j] +dp[i][j],
+ * where
+ * 
+ * First term denotes the sum of all the elements present in rows between 1 to
+ * i+x and columns between 1 to j+x.
+ * This are has our required square.
+ * 
+ * Second two term is to remove the are which is outside our required region but
+ * inside the region calculated in the first step.
+ * 
+ * Sum of elements of rows between 1 to i and columns betwwen 1 to j is
+ * subtracted twice in the second step, so it is added once.
+ */
+
+//////////////////////////////////////////////////////////////
+// Sum of all Submatrices of a Given Matrix
+/*
+ * Simple Solution: A naive solution is to generate all the possible submatrices
+ * and sum up all of them.
+ * 
+ * The time complexity of this approach will be O(n^6).
+ */
+
+/*
+ * Efficient Solution:
+ * For each element of the matrix, let us try find the number of sub-matrices,
+ * the element will lie in.
+ * 
+ * This can be done in O(1).
+ * 
+ * Let us suppose the index of an element be (X,Y) in 0 based indexing, then
+ * number of submatrices (Sx,y) for this element will be given by the formula
+ * Sx,y =(X+1)*(Y+1)*(N-X)*(N-Y)
+ * 
+ * This formula works, becuase we just have to choose two different positions on
+ * the matrix that will create a submatrix that envelopes the element.
+ * 
+ * Thus, for each element, 'sum' can be updated as sum+= (Sx,y) * Arr x,y.
+ */
+
+////////////////////////////////////////////////////////////
+// Traverse a given Matric Using Recursion
+/*
+ * Approach:
+ * Check if the current position is in the bottom-right corner of the matrix
+ * --Print the value at that posision
+ * --End the recursion
+ * 
+ * Print the value at the current position.
+ * 
+ * Check if the end of the current row has not been reached
+ * --Move right
+ * 
+ * Check if the end of the current column has been reached
+ * --Move down to the next row
+ */
+
+///////////////////////////////////////////////////////////////
+// Sort the given matrix
+/*
+ * Given a n x n matrix.
+ * The problem is to sort the given matrix in strict order.
+ * Here the strict order means that the matrix is sorted in a way that all
+ * elements in a row are sorted in increasing order and for row 'i', where
+ * 1<=i<=n-1, the first element of row 'i' is greater than or equal to the last
+ * element of row 'i-1'.
+ */
+
+/*
+ * Approach 1: Store all the elements in a vector then sort it, we need to fill
+ * that matrix again.
+ */
+
+/*
+ * Approach 2: Create a temp[] arrays of size n^2.
+ * Starting with the first row one by one copy the elements of the given
+ * elements of the given matrix into temp[].
+ * Sort temp[].
+ * Now one by one copy the elements of temp[] back to the given matrix.
+ */
