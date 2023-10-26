@@ -239,10 +239,162 @@
 
 ///////////////////////////////////////////////////
 // Java Program to Compute the Sum of Diagonal of a Matrix
-import java.io.*;
+// import java.io.*;
 
-public class Main {
-  static void Sum_of_diagonal(int[][] matrix, int N) {
+// public class Main {
+// static void Sum_of_diagonal(int[][] matrix, int N) {
 
+// }
+// }
+
+///////////////////////////////////////////////////////////
+// Lower Triangular Matrix
+// import java.io.*;
+
+// class Main {
+// int N = 4;
+
+// boolean isLowerTriangularMatrix(int mat[][]) {
+// for (int i = 0; i < N; i++) {
+// for (int j = i + 1; j < N; j++) {
+// if (mat[i][j] != 0) {
+// return false;
+// }
+// }
+// }
+// return true;
+// }
+
+// public static void main(String[] args) {
+// Main ob = new Main();
+// int mat[][] = { { 1, 0, 0, 0 },
+// { 1, 4, 0, 0 },
+// { 4, 6, 2, 0 },
+// { 0, 4, 7, 6 } };
+
+// // function call
+// if (ob.isLowerTriangularMatrix(mat)) {
+// System.out.println("Yes");
+// } else {
+// System.out.println("No");
+// }
+// }
+// }
+
+//////////////////////////////////////////////////////
+// Converting lower triangular matrix to 1D Array
+import java.util.*;
+
+class Main {
+  static class LTMatrix {
+    // size of matrix
+    static int n;
+
+    // pointer
+    static int A[];
+
+    // stores the count to non-zero elements
+    static int tot;
+
+    // constructor
+    LTMatrix(int N) {
+      n = N;
+      tot = N * (N + 1) / 2;
+      A = new int[N * (N + 1) / 2];
+    }
+
+    void Display(boolean row) {
+      for (int i = 0; i < tot; i++) {
+        System.out.print(A[i] + " ");
+      }
+      System.out.println();
+    }
+
+    // function to generate array from given matrix by storing elements in row major
+    // order
+    void setRowMajor(int i, int j, int x) {
+      if (i >= j) {
+        int index = (i * (i - 1)) / 2 + j - 1;
+        A[index] = x;
+      }
+    }
+
+    // function to generate array
+    // given matrix by storing elements
+    // in column major order
+    void setColMajor(int i, int j, int x) {
+      if (i >= j) {
+        int index = (n * (j - 1) - (((j - 2) * (j - 1)) / 2)) + (i - j);
+        A[index] = x;
+      }
+    }
+
+    // function to find the size of array
+    static int getN() {
+      return n;
+    }
+  }
+
+  // function to generate and display
+  // array in Row-Major order
+  static void displayRowMajor(int N) {
+    LTMatrix rm = new LTMatrix(N);
+
+    // generate the array in the
+    // row-major form
+    rm.setRowMajor(1, 1, 1);
+    rm.setRowMajor(2, 1, 2);
+    rm.setRowMajor(2, 2, 3);
+    rm.setRowMajor(3, 1, 4);
+    rm.setRowMajor(3, 2, 5);
+    rm.setRowMajor(3, 3, 6);
+    rm.setRowMajor(4, 1, 7);
+    rm.setRowMajor(4, 2, 8);
+    rm.setRowMajor(4, 3, 9);
+    rm.setRowMajor(4, 4, 10);
+
+    // display array elements
+    // in row-major order
+    System.out.println("Row-Wise: ");
+    rm.Display(false);
+  }
+
+  // Function to generate and display
+  // array in Column-Major Order
+  static void displayColMajor(int N) {
+    LTMatrix cm = new LTMatrix(N);
+
+    // Generate array in
+    // column-major form
+    cm.setColMajor(1, 1, 1);
+    cm.setColMajor(2, 1, 2);
+    cm.setColMajor(2, 2, 3);
+    cm.setColMajor(3, 1, 4);
+    cm.setColMajor(3, 2, 5);
+    cm.setColMajor(3, 3, 6);
+    cm.setColMajor(4, 1, 7);
+    cm.setColMajor(4, 2, 8);
+    cm.setColMajor(4, 3, 9);
+    cm.setColMajor(4, 4, 10);
+
+    // Display array elements
+    // in column-major form
+    System.out.println("Column-Wise:");
+    cm.Display(false);
+  }
+
+  public static void main(String[] args) {
+
+    // Size of row or column
+    // of square matrix
+    int N = 4;
+
+    // Function Call for row major
+    // mapping
+    displayRowMajor(N);
+
+    // Function Call for column
+    // major mapping
+    displayColMajor(N);
   }
 }

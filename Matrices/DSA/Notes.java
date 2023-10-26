@@ -113,3 +113,56 @@
  * a30, and the row-column condition for the Secondary diagonal is: row + column
  * = N-1.
  */
+
+//////////////////////////////////////////////////////////
+// Java program to check if matrix is lower triangluar
+/*
+ * A square matrix is called lower triangular if iall the entries above the main
+ * diagonal are zero.
+ */
+
+///////////////////////////////////////////
+// Convert given lower Trianugalr Matrix to 1D array
+/*
+ * Given a lower triangular matrix, the task is to convet it into
+ * one-dimensional array by storing only non-zero elements.
+ */
+
+/*
+ * Row-Major Order:
+ * In this method, adjacent elements of a row are places next to each other in
+ * the array.
+ * 
+ * The following formula is used to find out the respective positions of the
+ * non-zero elements of the lower triangular matrix in the 1-dimensional array.
+ * 
+ * Index of matrix element at position (i,j) = ((i*(i-1))/2 +j-1)
+ */
+
+/*
+ * Column-Major Order:
+ * In this method, consective elements of a columns are placed adjacently in the
+ * array.
+ * 
+ * The follwing formula is used to find out the respective positions of the
+ * non-zero elements of the lower triangular matrix in the 1-dimensional array.
+ * 
+ * Index of matrix element at position (i,j) = (N* (j-1)- ((j-2)*(j-1))/2
+ * +(i-j)).
+ */
+
+/*
+ * Steps:
+ * Initialze an array, say A[], to store the non-zero elements of the matrix.
+ * 
+ * Traverse the matrix M[][] and find the index of non-zero elements of the
+ * matrix in the array A[] using the forumula for row-major mapping and insert
+ * each non-zero element in the array A[].
+ * 
+ * Again, traverse the matrix M[][] and find the index of non-zero elements of
+ * the matrix in the array A[] using the formula for column-major mapping and
+ * insert each non-zero element in the array A[].
+ * 
+ * After completing the above steps, print the array A[] for columns-major
+ * mapping.
+ */
