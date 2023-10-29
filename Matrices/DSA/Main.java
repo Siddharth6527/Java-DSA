@@ -497,101 +497,220 @@
 // import java.util.*;
 
 // public class Main {
-//   public static void main(String[] args) {
-//     // initialize the 2D vector with some values
-//     List<List<Integer>> v = new ArrayList<>(Arrays.asList(
-//         new ArrayList<>(Arrays.asList(5, 4, 7)),
-//         new ArrayList<>(Arrays.asList(1, 3, 8)),
-//         new ArrayList<>(Arrays.asList(2, 9, 6))));
+// public static void main(String[] args) {
+// // initialize the 2D vector with some values
+// List<List<Integer>> v = new ArrayList<>(Arrays.asList(
+// new ArrayList<>(Arrays.asList(5, 4, 7)),
+// new ArrayList<>(Arrays.asList(1, 3, 8)),
+// new ArrayList<>(Arrays.asList(2, 9, 6))));
 
-//     int n = v.size();
+// int n = v.size();
 
-//     List<Integer> x = new ArrayList<>();
-//     for (int i = 0; i < n; i++) {
-//       for (int j = 0; j < n; j++) {
-//         x.add(v.get(i).get(j));
-//       }
-//     }
+// List<Integer> x = new ArrayList<>();
+// for (int i = 0; i < n; i++) {
+// for (int j = 0; j < n; j++) {
+// x.add(v.get(i).get(j));
+// }
+// }
 
-//     // sorting the collection
-//     Collections.sort(x);
+// // sorting the collection
+// Collections.sort(x);
 
-//     int k = 0;
-//     for (int i = 0; i < n; i++) {
-//       for (int j = 0; j < n; j++) {
-//         v.get(i).set(j, x.get(k++)); // super imp
-//       }
-//     }
+// int k = 0;
+// for (int i = 0; i < n; i++) {
+// for (int j = 0; j < n; j++) {
+// v.get(i).set(j, x.get(k++)); // super imp
+// }
+// }
 
-//     System.out.println("Sorted Matrix will be: ");
-//     for (List<Integer> row : v) {
-//       for (int num : row) {
-//         System.out.print(num + " ");
-//       }
-//       System.out.println();
-//     }
+// System.out.println("Sorted Matrix will be: ");
+// for (List<Integer> row : v) {
+// for (int num : row) {
+// System.out.print(num + " ");
+// }
+// System.out.println();
+// }
 
-//   }
+// }
 // }
 
 ///////////////////////////////////////////////////////////
 // Approach 2: Using temp[]
-import java.io.*;
-import java.util.*;
+// import java.io.*;
+// import java.util.*;
 
-class Main {
-  static int SIZE = 10;
+// class Main {
+// static int SIZE = 10;
 
-  // function to sort the given matrix
-  static void sortMat(int mat[][], int n) {
-    // temporary matrix of size n^2
-    int temp[]= new int[n*n];
-    int k=0;
+// // function to sort the given matrix
+// static void sortMat(int mat[][], int n) {
+// // temporary matrix of size n^2
+// int temp[]= new int[n*n];
+// int k=0;
 
-    // copy the elements of matrix
-    // one by one into temp[]
-    for(int i=0;i<n;i++){
-      for(int j=0j<n;j++){
-        temp[k++] = mat[i][j];
-      }
-    }
+// // copy the elements of matrix
+// // one by one into temp[]
+// for(int i=0;i<n;i++){
+// for(int j=0j<n;j++){
+// temp[k++] = mat[i][j];
+// }
+// }
 
-    // sort temp[]
-    Arrays.sort(temp);
+// // sort temp[]
+// Arrays.sort(temp);
 
-    // copy the elements of temp[]
-    // one by one in mat[][]
-    k=0;
-    for(int i=0;i<n;i++){
-      for(int j=0;j<n;j++){
-        mat[i][j]=temp[k++];
-      }
-    }
-  }
+// // copy the elements of temp[]
+// // one by one in mat[][]
+// k=0;
+// for(int i=0;i<n;i++){
+// for(int j=0;j<n;j++){
+// mat[i][j]=temp[k++];
+// }
+// }
+// }
 
-  static void printMat(int mat[][], int n) {
-    for (int i = 0; i < n; i++) {
-      for (int j = 0; j < n; j++)
-        System.out.print(mat[i][j] + " ");
-      System.out.println();
-    }
-  }
+// static void printMat(int mat[][], int n) {
+// for (int i = 0; i < n; i++) {
+// for (int j = 0; j < n; j++)
+// System.out.print(mat[i][j] + " ");
+// System.out.println();
+// }
+// }
 
-  // Driver program to test above
-  public static void main(String args[]) {
-    int mat[][] = { { 5, 4, 7 },
-        { 1, 3, 8 },
-        { 2, 9, 6 } };
-    int n = 3;
+// // Driver program to test above
+// public static void main(String args[]) {
+// int mat[][] = { { 5, 4, 7 },
+// { 1, 3, 8 },
+// { 2, 9, 6 } };
+// int n = 3;
 
-    System.out.println("Original Matrix:");
-    printMat(mat, n);
+// System.out.println("Original Matrix:");
+// printMat(mat, n);
 
-    sortMat(mat, n);
+// sortMat(mat, n);
 
-    System.out.println("Matrix After Sorting:");
-    printMat(mat, n);
+// System.out.println("Matrix After Sorting:");
+// printMat(mat, n);
 
-  }
+// }
 
-}
+// }
+
+/////////////////////////////////////////////
+// Matrix in Spiral Form using the simulation approach
+// import java.util.*;
+
+// class Main {
+// public static List<Integer> spiralOrder(int[][] matrix) {
+// List<Integer> ans = new ArrayList<Integer>();
+
+// if (matrix.length == 0) {
+// return ans;
+// }
+
+// int m = matrix.length, n = matrix[0].length;
+// boolean[][] seen = new boolean[m][n];
+// int[] dr = { 0, 1, 0, -1 };
+// int[] dc = { 1, 0, -1, 0 };
+// int x = 0, y = 0, di = 0;
+
+// // iterate from 0 to R * C -1
+// for (int i = 0; i < m * n; i++) {
+// ans.add(matrix[x][y]);
+// seen[x][y] = true;
+// int cr = x + dr[di];
+// int cc = y + dc[di];
+
+// if (0 <= cr && cr < m && 0 <= cc & cc < n && !seen[cr][cc]) {
+// x = cr;
+// y = cc;
+// } else {
+// di = (di + 1) % 4;
+// x += dr[di];
+// y += dc[di];
+
+// }
+// }
+// return ans;
+// }
+
+// public static void main(String[] args) {
+// int a[][] = { { 1, 2, 3, 4 },
+// { 5, 6, 7, 8 },
+// { 9, 10, 11, 12 },
+// { 13, 14, 15, 16 } };
+
+// // Function call
+// System.out.println(spiralOrder(a));
+// }
+// }
+
+///////////////////////////////////////////////////////////
+// Soring 2D Array accoding a column values
+// import java.util.*;
+// import java.util.*;
+
+// class Main {
+
+// public static void sortByColumn(int arr[][], int col) {
+// // using built-in sort function Arrays.sort with lambda expression
+// Arrays.sort(arr, (a, b) -> Integer.compare(a[col], b[col]));
+// }
+
+// public static void main(String[] args) {
+// int matrix[][] = { { 39, 27, 11, 42 },
+// { 10, 93, 91, 90 },
+// { 54, 78, 56, 89 },
+// { 24, 64, 20, 65 } };
+
+// int col = 3;
+// sortByColumn(matrix, col - 1);
+// for (int i = 0; i < matrix.length; i++) {
+
+// for (int j = 0; j < matrix[i].length; j++)
+// System.out.print(matrix[i][j] + " ");
+// System.out.println();
+
+// }
+
+// }
+// }
+
+///////////////////////////////////////////////////////////
+// Sorting 2D array by making use of Arrays.sort in Java
+// import java.util.*;
+
+// class Main {
+// public static void sortbyColumn(int arr[][], int col) {
+// // Using built-in sort function Arrays.sort
+// Arrays.sort(arr, new Comparator<int[]>() {
+// @Override
+// // compare values accoding to columns
+// public int compare(final int[] entry1, final int[] entry2) {
+// // to sort in descending order revert
+// // the '>' Operator
+// if (entry1[col] > entry2[col]) {
+// return 1;
+// } else {
+// return -1;
+// }
+// }
+// }); // End of function call sort()
+// }
+
+// public static void main(String[] args) {
+// int matrix[][] = { { 39, 27, 11, 42 },
+// { 10, 93, 91, 90 },
+// { 54, 78, 56, 89 },
+// { 24, 64, 20, 65 } };
+// int col = 3;
+// sortbyColumn(matrix, col - 1);
+
+// // Printing the sorted matrix
+// for (int i = 0; i < matrix.length; i++) {
+// for (int j = 0; j < matrix[i].length; j++)
+// System.out.print(matrix[i][j] + " ");
+// System.out.println();
+// }
+// }
+// }

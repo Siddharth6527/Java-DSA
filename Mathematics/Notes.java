@@ -41,3 +41,29 @@
  * But, in this approach, we replace B with the modules of A and B instead of
  * the difference.
  */
+
+////////////////////////////////////////////////
+// Given an array of pairs, find all symmetrix pairs in it.
+/*
+ * Two pairs (a,b) and (c,d) are said to be symmetric if c is equal to b and a
+ * is equal to d.
+ * For example, (10,20) and (20,10) are symmetric.
+ * Given an array of pairs find all symmetric paris in it.
+ */
+
+// Find N distinct integrs with zero sum
+/*
+ * Given an integer N, our task is to print N distinct numbers such that their
+ * sum is 0.
+ */
+
+/*
+ * Approach:
+ * To solve the problem mentioned above the main idea is to print Symmetric
+ * Pairs like (+x, -x), so that the sum will always be 0.
+ * 
+ * The edge case to the problem is to observe that if integer N is odd, then
+ * integer N is odd, then print one along with then numbers so that sum is not
+ * affected.
+ * 
+ */

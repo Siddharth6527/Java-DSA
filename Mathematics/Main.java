@@ -64,23 +64,44 @@
 
 ///////////////////////////////////////////////
 // Approach 3: Euclidean algorithm (repeated division)
-class Main {
-  static int gcd(int a, int b) {
-    if (b == 0) {
-      return a;
-    }
+// class Main {
+// static int gcd(int a, int b) {
+// if (b == 0) {
+// return a;
+// }
 
-    // call the gcd() method recursively by replacing a with b and b with
-    // modulues(a,b) as long as b!=0
-    else {
-      return gcd(b, a % b);
-    }
-  }
+// // call the gcd() method recursively by replacing a with b and b with
+// // modulues(a,b) as long as b!=0
+// else {
+// return gcd(b, a % b);
+// }
+// }
 
-  public static void main(String[] args) {
-    int a = 20;
-    int b = 30;
+// public static void main(String[] args) {
+// int a = 20;
+// int b = 30;
 
-    System.out.println("GCD = " + gcd(a, b));
-  }
-}
+// System.out.println("GCD = " + gcd(a, b));
+// }
+// }
+
+////////////////////////////////////////////////
+// Print N distinct integers with sum 0.
+// class Main {
+// static void findNumbers(int N) {
+// for (int i = 1; i < N / 2; i++) {
+// // print 2 symmetric numbers
+// System.out.println(i + ", " + -i + ", ");
+// }
+
+// // print a extra 0 if N is odd
+// if (N % 2 == 0) {
+// System.out.print(0);
+// }
+// }
+
+// public static void main(String[] args) {
+// int N = 10;
+// findNumbers(N);
+// }
+// }

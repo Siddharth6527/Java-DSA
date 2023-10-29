@@ -281,3 +281,31 @@
  * Sort temp[].
  * Now one by one copy the elements of temp[] back to the given matrix.
  */
+
+///////////////////////////////////////////////////////////
+// Print a given matrix in spiral form
+// eg. Input: { {1, 2, 3, 4, 5, 6},
+// {7, 8, 9, 10, 11, 12},
+// {13, 14, 15, 16, 17, 18}}
+// Output: 1 2 3 4 5 6 12 18 17 16 15 14 13 7 8 9 10 11
+
+//////////////////////
+// Print a given matrix in spiral form using the simulation approach:
+/*
+ * Draw the path that spiral makes.
+ * We know that the path should turn clockwise whenever it would go out of
+ * bounds or into a cell that was previously visited.
+ */
+
+/*
+ * Steps:
+ * Let the array have R rows and C columns.
+ * seen[r] denotes that the cell on the r-th row and c-th column was previously
+ * visited.
+ * Our current position is (r,c), facing direction di, and we want to visit R x
+ * C total cells.
+ * As we move through the matrix, our candidate's next position is (cr, cc).
+ * If candidate is in the bounds of the matrix and unseen, then it, becomes our
+ * next position; otherwise, our next position is one after performing a
+ * clockwise turn.
+ */
