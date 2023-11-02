@@ -67,15 +67,19 @@
 // import java.io.*;
 
 // class Main {
-//   public static void main(String a[]) {
-//     int x = 10;
-//     int y = 5;
+// public static void main(String a[]) {
+// int x = 10;
+// int y = 5;
 
-//     // code to swap x (1010) and y (0101)
-//     x = x ^ y;
-//     y = x ^ y;
-//     x = x ^ y;
+// // code to swap x (1010) and y (0101)
+// x = x ^ y;
+// y = x ^ y;
+// x = x ^ y;
 
-//     System.out.println("After swap: x = " + x + " , y = " + y);
-//   }
+// System.out.println("After swap: x = " + x + " , y = " + y);
 // }
+// }
+
+///////////////////
+// Positon of rightmost set bit
+// using 2's complement

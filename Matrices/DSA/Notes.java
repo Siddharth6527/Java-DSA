@@ -309,3 +309,16 @@
  * next position; otherwise, our next position is one after performing a
  * clockwise turn.
  */
+
+/////////////////////////////////////////////////////
+// Find if given matrix is Toeplitz or not
+/*
+ * Given a square matrix, find it's a Toeplitz matrix or not.
+ * A Toeplitz (or diagonal-constant) matrix is a matrix in which each descening
+ * diagoonal from left to right is constant,i.e. all elements in diagonal are
+ * same.
+ * 
+ * In general, any nxn matrix mat[][] is a Toeplitz matrix if every cell
+ * mat[i][j] is same as mat[i-1][j-1], mat[i+1][j+1], mat[i+2][j+2],.. for every
+ * cell mat[i][j] and all the valid cells mat[i+k][j+k] or mat[i-k][j-k].
+ */

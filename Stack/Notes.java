@@ -87,3 +87,75 @@
  * Now start traversing temp till it encournters NULL.
  * Simultanously print the value of the temp node.
  */
+
+///////////////////////////////////////////
+// Check for balanced parenthesis in an expression
+/*
+ * The idea is to put all the opening brackets in the stack.
+ * Whenever you hit a closing bracket, search if the top of the stack is the
+ * opening bracket of the same nature.
+ * If this holds then pop the stack and continue the itertaion.
+ * In the end if the stack if empty, it means all brackets are balanced or
+ * well-formed.
+ * Otherwise, they are not balanced.
+ */
+
+///////////////////////////////////////////////////////
+// Stack Class in Java
+/*
+ * Java Collections framework provides a Stack class that models and implements
+ * a Stack data structure.
+ * 
+ * The class is based on the basic principle of last-in-first-out.
+ * 
+ * In addition to basic push and pop operations, the class provides three more
+ * functions of empty, search, and peek.
+ * 
+ * The class can also be said to extend Vector and treats the class as a stack
+ * with five mentioned functions.
+ * 
+ * The class can also be referred to as the subclass of Vector.
+ */
+
+/*
+ * The class suports one default constrctor Stack() which is used to create an
+ * empty stack.
+ */
+
+/*
+ * In order to create a stack, we must import java.util.stack package and use
+ * the Stack() constructor of this class.
+ * 
+ */
+
+/*
+ * Functions:
+ * empty(): It returns true if nothing is on the top of the stack.
+ * Else, returns false.
+ * 
+ * peek(): Returns the element on the top of the stack, but does not remove it.
+ * 
+ * pop(): Removes and returns the top element of the stack.
+ * An 'EmptyStackException' is thrown if we call pop() when the invoking stack
+ * is empty.
+ * 
+ * push(Object element): Pushes an element on the top of the stack.
+ * 
+ * search(Object element): It determines wether an object exists in the stack.
+ * If the element is found.
+ * 
+ * It returns the position of the element fromt the top of the stack.
+ * Else, it returns -1.
+ */
+
+// Note: Methods inherited from class java.util.Vector are also available on
+// stack.
+
+/*
+ * Prioritize use of Deque over Stack:
+ * The Stack class in java is a legacy class and inherits from Vector in java.
+ * It is a thread-safe class and hence involves overhead when we do not need
+ * thread safety.
+ * It is recommened to use ArraysDeque for stack implementation as it is more
+ * efficient in a single-threaded environment.
+ */

@@ -1640,3 +1640,19 @@
 // }
 
 // }
+
+////////////////////////////////////////////////////////////
+// LinkedList class in Java
+// import java.util.*;
+// // import java.util.LinkedList<String>();
+// // import java.util.LinkedList;
+
+// class Main {
+//   public static void main(String[] args) {
+//     // creating object of the
+//     // class linked list
+//     // java.util.LinkedList<String> ll = new java.util.LinkedList<String>();
+
+//     LinkedList<String> ll = new LinkedList<String>();
+//   }
+// }

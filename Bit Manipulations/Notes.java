@@ -180,3 +180,43 @@
  * 2) Get a number which has only one set bit of the xor.
  * 
  */
+
+// to be continued
+
+////////////////////////////////////////////////////////////
+// Position of the rightmost set bit
+/*
+ * Write a one-line function to return the position of the first 1 from right to
+ * left, in the binary representation of an Integer.
+ * 
+ * Examples:
+ * n = 18
+ * ans = 2
+ * Explanation: Binary representation of 18 is 010010, hence position of first
+ * set bit from right is 2.
+ */
+
+// Position of rightmost set bit using two's complement
+/*
+ * (n & ~(n-1)) always return the binary number containing the rightmost set bit
+ * as 1.
+ * 
+ * If N = 12 (1100) then it will return 4 (100).
+ * Here, log2 will retrun, the number of times we can express that number in a
+ * power of two.
+ * 
+ * For all binary numbers containing only the rightmost set bit as 1 like 2, 4.
+ * 8, 16, 32 ....
+ * Find that position of rightmost set bit is always equal to log2(Number) + 1.
+ */
+
+/*
+ * Follow the steps to solve the given problem:
+ * Let input be 12 (1100)
+ * Take two's complement of the given no as all bits are reverted except the
+ * first '1' from right to left (0100).
+ * Do a bit-wise & with original no, this will return no with the required one
+ * only (0100).
+ * Take the log2 of the no, you will get (position - 1) (2).
+ * Add 1 (3).
+ */

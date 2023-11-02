@@ -158,3 +158,45 @@
  * If we come accross a node that points to null and then the loop doesn't
  * exist.
  */
+
+//////////////////////////////////////////////////////////
+// LinkedList class in Java
+/*
+ * Linked list is a part of the Collection framework present in
+ * java.util.package.
+ * 
+ * This class is an implementation of the LinkedList data structure which is
+ * linear data structure where the elements are not stored in contiguous
+ * locations and every element is a separate object with a data part and address
+ * part.
+ * 
+ * The elements are linked using pointers and addresses.
+ * Each element is known as node.
+ * 
+ */
+
+/*
+ * Due to the dynamicity and ease of insertions and deletions, they are
+ * preferred over the arrays.
+ * It also has few disadvantages like the node cannot be accessed dirctly
+ * instead we need to start from the head and follow through the link to reach a
+ * node we wish to access.
+ */
+
+/*
+ * The LinkedList is implemented using the doubly linked list data structure.
+ */
+
+/*
+ * Constructors in the LinkedList:
+ * 1. LinkedList(): This constructor is used to create an empty linked list.
+ * If we to create an empty LinkedList with the name ll, then, it can be created
+ * as:
+ * LinkedList ll = new LinkedList();
+ * 
+ * 2. LinkedList(Collection C): This constructor is used to create an ordered
+ * list that contains all the elements of a specified collection, as retruned by
+ * the collection's iterator.
+ * 
+ * LinkedList ll = new LinkedList();
+ */

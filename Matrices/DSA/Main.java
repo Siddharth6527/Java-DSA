@@ -714,3 +714,71 @@
 // }
 // }
 // }
+
+///////////////////////////////////////////////////////
+// Find if given matrix is Toeplitz or not
+import java.io.*;
+
+class GFG {
+  public static int N = 5;
+  public static int M = 4;
+
+  // function to check if all elements present in
+  // descending diagonal starting from position
+  // (i, j) in the matrix are all same or not
+  static boolean checkDiagonal(int mat[][], int i, int j) {
+    int res = mat[i][j];
+    while (++i < N && ++j < M) {
+      // mismatch found
+      if (mat[i][j] != res) {
+        return false;
+      }
+    }
+
+    // we only reach here when all elements
+    // in given diagonal are same
+    return true;
+  }
+
+  // function to check whether given matrix is a
+  // Toeplitz matrix or not
+  static boolean isToeplitz(int mat[][]) {
+    // do for each element is first row
+    for (int i = 0; i < M; i++) {
+      // check descending diagonal starting from
+      // position (0,j) in the matrix
+      if (!checkDiagonal(mat, 0, i)) {
+        return false;
+      }
+    }
+
+    // do for each element in first column
+    for (int i = 1; i < N; i++) {
+      // check descending diagonal starting from
+      // position (i,0) in the matrix
+      if (!checkDiagonal(mat, i, 0)) {
+        return false;
+      }
+    }
+
+    // we only reach here when each descending
+    // diagonal from left to righit is same
+    return true;
+  }
+
+  // driver code
+  public static void main(String[] args) {
+    int mat[][] = { { 6, 7, 8, 9 },
+        { 4, 6, 7, 8 },
+        { 1, 4, 6, 7 },
+        { 0, 1, 4, 6 },
+        { 2, 0, 1, 4 } };
+
+    if (isToeplitz(mat)) {
+      System.out.println("Matrix is a Toeplitz");
+    } else {
+      System.out.println("Matrix is not a Towplitz");
+    }
+
+  }
+}
