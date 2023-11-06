@@ -416,3 +416,139 @@
  * Thus, there are two types of skewed binary tree: left-skewed binary tree and
  * right-skewed binary tree.
  */
+
+////////////////////////////////////
+// Types of binary Tree on the basis of the completion of levels:
+/*
+ * 1. Complete Binary Tree
+ * 2. Prefect Binary Tree
+ * 3. Balanced Binary Tree
+ */
+
+// 1. Complete Binary Tree:
+/*
+ * A Binary Tree is a comple binar tree if all the levels are completelyl filled
+ * except possibly the last level and the last level has all keys as left as
+ * possible.
+ * 
+ * A complete binary tree is just like a full binary tree, but with two major
+ * differences.
+ * -Every level except the last level must be completely filled.
+ * -All the leaf elements must lean towards the left.
+ * -The last leaf element might not have a right sibling i.e. a complete binary
+ * tree doesn't have to be a full binary tree.
+ * 
+ */
+
+// 2. Perfect Binary Tree
+/*
+ * A Binary tree is Perfect Binary Tree in which all the internal nodes have two
+ * children and all leaf nodes are the same level.
+ * 
+ * A perfect binary tree is a type of binary tree in which every internal node
+ * has exactly two child nodes and all the leaf nodes are at the same level.
+ * 
+ * In a Perfect Binary Tree, the number of leaf nodes is the number of internal
+ * node plus 1.
+ * L = I + 1, where L = Number of leaf nodes, I = Number of internal nodes.
+ * 
+ * A Perfect binary tree of height h has 2^(h+1) - 1 node.
+ * 
+ * An example of a Perfect Binart Tree is ancestors in the family.
+ * Keep a person at root, parents as children, parents of parents as their
+ * children.
+ */
+
+// 3. Balanced Binary Tree:
+/*
+ * A binary tree is balanced if the height of the tree is O(Log n) where n is
+ * the number of nodes.
+ * For example, the AVL tree maintians O(Log n) height by making sure that the
+ * difference between the height of the left and right subtrees is at most 1.
+ * 
+ * Red-Black trees maintin O(Log n) height by making sure that the number of
+ * Black nodes on every root to left paths is the same and there are no adjacent
+ * red nodes.
+ * 
+ * Balancd Binary Search trees are performance-wise good as they provide O(log
+ * n) time for Search, insert and delete.
+ * 
+ * It is a type of binary tree in whcih the differnce between the height of the
+ * left and the righit subtree for each node is either 0 or 1.
+ */
+
+//////////////////////////////////////////////////////////////
+// Tree Traversal Techniques
+/*
+ * A tree data structure can be traversed in follwing ways:
+ * 1. Depth First Search or DFS
+ * -Inorder Traversal
+ * -Preorder Traversal
+ * -Postorder Traversal
+ * 
+ * 2. Level Order Traversal or Breath First Search or BFS
+ * 3. Boundary Traversal\
+ * 4. Diagonal Traversal
+ * 
+ */
+
+// Inorder Traversal
+/*
+ * Algorithm Inorder (tree):
+ * Traverse the left subtree, i.e., call Inorder (left->subtree)
+ * Visit the root
+ * Traverse the right subtree, i.e., call Inorder (right->subtree)
+ */
+
+/*
+ * Uses of Inorder Traversal:
+ * In the case of bianry search trees (BST), Inorder traversal gives nodes in
+ * non-decreasing order.
+ * 
+ * To get the nodes of BST in non-increasing order, a variation of Inorder
+ * traversal where Inorder traversal is reversed can be used.
+ */
+
+///////////////////////////////
+// Pre-order Traversal:
+/*
+ * Algorithm Preorder(tree):
+ * Visit the root.
+ * Traverse the left subtree, i.e., call Preorder (left->subtree).
+ * Traverse the right subtree, i.e., call Preorder (right->subtree).
+ * 
+ */
+
+/*
+ * Uses of Preorder:
+ * Preorder traversal is used to create a copy of the tree.
+ * Preorder traversal is also used to get prefix expression on an expression
+ * tree.
+ */
+
+/////////////////////////////////////////////////////////////
+// Postorder Traversal:
+/*
+ * Algorithm PostOrder(tree):
+ * Traverse the left subtree, i.e. call Postorder (left->subtree).
+ * Traverse the right subtree, i.e., call Postorder(right->subtree).
+ * Visit the root.
+ * 
+ */
+
+/*
+ * Uses of Postorder:
+ * Post-order traversal is used to delete the tree.
+ * 
+ * Post-order traversal is also useful to get the postfix expression of an
+ * expression tree.
+ */
+
+////////////////////////////////////////////////////////////
+// Level Order Traversal
+/*
+ * For each node, first, the node is visited and then it's child nodes are put
+ * in a FIFO queue.
+ * Then again the first node is popped out and then it's child nodoes are put in
+ * a FIFO queue and repeat until queue beomces empty.
+ */
