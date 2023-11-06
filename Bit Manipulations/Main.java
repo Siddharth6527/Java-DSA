@@ -83,3 +83,52 @@
 ///////////////////
 // Positon of rightmost set bit
 // using 2's complement
+/////////////////////////////////////////////////////////
+
+// Count set bits in an integer
+// import java.io.*;
+
+// class Main {
+// // function to get no of set
+// // bits in binary representation \
+// // of positive integer
+// static int countSetBits(int n) {
+// int count = 0;
+// while (n > 0) {
+// count += n & 1;
+// n >>= 1;
+// }
+// return count;
+// }
+
+// // driver program
+// public static void main(String[] args) {
+// int i = 9;
+// System.out.println(countSetBits(i));
+// }
+// }
+
+//////////////////////
+// Count set bits in an Integer using Recursion
+// import java.io.*;
+
+// class Main {
+// // recursive function to couont set bits
+// public static int countSetBits(int n) {
+// // base case
+// if (n == 0)
+// return 0;
+// else {
+// // if last bit set add 1 else add 0
+// return (n & 1) + countSetBits(n >> 1);
+// }
+// }
+
+// // driver code
+// public static void main(String[] args) {
+// int n = 9;
+
+// System.out.println(countSetBits(n));
+
+// }
+// }

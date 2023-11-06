@@ -187,3 +187,232 @@
  */
 
 //////////////////////////////////////////////////////////////
+// Introduction to Binary Tree
+/*
+ * A binary tree is a tree data structure in which each node can have at most
+ * two children, which are refered to as the left child and right child.
+ * 
+ */
+
+// Representation of Binary Tree:
+/*
+ * Each node in the tree contains the following:
+ * Data
+ * Pointer to the left child
+ * Pointer to the rigth child
+ */
+
+// class Node {
+// int key;
+// Node left, right;
+
+// public Node(int item) {
+// key = item;
+// left = right = null;
+// }
+// }
+
+/////////////////////////////
+// Basic Operations on Binary Tree:
+/*
+ * Inserting an element
+ * Remoing an element
+ * Searching for an element
+ * Deletion for an element
+ * Traversing an element. There are four (mainly three) types of traversals in a
+ * binary tree.
+ */
+
+////////////////////////////
+// Auxiliary Operations on Binary Tree:
+/*
+ * Finding the height of the tree
+ * Fing the level of the tree
+ * Finding the size of the entire tree
+ */
+
+/////////////////////////////
+// Applications of Binary Tree:
+/*
+ * In compilers, Expression Trees are used which is an application of binary
+ * trees.
+ * 
+ * Huffman coding trees are used in data compression algorithms.
+ * 
+ * Priority Queue is another application of binary tree, that is used for
+ * searching maximum or minimum in O(1) time complexity.
+ * 
+ * Represent hierarchical data.
+ * 
+ * Used in editing software like Microsoft Excel and spreadsheets.
+ * 
+ * Useful for indexing segmented at the database is useful in storing cache in
+ * the system.
+ * 
+ * Syntax trees are used for most famous compilers for programming like GCC, and
+ * AOCL to perform arithemetic operations.
+ * 
+ * For implementing priority queues.
+ * 
+ * Binary trees can be used to organize and retrive information from large
+ * datasets, such as in inverted index and k-d trees.
+ * 
+ * Binary trees can be used to represent the decison-making process of
+ * computer-controlled characters in games, such as in decision trees.
+ * 
+ * Binary trees can be used to implement searching algorihtms, such as in binary
+ * search trees which can be used to quickly find an element in a sorted list.
+ * 
+ * Binary trees can be used to implement sorint algorithms, such as in heap sort
+ * which uses a binary heap to sort elements efficiently.
+ * 
+ */
+
+///////////////////////////////
+// Binary Tree Traversals:
+/*
+ * Tree traversal algorithms can be classified broadly into two categories:
+ * Depth-First Search (DFS) Algorithms
+ * Breath-First Search (BFS) Algorithms
+ */
+
+////////////////////////////
+// Tree traversal using Depth-First Search (DFS) algorithm can be furthr
+//////////////////////////// classified into three categories:
+/*
+ * Preorder Traversal (current-left-right):
+ * Visit the current node before visiting any nodes inside the left or right sub
+ * strees.
+ * Here, the traversal is root -left child - right child.
+ * It means that the root node is traversed first then its left chlid and
+ * finally the right child.
+ * 
+ * Inorder Traversal (left-current-right):
+ * Visit the current node after visiting all nodes inside the left subtree but
+ * before visiting any node within the right subtree.
+ * Here, the traversal is left child - root - right child.
+ * It means that the left child is traversed first then its root node and
+ * finally the right child.
+ * 
+ * Postorder Traversal (left-right-current):
+ * Visit the current node after visiting all the nodoes of the left and right
+ * subtrees.
+ * Here, the traversal is leftchild - right child - root.
+ * It means thea that the left child is traversed first then the right child and
+ * finally its root node.
+ */
+
+////////////////////////////////
+// Tree traversal using Breath-First Search (BFS) algorithm can be further
+//////////////////////////////// classified into one category:
+/*
+ * Level Order Traversal:
+ * Visit nodes level-by-level and left-to-right fashion at the same level.
+ * Here, the traversal is level-wise.
+ * It means that the most left chld has traversed first and then the other
+ * children of the same level from left to right have traversed.
+ */
+
+// Example:
+/*
+ * Pre-order traversal: 1 2 4 5 3 6 7
+ * In-order traversal: 4 2 5 1 6 3 7
+ * Post-order traversal: 4 5 2 6 7 3 1
+ * level-wise traversal: 1 2 3 4 5 6 7
+ */
+
+///////////////////////////////////
+// Properties Of Binary Tree
+/*
+ * 1. The maximum number of nodes at level 'l' of binary tree is 2^l:
+ * Note: Here level is the number of nodes on the path from the root to the node
+ * (including root and note).
+ * The level of the root is 0.
+ * 
+ * 2. The Maximum number of ndes in a binary tree of height 'h' is 2^h-1:
+ * Note: Here the height of a tree is the maximum number of nodes on the
+ * root-to-leaf.
+ * The height of a tree with a single node is considered as 1.
+ * 
+ * In some books, the height of the root in considered as 0.
+ * In this convention, the above formula becomes 2^(h+1) -1.
+ * 
+ * 3. In a binary tree with N nodes, the minimum posssible height or the miminum
+ * number of levels is Log2 (N+1):
+ * 
+ * 4. A binary tree with L leaves has at least | log2 (L) | +1 levels:
+ * 
+ * 5. In a binary tree where every node has 0 or 2 children, the number of lead
+ * nodes is always one more than nodes with two children:
+ * 
+ * 6. In a non-empty binary tree, if n is the total number of nodes and e is
+ * the total number of edges, then e = n-1.
+ * 
+ */
+
+// Some extra properties:
+/*
+ * The height of a binary tree is defined as the number of edges from the root
+ * node to the deepest lead node:
+ * The height of a binary tree is the length of the longest path from the root
+ * node to any of the leaf nodes.
+ * The height of a binary tree is also known as its depth.
+ * 
+ * In a full binary tree, every node except the leaves has exactly two chidren:
+ * In a full binary tree, all non-leaf nodes have exactly two children.
+ * This means that there are no unary nodes in a full binary tree.
+ * 
+ * In a complete binary tree, every level of tree is completely filled except
+ * for the last level, which can be partially filled:
+ * In a complete binary tree, all levels of the tree execept the last level are
+ * completely filled.
+ * This means that there are not gaps in the tree and all nodes are connected to
+ * their parent nodes.
+ * 
+ * In a balanced binary tree, the height of the left and rigth subtrees of every
+ * node differ by at most 1:
+ * In a balanced binary tree, the height of the left and right subtrees of every
+ * node is similar.
+ * This ensures that the tree is balanced and that the height of the tree is
+ * minimized.
+ * 
+ * The in-order, pre-order and post-order traversal of a binary tree are three
+ * common ways to traverse the trees.
+ */
+
+///////////////////////////////////////////////////////////
+// Types of Binary Tree:
+// Types of binary tree based on the number of children:
+/*
+ * Following are the types of binary tree based on the number of children:
+ * 1. Full Binary Tree
+ * 2. Degenerate Binary Tree
+ * 3. Skewed Binary Trees
+ */
+
+// 1. Full Binary Tree:
+/*
+ * A binary tree is a full binary tree if every node has 0 or 2 children.
+ * We can also say a full binary tree is a binary tree in which all nodes except
+ * leaf nodes have two chilren.
+ * 
+ * A full binary tree is special type of binary tree in which every parent node/
+ * internal nodes has either two or no children,
+ * It is also known as a proper binary tree.
+ */
+
+// 2. Degenerate (or pathological) tree:
+/*
+ * A tree where every internal node has one child.
+ * Such trees are performance-wise same as linked list.
+ * A degenerate or pathological tree is a tree having a single child either left
+ * or right.
+ */
+
+// 3. Skewed Binary Tree:
+/*
+ * A skewed binary tree is a pathological/degenerate tree in which the treeis
+ * either dominated by the left nodes or the right nodes.
+ * Thus, there are two types of skewed binary tree: left-skewed binary tree and
+ * right-skewed binary tree.
+ */

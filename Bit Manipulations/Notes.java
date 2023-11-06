@@ -220,3 +220,15 @@
  * Take the log2 of the no, you will get (position - 1) (2).
  * Add 1 (3).
  */
+
+//////////////////////////////////////////////////
+// Count set bits in an integer
+/*
+ * Write an efficient programt to count the number of 1s in the binary
+ * representation of an integer.
+ */
+
+/*
+ * 1. Simple Method: Loop through all bits in an integer, check if a bit is set
+ * and it it is, then increment the set bit count.
+ */
