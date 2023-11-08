@@ -208,3 +208,142 @@
 // tree.printPostorder(tree.root);
 // }
 // }
+
+//////////////////////////////////////////////////
+// Level Order Traversal
+// class Node {
+// int data;
+// Node left, right;
+
+// public Node(int item) {
+// data = item;
+// left = right = null;
+// }
+// }
+
+// class BinaryTree {
+// // root of the binary tree
+// Node root;
+
+// public BinaryTree() {
+// root = null;
+// }
+
+// // function to print level order traversal of tree
+// void printLevelOrder() {
+// int h = height(root);
+// int i;
+// for (i = 1; i <= h; i++) {
+// printCurrentLevel(root, i);
+// }
+// }
+
+// // compute the "height" of a tree -- the number of
+// // nodes along the longest path from the root node
+// // down to the farthest leaf node.
+// int height(Node root) {
+// if (root == null) {
+// return 0;
+// } else {
+// // compute height of each subtree
+// int lheight = height(root.left);
+// int rheight = height(root.right);
+
+// // use the larger one
+// if (lheight > rheight) {
+// return (lheight + 1);
+// } else {
+// return (rheight + 1);
+// }
+// }
+// }
+
+// // print nodes at current level
+// void printCurrentLevel(Node root, int level) {
+// if (root == null) {
+// return;
+// }
+// if (level == 1) {
+// System.out.println(root.data + " ");
+// } else if (level > 1) {
+// printCurrentLevel(root.left, level - 1);
+// printCurrentLevel(root.right, level - 1);
+// }
+// }
+
+// // driver program to test above functions
+// public static void main(String[] args) {
+// BinaryTree tree = new BinaryTree();
+// tree.root = new Node(1);
+// tree.root.left = new Node(2);
+// tree.root.right = new Node(3);
+// tree.root.left.left = new Node(4);
+// tree.root.left.right = new Node(5);
+
+// System.out.println("Level order traversal of binary tree is : ");
+// tree.printLevelOrder();
+// }
+// }
+
+// Time Complexity: O(N^2), where N is the number of nodes in the skewed tree.
+// Auxiliary Space: O(1) if the recursion stack is considered the space used is
+// O(N).
+
+////////////////////////////////////////////////////////////
+// Level Order Traversal Using Queue
+// import java.util.LinkedList;
+// import java.util.Queue;
+
+// // class to represent tree node
+// class Node {
+// int data;
+// Node left, right;
+
+// public Node(int item) {
+// data = item;
+// left = null;
+// right = null;
+// }
+// }
+
+// // class to print level order traversal
+// class BinaryTree {
+// Node root;
+
+// // given a binary tree. Print
+// // its nodes in level order
+// // using array for implementing queue
+// void printLevelOrder() {
+// Queue<Node> queue = new LinkedList<Node>();
+// queue.add(root);
+
+// while (!queue.isEmpty()) {
+// // poll() removes the present head.
+// Node tempNode = queue.poll();
+// System.out.println(tempNode.data + " ");
+
+// // enqueue left child
+// if (tempNode.left != null) {
+// queue.add(tempNode.left);
+// }
+
+// // Enqueue right child
+// if (tempNode.right != null) {
+// queue.add(tempNode.right);
+// }
+// }
+// }
+
+// public static void main(String[] args) {
+// BinaryTree tree_level = new BinaryTree();
+// tree_level.root = new Node(1);
+// tree_level.root.left = new Node(2);
+// tree_level.root.right = new Node(3);
+// tree_level.root.left.left = new Node(4);
+// tree_level.root.left.right = new Node(5);
+
+// System.out.println("Level order traversal of binary tree is - ");
+// tree_level.printLevelOrder();
+
+// }
+// }

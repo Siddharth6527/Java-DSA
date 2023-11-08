@@ -552,3 +552,37 @@
  * Then again the first node is popped out and then it's child nodoes are put in
  * a FIFO queue and repeat until queue beomces empty.
  */
+
+/*
+ * Level Order Traversal technique is defined as a method to traverse a Tree
+ * such that all nodes present in the same level are traversed completely before
+ * traversing the next level.
+ */
+
+/*
+ * Ways:
+ * The naive one (finding the height of the tree and traversing each level and
+ * printing the nodes of that level)
+ * efficiently using a queue.
+ */
+
+////////////////////////////////
+// Level Order Traversal (Naive Approach):
+/*
+ * Find height of tree.
+ * Then for each level, run a recursive function by mainting current height.
+ * Whenever the level of a node matches, print that node.
+ */
+
+/////////////////////////////////////////////////////////////////
+// Level Order Traversal Using Queue
+/*
+ * We need to visit the nodes in a lower level before any node in a higher
+ * level, this idea is quite similar to that of queue.
+ * Push the nodes of a lower level in the queue.
+ * When any node is visited, pop that node from the queue and push the child of
+ * that node in the queue.
+ * 
+ * This ensures that the node of a lower level are visited prior to any node of
+ * higher level.
+ */
