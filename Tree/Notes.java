@@ -586,3 +586,112 @@
  * This ensures that the node of a lower level are visited prior to any node of
  * higher level.
  */
+
+/////////////////////////////////////////////////////////////
+// Find the maximum Depth or Heigth of given Binary Tree
+/*
+ * Given a binary tree, the task is to find the height of the tree.
+ * The height of the tree is the number of vertices in the tree from the root
+ * the deepest node.
+ */
+
+// Note: The height of an empty tree is 0 and the height of a tree with single
+// node is 1.
+
+/*
+ * Recursively calculte the height of the left and the right subtrees of a node
+ * and assign height to the node as max of the heights of two children plus 1.
+ * 
+ */
+
+/*
+ * Example:
+ * maxDepth('1') = max(maxDepth('2'),maxDepth('3'))+1 = 2+1,
+ * because recursively,
+ * maxDepth('2')= max(maxDepth('4'), maxDepth('5'))+1 = 1+1
+ * and (as height of both '4' and '5' are 1)
+ * maxDepth('3') = 1
+ */
+
+/*
+ * Algorithm:
+ * Recursively do a Depth-first search.
+ * If the tree is empty, then return 0.
+ * Otherwise, do the following:
+ * Get the max depth of the left subtree recusively i.e. call
+ * maxDepth(tree->left-subtree).
+ * Get the max depth of the rigth subtree recursively i.e. call maxDepth
+ * (tree->right-subtree).
+ * Get the max of max depths of left and right subtrees and add 1 to it for the
+ * current node.
+ * maxDepth = max(maxDepth of leftsubtree, maxdepth of right subtree) + 1.
+ * Return max_depth
+ */
+
+// Insertion in A Binary Tree in Level order
+/*
+ * Given a binary tree and a key, insert the key into the binary tree at the
+ * first position available in level order.
+ * 
+ */
+// TBC
+//////////////////////////////////////////////
+// Level Order Traversal (interviewbit)
+// 1. Recursive Approach:
+/*
+ * There are basically two function in this approach.
+ * One of them is used to print all nodes at a particular level (Current level),
+ * and another is used to print the level order traversal of the tree
+ * (Levelorder).
+ * 
+ */
+
+/*
+ * Algorithm:
+ * In CurrentLevel function, we find the heigth of the tree and call the
+ * LevelOrder function for every level between 1 to height.
+ * 
+ * In the LevelOrder function, we pass two parameters level and root. We follow
+ * the below steps:
+ * First, check if the root is null then return.
+ * Check if the level is equal to 1, then print the current root value.
+ * Now, cal recursively call both the children of the current node with
+ * decrementing the value of level by 1.
+ */
+
+///////////////////////////////////////////////////////
+// Difference between depth and height
+/*
+ * The depth of a nodoe is the number of edges from the node to the tree's root
+ * node.
+ * A root node will have a depth of 0.
+ */
+
+/*
+ * The height of a node is the number of edges on the longest path from the node
+ * to leaf.
+ * A leaf node will have a heigth of 0.
+ */
+
+// Properties of a Tree:
+/*
+ * The height of a tree would be the height of its root node, or equivalently,
+ * the depth of its deepest node.
+ * 
+ * The diameter (or width) of a tree is the number of nodes on the longest path
+ * between any two leaf nodes.
+ */
+
+/////////////////////////////////////////////////
+// Level in a Binary Tree
+/*
+ * A level in the number of nodes corresponding to given a node of the tree.
+ * 
+ * It is basically the number of ancestors from that node until the root node.
+ * 
+ * So, for the root node (topmost node), it's level is 0, since it has no
+ * parent.
+ * 
+ * If it has children, both of them will have a level 1, since it has only one
+ * ancestor until the root node, which is the root node itself.
+ */

@@ -180,3 +180,100 @@
  * 2) Get a number which has only one set bit of the xor.
  * 
  */
+
+//////////////////////////////////////////////////////////
+// Binary Search
+/*
+ * Binary Search is defined as a searching algorithm used in sorted array by
+ * repeatedly dividing the search interval in half.
+ * 
+ * The idea of binary search is to use the information that the array is sorted
+ * and reduce the time complexity to O(log N).
+ */
+
+/*
+ * Conditions for when to apply Binary Search in a Data Structure:
+ * To apply binary Searcy algorithm:
+ * The data structure must be sorted.
+ * 
+ * Access to any element of the data structure takes constant time.
+ */
+
+/*
+ * 1. Binary Search Algorithm:
+ * In this algorthim:
+ * Divide the search space into two halves by finding the middle "mid".
+ * 
+ * Compare the middle element of the search space with the key.
+ * 
+ * If the key is found at middle element, the process is terminated.
+ * 
+ * If the key is not found at middle element, choose which half will be used as
+ * the next search space.
+ * 
+ * If the key is smaller than the middle element, then the left side is used for
+ * next search.
+ * 
+ * If the key is larger than the middle element, then the right side is used for
+ * next search.
+ * 
+ * The process is continued until the key is found or the total search space is
+ * exhausted.
+ */
+
+// How to Implement Binary Search:
+/*
+ * Itertative Binarty Search Algorithm
+ * Recursive Binary Search Algorithm
+ */
+
+// Iterative Binary Search Algorithm:
+/*
+ * Here, we use a while looop to continue the process of comparing the key and
+ * splitting the search space in two halves.
+ */
+
+///////////////////////////////////////
+// 2. Recursive Binary Search Algorithm:
+/*
+ * Create a recursive function and compare the mid of the search space with key.
+ * And based on the result either return the index where the key if found or
+ * call the recursive function for the next search space.
+ */
+
+//////////
+// Advantages of Binary Search:
+/*
+ * Binary Search is faster than linear search, especially for large arrays.
+ * 
+ * More efficient than other searching algorithms with a similar time
+ * complexity, such as interpolation search or exponential search.
+ * 
+ * Binary search is well-suited for searching large datasets that are stored in
+ * external memeory, such as on a hard drive or in the cloud.
+ */
+
+////////////////
+// Drawbacks of Binary Search:
+/*
+ * The array should be sorted.
+ * 
+ * Binary serch requies that the data structure being searched be stored in
+ * contiguous memory locations.
+ * 
+ * Binary search requires that the elements of the array be comparable, meaning
+ * that they must be able to be ordered.
+ */
+
+///////////////////////////////////////////////////////
+// Applicatons of Binary Search:
+/*
+ * Binary search can be used as a building block for more complex algorithms
+ * used in machine learning, such as algorithms for training neural networks or
+ * finding the optimal hyperparameters for a model.
+ * 
+ * It can be used for searching in computer graphics such as algorithms for ray
+ * trcing or texture mapping.
+ * 
+ * It can be used for searchin a database.
+ */

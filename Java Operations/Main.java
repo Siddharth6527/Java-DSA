@@ -67,15 +67,123 @@
 // import java.io.*;
 
 // class Main {
-//   public static void main(String a[]) {
-//     int x = 10;
-//     int y = 5;
+// public static void main(String a[]) {
+// int x = 10;
+// int y = 5;
 
-//     // code to swap x (1010) and y (0101)
-//     x = x ^ y;
-//     y = x ^ y;
-//     x = x ^ y;
+// // code to swap x (1010) and y (0101)
+// x = x ^ y;
+// y = x ^ y;
+// x = x ^ y;
 
-//     System.out.println("After swap: x = " + x + " , y = " + y);
-//   }
+// System.out.println("After swap: x = " + x + " , y = " + y);
 // }
+// }
+
+//////////////////////////////////////////////////////
+// Iterative Binary Search
+// import java.io.*;
+
+// class Main {
+// // Returns index of x if it is present in arr[]
+// int binarySearch(int arr[], int x) {
+// int l = 0, r = arr.length - 1;
+// while (l <= r) {
+// int m = l + (r - l) / 2;
+
+// // check if x is present at mid
+// if (arr[m] == x) {
+// return m;
+// }
+
+// // if x greater, igonre left half
+// if (arr[m] < x) {
+// l = m + 1;
+// }
+
+// // if x is smaller, ignore right half
+// else {
+// r = m - 1;
+// }
+// }
+
+// // if we reach here, then elemetn was not present
+// return -1;
+// }
+
+// // driver code
+// public static void main(String[] args) {
+// Main ob = new Main();
+// int arr[] = { 2, 3, 4, 8, 10, 40 };
+// int n = arr.length;
+// int x = 10;
+// int result = ob.binarySearch(arr, x);
+// if (result == -1) {
+// System.out.println("Element is not present in array");
+// } else {
+// System.out.println("Element is presnt at index " + result);
+// }
+
+// }
+// }
+
+// Time Complexity: O(log N)
+// Auxiliary Space: O(1)
+
+/////////////////////////////////////////////////////////////
+// 2. Recursive Binary Search Algorithm:
+
+// class Main {
+// // returns index of x if it is present in arrr[l...r],
+// // else return -1
+// int binarySearch(int arr[], int l, int r, int x) {
+// if (r >= l) {
+// int mid = l + (r - l) / 2;
+
+// // If the element is present at the
+// // middle itself
+// if (arr[mid] == x)
+// return mid;
+
+// // If element is smaller than mid, then
+// // it can only be present in left subarray
+// if (arr[mid] > x)
+// return binarySearch(arr, l, mid - 1, x);
+
+// // Else the element can only be present
+// // in right subarray
+// return binarySearch(arr, mid + 1, r, x);
+// }
+
+// // We reach here when element is not present
+// // in array
+// return -1;
+// }
+
+// // driver code
+// public static void main(String[] args) {
+// Main ob = new Main();
+// int arr[] = { 2, 3, 4, 10, 40 };
+// int n = arr.length;
+// int x = 2;
+// int result = ob.binarySearch(arr, x, n - 1, x);
+
+// if (result == -1) {
+// System.out.println("Element is not present in array");
+// } else {
+// System.out.println("Element is present at index " + result);
+// }
+// }
+// }
+
+// Compexity Analysis of Binary Search:
+/*
+ * Time Complexity:
+ * -Best Case: O(1)
+ * -Average Case: O(log N)
+ * -Worst Case: O(log N)
+ * 
+ * Auxiliary Space: O(1), if the recursive call stack is considered then the
+ * auxiliary space will be O(log N).
+ * 
+ */

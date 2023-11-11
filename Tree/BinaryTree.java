@@ -347,3 +347,119 @@
 
 // }
 // }
+
+///////////////////////////////////////////////////////
+// Find the maximum depth or height of a tree
+// class Node {
+//   int data;
+//   Node left, right;
+
+//   Node(int item) {
+//     data = item;
+//     left = right = null;
+//   }
+// }
+
+// class BinaryTree {
+//   Node root;
+
+//   // compute the 'maxDepth' of a tree --
+//   // the number of nodes along the longest path from
+//   // the root node down to the fartest leaf node.
+//   int maxDepth(Node node) {
+//     if (node == null) {
+//       return 0;
+//     } else {
+//       // compute the depth of each sbutree
+//       int lDepth = maxDepth(node.left);
+//       int rDepth = maxDepth(node.right);
+
+//       // use the larger one
+//       if (lDepth > rDepth) {
+//         return (lDepth + 1);
+//       } else {
+//         return (rDepth + 1);
+//       }
+//     }
+//   }
+
+//   // driver code
+//   public static void main(String[] args) {
+//     BinaryTree tree = new BinaryTree();
+
+//     tree.root = new Node(1);
+//     tree.root.left = new Node(2);
+//     tree.root.right = new Node(3);
+//     tree.root.left.left = new Node(4);
+//     tree.root.left.right = new Node(5);
+
+//     System.out.println("Height of tree is " + tree.maxDepth(tree.root));
+//   }
+// }
+
+// Time Complexity: O(N)
+// Auxiliary Space: O(N) due to recursive stack.
+
+/////////////////////////////////////////////////////////
+// Level Order Traversal (InterviewBit)
+class Node {
+  int data;
+  Node left, right;
+
+  public Node(int item) {
+    data = item;
+    left = right = null;
+  }
+}
+
+class BinaryTree {
+  Node root;
+
+  public BinaryTree() {
+    root = null;
+  }
+
+  void LevelOrder() {
+    int h = height(root);
+    int i;
+    for (i = 1; i <= h; i++) {
+      CurrentLevel(root, i);
+    }
+  }
+
+  int height(Node root) {
+    if (root == null) {
+      return 0;
+    } else {
+      int lheight = height(root.left);
+      int rheight = height(root.right);
+      if (lheight > rheight) {
+        return (lheight + 1);
+      } else
+        return (rheight + 1);
+    }
+  }
+
+  void CurrentLevel(Node root, int level) {
+    if (root == null) {
+      return;
+    }
+    if (level == 1) {
+      System.out.print(root.data + " ");
+    } else if (level > 1) {
+      CurrentLevel(root.left, level - 1);
+      CurrentLevel(root.right, level - 1);
+    }
+  }
+
+  public static void main(String[] args) {
+    BinaryTree tree = new BinaryTree();
+    tree.root = new Node(1);
+    tree.root.left = new Node(2);
+    tree.root.right = new Node(3);
+    tree.root.left.left = new Node(4);
+    tree.root.left.right = new Node(5);
+
+    tree.LevelOrder();
+  }
+}
