@@ -402,6 +402,72 @@
 
 /////////////////////////////////////////////////////////
 // Level Order Traversal (InterviewBit)
+// class Node {
+//   int data;
+//   Node left, right;
+
+//   public Node(int item) {
+//     data = item;
+//     left = right = null;
+//   }
+// }
+
+// class BinaryTree {
+//   Node root;
+
+//   public BinaryTree() {
+//     root = null;
+//   }
+
+//   void LevelOrder() {
+//     int h = height(root);
+//     int i;
+//     for (i = 1; i <= h; i++) {
+//       CurrentLevel(root, i);
+//     }
+//   }
+
+//   int height(Node root) {
+//     if (root == null) {
+//       return 0;
+//     } else {
+//       int lheight = height(root.left);
+//       int rheight = height(root.right);
+//       if (lheight > rheight) {
+//         return (lheight + 1);
+//       } else
+//         return (rheight + 1);
+//     }
+//   }
+
+//   void CurrentLevel(Node root, int level) {
+//     if (root == null) {
+//       return;
+//     }
+//     if (level == 1) {
+//       System.out.print(root.data + " ");
+//     } else if (level > 1) {
+//       CurrentLevel(root.left, level - 1);
+//       CurrentLevel(root.right, level - 1);
+//     }
+//   }
+
+//   public static void main(String[] args) {
+//     BinaryTree tree = new BinaryTree();
+//     tree.root = new Node(1);
+//     tree.root.left = new Node(2);
+//     tree.root.right = new Node(3);
+//     tree.root.left.left = new Node(4);
+//     tree.root.left.right = new Node(5);
+
+//     tree.LevelOrder();
+//   }
+// }
+
+/////////////////////////////////////////////////////////////
+// Inorder tree traversals without recursion
+import java.util.Stack;
+
 class Node {
   int data;
   Node left, right;
@@ -412,54 +478,40 @@ class Node {
   }
 }
 
+// class to print the inorder traversal
 class BinaryTree {
   Node root;
 
-  public BinaryTree() {
-    root = null;
-  }
-
-  void LevelOrder() {
-    int h = height(root);
-    int i;
-    for (i = 1; i <= h; i++) {
-      CurrentLevel(root, i);
-    }
-  }
-
-  int height(Node root) {
-    if (root == null) {
-      return 0;
-    } else {
-      int lheight = height(root.left);
-      int rheight = height(root.right);
-      if (lheight > rheight) {
-        return (lheight + 1);
-      } else
-        return (rheight + 1);
-    }
-  }
-
-  void CurrentLevel(Node root, int level) {
+  void inorder() {
     if (root == null) {
       return;
     }
-    if (level == 1) {
-      System.out.print(root.data + " ");
-    } else if (level > 1) {
-      CurrentLevel(root.left, level - 1);
-      CurrentLevel(root.right, level - 1);
+
+    Stack<Node> s = new Stack<Node>();
+    Node curr = root;
+
+    // traverse the tree'
+    while (curr != null || s.size() > 0) {
+      // reach the left most node of
+      // curr node
+      while (curr != null) {
+        // place pointer to a tree node on
+        // the stack before traversing
+        // the node's left subtree
+        s.push(curr);
+        curr = curr.left;
+      }
+
+      // currnet must be NULL at this point
+      curr = s.pop();
+
+      System.out.println(curr.data + " ");
+
+      // we have visited the node and its
+      // left subtree. Now, it's right
+      // subtree's turn
+      curr = curr.right;
     }
   }
 
-  public static void main(String[] args) {
-    BinaryTree tree = new BinaryTree();
-    tree.root = new Node(1);
-    tree.root.left = new Node(2);
-    tree.root.right = new Node(3);
-    tree.root.left.left = new Node(4);
-    tree.root.left.right = new Node(5);
-
-    tree.LevelOrder();
-  }
 }

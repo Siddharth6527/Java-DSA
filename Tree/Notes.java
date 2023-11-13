@@ -695,3 +695,22 @@
  * If it has children, both of them will have a level 1, since it has only one
  * ancestor until the root node, which is the root node itself.
  */
+
+////////////////////////////////////////////////////////////
+// Inorder Tree Traversal without Recursion
+/*
+ * Algorithm for traversing a binary tree using stack:
+ * Create an empty stack (say S).
+ * 
+ * Initialize the current node as root.
+ * 
+ * Push the current node to S and set the current = current -> left until
+ * current is NULL.
+ * 
+ * If the current is NULL and the stack is not empty then:
+ * Pop the top item from the stack.
+ * Print the popped item and set current = popped_item -> right
+ * Go to step 3
+ * 
+ * If current is NULL and stack is empty then we are done.
+ */
