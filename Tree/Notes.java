@@ -714,3 +714,87 @@
  * 
  * If current is NULL and stack is empty then we are done.
  */
+
+////////////////////////////////////////////////////
+// Linked Complete binary tree & its creation
+/*
+ * A complete binary tree is a binary tree where each level 'l' except the last
+ * has 2^l nodes nodes and and the nodes at the last level are all left-aligned.
+ * 
+ * Complete binary trees are mainly used in heap-based data structures.
+ */
+
+/*
+ * The nodes in the complete binary tree are inserted from left to right in one
+ * level at a time.
+ * 
+ * If a level is full, the node is inserted in a new level.
+ */
+
+/*
+ * Complete binary trees are generally represented using arrays.
+ * The array representation is better because it doesn't contain any empty
+ * slots.
+ * 
+ * Given the parent index i, its left child is given by 2*i+1, and its right
+ * child is given by 2*i+2.
+ * 
+ * So, no extra space is wasted and space to store left and right pointers is
+ * saved.
+ */
+
+/*
+ * To create a linked complete binary tree, we need to keep track of the nodes
+ * in a level order fashion such that the next node to be inserted lies in the
+ * left most position.
+ * 
+ * A queue data structure can be used to keep track of the inserted nodes.
+ */
+
+/*
+ * Algorithm:
+ * If the tree is empty, initialize the root with a new node.
+ * 
+ * Else, get the front node of the queue.
+ * 1. If the left child of this front node doesn't exist, set the left child as
+ * the new node.
+ * 
+ * 2. Else, if the right child of this front node doesn't exist, set the right
+ * child as the new node.
+ * 
+ * If the front node has both the left child and right child, Dequeue().
+ * 
+ * Enqueue() the new node.
+ */
+
+///////////////////////////////////////////////////////////////
+// Iterative Preorder Traversal
+/*
+ * Follwing is a simple stack based itertative process to print Preorder
+ * Traversal:
+ * 1. Create an empty stack nodeStack and push root node to stack.
+ * 
+ * 2. Do the following while nodeStack is not empty.
+ * -1. Pop an item from the stack and print it.
+ * -2. Push right child of a popped item to stack.
+ * -3. Push left child of a popped item to stack.
+ * 
+ * The right child is pushed before the left child to make sure that the left
+ * subtree is processed first.
+ * 
+ */
+
+////////////////////////////////////
+/*
+ * Another Solution:
+ * In the previous solution we can see that the left child is popped as soon as
+ * it is pushed to the stack, therefore it is not required to push it into the
+ * stack.
+ * 
+ * The idea is to start traversing the tree form the root node, and keep
+ * printing the left child while exists and simultaneously, push the right child
+ * of every node in an auxiliary stack.
+ * 
+ * Once we reach a null node, pop a right child from the auxiliary stack and
+ * repeat the process while the auxiliary stack is not-empty.
+ */
