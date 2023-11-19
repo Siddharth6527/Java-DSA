@@ -798,3 +798,19 @@
  * Once we reach a null node, pop a right child from the auxiliary stack and
  * repeat the process while the auxiliary stack is not-empty.
  */
+
+//////////////////////////////////////////////////////////////////// Level Order
+//////////////////////////////////////////////////////////////////// Traversal
+//////////////////////////////////////////////////////////////////// using Queue
+/*
+ * We need to visit the nodes in a lower level before any node in a higher
+ * level, this idea is quite similar to that of a queue.
+ * 
+ * Push the nodes of a lower level in the queue.
+ * 
+ * When any node is visited, pop that node fromt the queue and push the child of
+ * that node in the queue.
+ * 
+ * This ensures that the node of a lower level are visited prior to any node of
+ * a higher level.
+ */
