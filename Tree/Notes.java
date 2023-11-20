@@ -628,13 +628,6 @@
  * Return max_depth
  */
 
-// Insertion in A Binary Tree in Level order
-/*
- * Given a binary tree and a key, insert the key into the binary tree at the
- * first position available in level order.
- * 
- */
-// TBC
 //////////////////////////////////////////////
 // Level Order Traversal (interviewbit)
 // 1. Recursive Approach:
@@ -814,3 +807,82 @@
  * This ensures that the node of a lower level are visited prior to any node of
  * a higher level.
  */
+
+//////////////////////////////////////////////////////////////
+// Find the Maximym Depth or Height of given Binary Tree
+/*
+ * The heigght of the tree is the number of vertices in the tree from the root
+ * to the deepest node.
+ * 
+ * Note: The height of an empty tree is 0 and the height of a ttee with single
+ * node is 1.
+ */
+
+/*
+ * Recursively calculate height of the left and the right subtrees of a node and
+ * assign height to the node as max of the heights of two children plus 1.
+ */
+
+/////////////////////////////////
+// Method 2: Using Level Order Traversal
+/*
+ * Do Level Order Traversal, while adding Nodes at each level to Queue, we have
+ * to add NULL Node so that whenever is is encountered, we can increment the
+ * value of variable and that level get counted.
+ */
+
+//////////////////////////////////
+// Method 3: Another method using level Order Traversal
+/*
+ * This method also uses the concept the Level Order Traversal but we wont be
+ * ading null in the queue.
+ * 
+ * Simpley increase the counter when level increases and push the children of
+ * current node into queue, then remove all the nodes from the current level.
+ */
+
+///////////////////////////////////////////////////////////////
+// Insertion in a binary Tree in level order
+/*
+ * The idea is to do an iterative level order traversal of the given tree using
+ * queue.
+ * If we find a node whose left child is empty, we make a new key as the left
+ * child of the node.
+ * Else if, we find a node whose right child is empty, we make the new key as
+ * the right child.
+ * We keep traversing the tree until we find node whose either left or right
+ * child is empty.
+ */
+
+//////////////////////////////////////////////////////////////////
+// Deletion in Binary Tree
+/*
+ * Given a binary tree, delete a node from it by making sure that the tree
+ * shrinks from the bottom (i.e. the delted node is replaced by the bottom-most
+ * and righ-most node.)
+ * 
+ * The is different from BST deletion.
+ * 
+ * Here we do not have any order among elements, so we replace them with the
+ * last element.
+ */
+
+/*
+ * Algorithm:
+ * 1. Replace at the root, find the deepest and rightmost node in the binary
+ * tree and the node which we want to delete.
+ * 
+ * 2. Replace the deepest rightmost node's data with the node to be deleted.
+ * 
+ * 3. Then delete the deepest right most node.
+ * 
+ */
+
+/*
+ * Note:
+ * We can also replace the node's data that is to be deleted with any node whose
+ * left and right child points to NULL, but we only use deepest node in order to
+ * maintain the Balance of a binary tree.
+ */
+
+////////////////////////////////////////////////////////////

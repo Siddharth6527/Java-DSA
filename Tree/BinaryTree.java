@@ -844,3 +844,409 @@
 
 // Time Complexity: O(N), where N is the number of nodes in the binary tree
 // Auxiliary Space: O(N), where N is the number of nodes in the binary tree.
+
+////////////////////////////////////////////////////////////////
+// Recursively Find the max height of the binary tree
+// class Node {
+// int data;
+// Node left, right;
+
+// Node(int item) {
+// data = item;
+// left = right = null;
+// }
+// }
+
+// class BinaryTree {
+// Node root;
+
+// int maxDepth(Node node) {
+// if (node == null) {
+// return 0;
+// } else {
+// // compute the depth of each subtree
+// int lDepth = maxDepth(node.left);
+// int rDepth = maxDepth(node.right);
+
+// // use the larger one
+// if (lDepth > rDepth) {
+// return (lDepth + 1);
+// } else {
+// return (rDepth + 1);
+// }
+// }
+// }
+
+// public static void main(String[] args) {
+// BinaryTree tree = new BinaryTree();
+
+// tree.root = new Node(1);
+// tree.root.left = new Node(2);
+// tree.root.right = new Node(3);
+// tree.root.left.left = new Node(4);
+// tree.root.left.right = new Node(5);
+
+// System.out.println("Height of tree is "
+// + tree.maxDepth(tree.root));
+
+// }
+// }
+
+///////////////////////////////////
+// Method 2: Using Queue (Level Order)
+// import java.util.LinkedList;
+// import java.util.Queue;
+
+// class BinaryTree {
+// // a tree node structure
+// static class Node {
+// int key;
+// Node left;
+// Node right;
+// }
+
+// static Node newNode(int key) {
+// Node temp = new Node();
+// temp.key = key;
+// temp.left = temp.right = null;
+// return temp;
+// }
+
+// // funciton to find the height(depth) of the tree
+// public static int height(Node root) {
+// int depth = 0;
+
+// Queue<Node> q = new LinkedList<>();
+
+// // pushing teh first level element along with null
+// q.add(root);
+// q.add(null);
+
+// while (!q.isEmpty()) {
+// Node temp = q.peek();
+// q.remove();
+
+// // when null encountered, increment the value
+// if (temp == null) {
+// depth++;
+// }
+
+// // if null not encountered, keep moving
+// if (temp != null) {
+// if (temp.left != null) {
+// q.add(temp.left);
+// }
+// if (temp.right != null) {
+// q.add(temp.right);
+// }
+// }
+
+// // if queue still have elements left,
+// // push null again to the queue
+// else if (!q.isEmpty()) {
+// q.add(null);
+// }
+// }
+// return depth;
+// }
+
+// public static void main(String[] args) {
+// Node root = newNode(1);
+// root.left = newNode(2);
+// root.right = newNode(3);
+
+// root.left.left = newNode(4);
+// root.left.right = newNode(5);
+
+// System.out.println("Height(Depth) of tree is: "
+// + height(root));
+// }
+// }
+
+////////////////////////////////////////////////////////
+// Method 3: Another method using level Order Traversal
+// import java.util.LinkedList;
+// import java.util.Queue;
+
+// class BinaryTree {
+// static class Node {
+// int key;
+// Node left;
+// Node right;
+// }
+
+// static Node newNode(int key) {
+// Node temp = new Node();
+// temp.key = key;
+// temp.left = temp.right = null;
+// return temp;
+// }
+
+// public static int height(Node root) {
+// Queue<Node> q = new LinkedList<Node>();
+
+// q.add(root);
+
+// int height = 0;
+// while (!q.isEmpty()) {
+// int size = q.size();
+// for (int i = 0; i < size; i++) {
+// Node temp = q.poll();
+// if (temp.left != null) {
+// q.add(temp.left);
+// }
+// if (temp.right != null) {
+// q.add(temp.right);
+// }
+// height++;
+// }
+// }
+
+// return height;
+
+// }
+
+// public static void main(String args[]) {
+// Node root = newNode(1);
+// root.left = newNode(2);
+// root.right = newNode(3);
+
+// root.left.left = newNode(4);
+// root.left.right = newNode(5);
+
+// System.out.println("Height(Depth) of tree is: "
+// + height(root));
+// }
+// }
+
+///////////////////////////////////////////////////////////////
+// Insertion in a Binary Tree
+// import java.util.LinkedList;
+// import java.util.Queue;
+
+// public class BinaryTree {
+// static class Node {
+// int key;
+// Node left, right;
+
+// Node(int key) {
+// this.key = key;
+// left = null;
+// right = null;
+// }
+// }
+
+// static Node root;
+// static Node temp = root;
+
+// // inorder traversal of a binary tree
+// static void inorder(Node temp) {
+// if (temp == null) {
+// return;
+// }
+
+// inorder(temp.left);
+// System.out.print(temp.key + " ");
+// inorder(temp.right);
+// }
+
+// // function to insert element in binary tree
+// static void insert(Node temp, int key) {
+// if (temp == null) {
+// root = new Node(key);
+// return;
+// }
+// Queue<Node> q = new LinkedList<Node>();
+// q.add(temp);
+
+// // do level order traversal until we find
+// // an empty place
+// while (!q.isEmpty()) {
+// temp = q.peek();
+// q.remove();
+
+// if (temp.left == null) {
+// temp.left = new Node(key);
+// break;
+// } else {
+// q.add(temp.left);
+// }
+
+// if (temp.right == null) {
+// temp.right = new Node(key);
+// break;
+// } else {
+// q.add(temp.right);
+// }
+// }
+// }
+
+// public static void main(String[] args) {
+// root = new Node(10);
+// root.left = new Node(11);
+// root.left.left = new Node(7);
+// root.right = new Node(9);
+// root.right.left = new Node(15);
+// root.right.right = new Node(8);
+
+// System.out.print(
+// "Inorder traversal before insertion:");
+// inorder(root);
+
+// int key = 12;
+// insert(root, key);
+
+// System.out.print(
+// "\nInorder traversal after insertion:");
+// inorder(root);
+
+// }
+
+// }
+
+// Time Complexity: O(V) where V is the number of nodes.
+// Auxiliary Space: O(B), where B is the width of the tree and in the worst case
+// we need to hold all the vertices of a level in the queue.
+
+//////////////////////////////////////////////////////////////
+// Deletion in binary tree
+// import java.util.LinkedList;
+// import java.util.Queue;
+
+// class BinaryTree {
+// static class Node {
+// int key;
+// Node left, right;
+
+// Node(int key) {
+// this.key = key;
+// left = right = null;
+// }
+// }
+
+// static Node root;
+// static Node temp = root;
+
+// // inorder traversal of a binary tree
+// static void inorder(Node temp) {
+// if (temp == null) {
+// return;
+// }
+
+// inorder(temp.left);
+// System.out.print(temp.key + " ");
+// inorder(temp.right);
+// }
+
+// // function to delete the
+// // deepest element in binary tree
+// static void deleteDeepest(Node root, Node delNode) {
+// Queue<Node> q = new LinkedList<>();
+// q.add(root);
+
+// Node temp = null;
+
+// // do level order traversal until last node
+// while (!q.isEmpty()) {
+// temp = q.peek();
+// q.remove();
+
+// if (temp == delNode) {
+// temp = null;
+// return;
+// }
+
+// if (temp.right != null) {
+// // first check if it is req node
+// if (temp.right == delNode) {
+// temp.right = null;
+// return;
+// } else {
+// q.add(temp.right);
+// }
+// }
+
+// if (temp.left != null) {
+// // check if it is req node
+// if (temp.left == delNode) {
+// temp = null;
+// return;
+// } else {
+// q.add(temp.left);
+// }
+// }
+// }
+// }
+
+// // function to delete given element
+// // in binary tree
+// static void delete(Node root, int key) {
+// if (root == null) {
+// return;
+// }
+
+// if (root.left == null && root.right == null) {
+// if (root.key == key) {
+// root = null;
+// } else {
+// return;
+// }
+// }
+
+// Queue<Node> q = new LinkedList<Node>();
+// q.add(root);
+// Node temp = null, keyNode = null;
+
+// // do level order traversal until
+// // we find key and last node.
+// while (!q.isEmpty()) {
+// temp = q.peek();
+// q.remove();
+
+// if (temp.key == key) {
+// keyNode = temp;
+// }
+
+// if (temp.left != null) {
+// q.add(temp.left);
+// }
+
+// if (temp.right != null) {
+// q.add(temp.right);
+// }
+// }
+
+// // if existed, we would have reference the that node
+// if (keyNode != null) {
+// int x = temp.key;
+// deleteDeepest(root, temp);
+// keyNode.key = x;
+// }
+
+// }
+
+// public static void main(String args[]) {
+// root = new Node(10);
+// root.left = new Node(11);
+// root.left.left = new Node(7);
+// root.left.right = new Node(12);
+// root.right = new Node(9);
+// root.right.left = new Node(15);
+// root.right.right = new Node(8);
+
+// System.out.print("Inorder traversal "
+// + "before deletion:");
+// inorder(root);
+
+// int key = 11;
+// delete(root, key);
+
+// System.out.print("\nInorder traversal "
+// + "after deletion:");
+// inorder(root);
+
+// }
+// }
+
+// Time Complexity: O(N) where n is number of nodes.
+// Auxiliary Space: O(N) size of queue.
