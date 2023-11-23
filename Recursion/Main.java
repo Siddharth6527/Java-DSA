@@ -317,3 +317,138 @@
 // towerOfHanoi(n, '1', '2', '3');
 // }
 // }
+
+/////////////////////////////////////////////////////////////
+// Tail Recursion:
+// class Main {
+// // recursive function
+// static void fun(int n) {
+// if (n > 0) {
+// System.out.print(n + " ");
+
+// // last statement in the function
+// fun(n - 1);
+// }
+// }
+
+// public static void main(String[] args) {
+// int x = 3;
+// fun(x);
+// }
+// }
+
+// Time Complexity for Tail Recusion: O(N)
+// Space Complexity for Tail Recursion: O(N)
+
+// iterative approach
+// class Main {
+// public static void main(String[] args) {
+// int n = 3;
+// while (n > 0) {
+// System.out.print(n + " ");
+// n--;
+// }
+// }
+// }
+
+// Time Complexity: O(N)
+// Space Compleixty: O(1)
+
+//////////////////////////////////////
+// Head Recursion:
+// class Main {
+// static void fun(int n) {
+// if (n > 0) {
+// // first statement in the function
+// fun(n - 1);
+
+// System.out.println(" " + n);
+// }
+// }
+
+// public static void main(String[] args) {
+// int x = 3;
+// fun(x);
+// }
+// }
+
+// Time Complexity for Head Recursion: O(N)
+// Space Complexity for Head Recursion: O(N)
+
+// class Main {
+// public static void main(String[] args) {
+// for (int i = 1; i <= 3; i++) {
+// System.out.print(i + " ");
+// }
+// }
+// }
+
+//////////////////////////////////////
+// Tree Recursion:
+// class Main {
+// static void fun(int n) {
+// if (n > 0) {
+// System.out.println(" " + n);
+
+// // calling once
+// fun(n - 1);
+
+// // calling twice
+// fun(n - 1);
+// }
+// }
+
+// public static void main(String[] args) {
+// fun(3);
+// }
+// }
+
+// Time Compleixty for Tree Recursion: O(2^n)
+// Space Complexity for Tree Recursion: O(n)
+
+//////////////////////////////////////////
+// Nested Recursion:
+// class Main {
+// static int fun(int n) {
+// if (n > 100)
+// return n - 10;
+
+// // A recursive function passing parameter
+// // as a recursive call or recursion
+// // inside the recursion
+
+// return fun(fun(n + 11));
+// }
+
+// public static void main(String[] args) {
+// int r;
+// r = fun(3);
+// System.out.print(" " + r);
+// }
+// }
+
+////////////////////////////////////////////////
+// Indirect Recursion:
+// class Main {
+// static void funA(int n) {
+// if (n > 0) {
+// System.out.print(" " + n);
+
+// // funA is calling funB
+// funB(n - 1);
+// }
+// }
+
+// static void funB(int n) {
+// if (n > 1) {
+// System.out.print(" " + n);
+
+// // funB is calling funA
+// funA(n / 2);
+// }
+// }
+
+// public static void main(String[] args) {
+// funA(20);
+// }
+// }

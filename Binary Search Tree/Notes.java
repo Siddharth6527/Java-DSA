@@ -111,3 +111,60 @@
  * 
  * If at any iteration, key is found, return True. Else False.
  */
+
+//////////////////////////////////////////////////////////////
+// Deletion in Binary Search Tree (BST)
+/*
+ * Given a BST, the task is to delete a node in this BST, which can be broken
+ * down into 3 scenarios:
+ * 
+ * Case 1: Delete a Leaf Node in BST.
+ * 
+ * Case 2: Delete a Node with Single Child in BST.
+ * Copy the child to the node and delete the node.
+ * 
+ * Case 3: Delete a Node with Both Children in BST.
+ * Deleting as node with both children is not so simple.
+ * Here, we have to delete the node in such a way, that the resulting tree
+ * follows the properties of a BST.
+ * 
+ * The trick is to find the inorder successor of the node.
+ * Copy contents of inorder successor to the node, and delete the inorder
+ * successor.
+ * 
+ * Note: Inorder predecessor can also be used.
+ * Note: Inorder successor is needed only when the right child is not empty.
+ * In this particular case, the inorder successor can be obtained by finding the
+ * minimum value in the right child of the node.
+ */
+
+///////////////////////////////////////////////////////////////
+// Inorder Predecessor and successor for a given key in BST
+/*
+ * Find the inorder successor and predessor of a given key.
+ * In case the given key is not found in BST, then return the two values with
+ * this key will lie.
+ */
+
+// Algorithm:
+// Input: root node, key
+// Output: predesoor node, successor node
+/*
+ * 1. if root is NULL
+ * then return
+ * 
+ * 2. if key is found then
+ * a. If its left subtree is not null
+ * Then predessor will be the right most child of left subtree or left child
+ * iteself.
+ * b. If its right subtree is not null
+ * The successor will be the left most child of right subtree or right subtree
+ * or right child itself.
+ * 
+ * 3. If key is smaller than root node
+ * set the successor as root
+ * search recursively into left subtree
+ * else
+ * set the predecessor as root
+ * search recusively into right subtree
+ */
