@@ -195,9 +195,67 @@
  * That means "recursion insdie recusion".
  */
 
-/////////////////////////////////////////////////////////////
+///////////////////////////////////////
 // 2. Indirect Recurison:
 /*
  * In this recursion, there may be more than one functions and they are calling
  * one another in a circular manner.
+ */
+
+/////////////////////////////////////////////////////////////
+// Recursive Functions:
+/*
+ * A recursive function is a function that solves a problem by solving smaller
+ * instances of the same problem.
+ * 
+ * This technique is commonly used in programming to solve problems that can be
+ * broken down into simpler, sub problems.
+ */
+
+// Need of Recursive Functions:
+/*
+ * 1. Solving complex tasks:
+ * Recursive functions break complex problems into smaller instances of the same
+ * problem, resulting in compact and readable code.
+ * 
+ * 2. Divide and Conquer:
+ * Reucrsive functions are suitable for divide-and-conquer algorithms such as
+ * merge sort and quick sort, breaking problems into smaller subproblems,
+ * solving them recursively, and merging the solutions with the original
+ * problem.
+ * 
+ * 3. Backtracking:
+ * Recursive backtracking is ideal for exploring and solving problems like
+ * N-Queens and Sudko.
+ * 
+ * 4. Dynamic Programming:
+ * Recursive functions efficiently solve dynamicn programming problems by
+ * solving subproblems and combining their solutions into a complete solution.
+ * 
+ * 5. Tree and graph strucutres:
+ * Recursive functions are great for working with tree and graph structures,
+ * simplyfying traversal and pattern recognition tasks.
+ */
+
+////////////////////////////////////
+// How to write a Recusive Function
+// Components of a Recursive Function
+/*
+ * Base Case: Every recursive function must have a base case.
+ * The base case is the simplest scenarion that does not require further
+ * recursion.
+ * This is a termination condition that prevents the function from calling
+ * itesef, infinitely.
+ * 
+ * Without a proper base case, a recursive function can lead to infinite
+ * recursion.
+ * 
+ * Recursive Case: In the recursion case, the function calls itself with the
+ * modified arguments.
+ * 
+ * This is the essence of recursion - solving a larger problem by breaking it
+ * down into smaller instances of the same problem.
+ * 
+ * 
+ * The recursive case should move closer to the base case with each iteration.
  */

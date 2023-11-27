@@ -452,3 +452,28 @@
 // funA(20);
 // }
 // }
+
+////////////////////////////////////////////
+// factorail using Recursion
+class Main {
+  static int factorial(int n) {
+    // base case: if n is 0, the factorial is 1.
+    if (n == 0) {
+      return 1;
+    }
+
+    // recusive case: calculate the factorial by
+    // multiplying n with the factorial of (n-1).
+    return n * factorial(n - 1);
+  }
+
+  public static void main(String[] args) {
+    int n = 4;
+
+    int result = factorial(n);
+    System.out.println("FACT :" + result);
+  }
+}
+
+// Time Complexity: O(N)
+// Auxiliary Space: O(N)
