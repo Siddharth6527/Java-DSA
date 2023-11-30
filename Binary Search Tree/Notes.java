@@ -168,3 +168,52 @@
  * set the predecessor as root
  * search recusively into right subtree
  */
+
+//////////////////////////////////////////////////////////////
+// Program to check if a binary tree is BST or not
+/*
+ * A Binary Search Tree (BST) is a node-based tree data structure that has the
+ * follwing properties:
+ * 
+ * The left subtree of a node contains only nodes with keys less than the node's
+ * key.
+ * 
+ * The right subtree of a node contins only nodes with keys greater than the
+ * node's key.
+ * 
+ * Both the left and right subtrees must be binary search trees.
+ * 
+ * Each node (item in the tree) has a distinct key.
+ */
+
+// Naive Approach:
+/*
+ * The idea is to for each node, check if max value in left subtree is smaller
+ * than the node and min value in right subtree greater than the node.
+ */
+
+// Algorithm:
+/*
+ * If the current node is null then return true.
+ * If the value of the left child of the node is greater than or equal to the
+ * current node then return false.
+ * 
+ * If the value of the right child of the node is less than or equal to the
+ * current node then return false.
+ * 
+ * If the left subtree or the right subtree is not a BST then return false.
+ * 
+ * Else return true.
+ */
+
+/////////////////////////////////////////
+// Method 2: Check BST using specified range of minimum and maximym values of
+///////////////////////////////////////// node:
+/*
+ * The isBSTUtil() function is a recursive helper function that checks whether a
+ * subtree (root at a given node) is a BST within the specified range of minimum
+ * (min) and maximum (max) values.
+ * 
+ * If any node violates this range, the functio returns false; otherwise, it
+ * continues chekcing the left and right subtrees.
+ */

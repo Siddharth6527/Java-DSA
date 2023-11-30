@@ -187,3 +187,36 @@
  * auxiliary space will be O(log N).
  * 
  */
+
+///////////////////////////////////////////////////////////////
+// Decimal to binary conversion
+// class Main {
+//   static void decToBinary(int n) {
+//     int[] binaryNum = new int[32];
+
+//     // counter for binary array
+//     int i = 0;
+//     while (n > 0) {
+//       // storing remainder in binary array
+//       binaryNum[i] = n % 2;
+//       n = n / 2;
+//       i++;
+//     }
+
+//     // printing binar array in reverse order
+//     for (int j = i - 1; j >= 0; j--) {
+//       System.out.print(binaryNum[j]);
+//     }
+//   }
+
+//   public static void main(String[] args) {
+//     int n = 27;
+//     decToBinary(n);
+//   }
+// }
+
+// Time complexity: O(log n) & Auxiliary Space: O(1)
+// We can use bitwise operatos to do the above job.
+// Note: that bitwise operators work faster that arithmetic operators used
+// above.
+

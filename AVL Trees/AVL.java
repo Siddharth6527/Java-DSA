@@ -1,154 +1,160 @@
-class Node {
-  int key, height;
-  Node left, right;
+// Insertion in AVL Tree
 
-  Node(int d) {
-    key = d;
-    height = 1;
-  }
-}
+// class Node {
+// int key, height;
+// Node left, right;
 
-class AVL {
-  Node root;
+// Node(int d) {
+// key = d;
+// height = 1;
+// }
+// }
 
-  // a utility function to get the height of the tree
-  int height(Node N) {
-    if (N == null) {
-      return 0;
-    }
+// class AVL {
+// Node root;
 
-    return N.height;
-  }
+// // a utility function to get the height of the tree
+// int height(Node N) {
+// if (N == null) {
+// return 0;
+// }
 
-  // a utility function to get maximum of two integers
-  int max(int a, int b) {
-    return (a > b) ? a : b;
-  }
+// return N.height;
+// }
 
-  // a utility function to right rotate subtree rooted with y
-  Node rightRotate(Node y) {
-    Node x = y.left;
-    Node T2 = x.right;
+// // a utility function to get maximum of two integers
+// int max(int a, int b) {
+// return (a > b) ? a : b;
+// }
 
-    // perform rotation
-    x.right = y;
-    y.left = T2;
+// // a utility function to right rotate subtree rooted with y
+// Node rightRotate(Node y) {
+// Node x = y.left;
+// Node T2 = x.right;
 
-    // update heights
-    y.height = max(height(y.left), height(y.right)) + 1;
-    x.height = max(height(x.left), height(x.right)) + 1;
+// // perform rotation
+// x.right = y;
+// y.left = T2;
 
-    // return new root
-    return x;
-  }
+// // update heights
+// y.height = max(height(y.left), height(y.right)) + 1;
+// x.height = max(height(x.left), height(x.right)) + 1;
 
-  // a utility function to left rotate subtree rooted with x
-  Node leftRotate(Node x) {
-    Node y = x.right;
-    Node T2 = y.left;
+// // return new root
+// return x;
+// }
 
-    // perform rotation
-    y.left = x;
-    x.right = T2;
+// // a utility function to left rotate subtree rooted with x
+// Node leftRotate(Node x) {
+// Node y = x.right;
+// Node T2 = y.left;
 
-    // update height
-    x.height = max(height(x.left), height(x.right)) + 1;
-    y.height = max(height(y.left), height(y.right)) + 1;
+// // perform rotation
+// y.left = x;
+// x.right = T2;
 
-    // return new root
-    return y;
-  }
+// // update height
+// x.height = max(height(x.left), height(x.right)) + 1;
+// y.height = max(height(y.left), height(y.right)) + 1;
 
-  // get Balance factor of node N
-  int getBalance(Node N) {
-    if (N == null) {
-      return 0;
-    }
+// // return new root
+// return y;
+// }
 
-    return height(N.left) - height(N.right);
-  }
+// // get Balance factor of node N
+// int getBalance(Node N) {
+// if (N == null) {
+// return 0;
+// }
 
-  Node insert(Node node, int key) {
-    // 1. perform the normal BST insertion
-    if (node == null) {
-      return (new Node(key));
-    }
+// return height(N.left) - height(N.right);
+// }
 
-    if (key < node.key) {
-      node.left = insert(node.left, key);
-    } else if (key > node.key) {
-      node.right = insert(node.right, key);
-    } else {
-      // duplicate keys not allowed
-      return node;
-    }
+// Node insert(Node node, int key) {
+// // 1. perform the normal BST insertion
+// if (node == null) {
+// return (new Node(key));
+// }
 
-    // 2. update height of this ancestor node
-    node.height = 1 + max(height(node.left), height(node.right));
+// if (key < node.key) {
+// node.left = insert(node.left, key);
+// } else if (key > node.key) {
+// node.right = insert(node.right, key);
+// } else {
+// // duplicate keys not allowed
+// return node;
+// }
 
-    // 3. Get the balance factor of this ancestor
-    // node to check whether this node become unbalanced.
-    int balance = getBalance(node);
+// // 2. update height of this ancestor node
+// node.height = 1 + max(height(node.left), height(node.right));
 
-    // if this node becomes unblalanced, then there
-    // are 4 cases Left Left case
-    if (balance > 1 && key < node.left.key) {
-      return rightRotate(node);
-    }
+// // 3. Get the balance factor of this ancestor
+// // node to check whether this node become unbalanced.
+// int balance = getBalance(node);
 
-    // Right Right Case
-    if (balance < -1 && key > node.right.key) {
-      return leftRotate(node);
-    }
+// // if this node becomes unblalanced, then there
+// // are 4 cases Left Left case
+// if (balance > 1 && key < node.left.key) {
+// return rightRotate(node);
+// }
 
-    // Left Right Case
-    if (balance > 1 && key > node.left.key) {
-      node.left = leftRotate(node.left);
-      return rightRotate(node);
-    }
+// // Right Right Case
+// if (balance < -1 && key > node.right.key) {
+// return leftRotate(node);
+// }
 
-    // Right Left Case
-    if (balance < -1 && key < node.right.key) {
-      node.right = rightRotate(node.right);
-      return leftRotate(node);
-    }
+// // Left Right Case
+// if (balance > 1 && key > node.left.key) {
+// node.left = leftRotate(node.left);
+// return rightRotate(node);
+// }
 
-    // return the (unchanges) node pointer
-    return node;
-  }
+// // Right Left Case
+// if (balance < -1 && key < node.right.key) {
+// node.right = rightRotate(node.right);
+// return leftRotate(node);
+// }
 
-  // a utility function to print preorder traversal
-  // of the tree.
-  // The function also pritns height of every node.
-  void preOrder(Node node) {
-    if (node != null) {
-      System.out.print(node.key + " ");
-      preOrder(node.left);
-      preOrder(node.right);
-    }
-  }
+// // return the (unchanges) node pointer
+// return node;
+// }
 
-  public static void main(String[] args) {
-    AVL tree = new AVL();
+// // a utility function to print preorder traversal
+// // of the tree.
+// // The function also pritns height of every node.
+// void preOrder(Node node) {
+// if (node != null) {
+// System.out.print(node.key + " ");
+// preOrder(node.left);
+// preOrder(node.right);
+// }
+// }
 
-    /* Constructing tree given in the above figure */
-    tree.root = tree.insert(tree.root, 10);
-    tree.root = tree.insert(tree.root, 20);
-    tree.root = tree.insert(tree.root, 30);
-    tree.root = tree.insert(tree.root, 40);
-    tree.root = tree.insert(tree.root, 50);
-    tree.root = tree.insert(tree.root, 25);
+// public static void main(String[] args) {
+// AVL tree = new AVL();
 
-    /*
-     * The constructed AVL Tree would be
-     * 30
-     * / \
-     * 20 40
-     * / \ \
-     * 10 25 50
-     */
-    System.out.println("Preorder traversal" +
-        " of constructed tree is : ");
-    tree.preOrder(tree.root);
-  }
-}
+// /* Constructing tree given in the above figure */
+// tree.root = tree.insert(tree.root, 10);
+// tree.root = tree.insert(tree.root, 20);
+// tree.root = tree.insert(tree.root, 30);
+// tree.root = tree.insert(tree.root, 40);
+// tree.root = tree.insert(tree.root, 50);
+// tree.root = tree.insert(tree.root, 25);
+
+// /*
+// * The constructed AVL Tree would be
+// * 30
+// * / \
+// * 20 40
+// * / \ \
+// * 10 25 50
+// */
+// System.out.println("Preorder traversal" +
+// " of constructed tree is : ");
+// tree.preOrder(tree.root);
+// }
+// }
+
+// Complexity Analysis:
+// Time Complexity: O(log (n)), for insertion
+// Auxiliary Space: O(1)

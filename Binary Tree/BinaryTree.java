@@ -248,75 +248,75 @@
 
 ///////////////////////////////////////////////////////
 // Print all the root-to-leaf nodes paths
-import java.util.*;
+// import java.util.*;
 
-class Node {
-  int data;
-  Node left, right;
+// class Node {
+// int data;
+// Node left, right;
 
-  Node(int item) {
-    data = item;
-    left = right = null;
-  }
-}
+// Node(int item) {
+// data = item;
+// left = right = null;
+// }
+// }
 
-class BinaryTree {
-  Node root;
+// class BinaryTree {
+// Node root;
 
-  // given a binary tree, print out all of its root-to-leaf
-  // paths, one per line. Uses a recursive helper to do
-  // the work.
-  void printPaths(Node node) {
-    int path[] = new int[5];
-    printPathsRecur(node, path, 0);
-  }
+// // given a binary tree, print out all of its root-to-leaf
+// // paths, one per line. Uses a recursive helper to do
+// // the work.
+// void printPaths(Node node) {
+// int path[] = new int[5];
+// printPathsRecur(node, path, 0);
+// }
 
-  // Recursive helper function -- given a node, and an array
-  // containing the path from the root node up to but not
-  // including this node, print out all the root-leaf paths
-  void printPathsRecur(Node node, int path[], int pathLen) {
-    if (node == null) {
-      return;
-    }
+// // Recursive helper function -- given a node, and an array
+// // containing the path from the root node up to but not
+// // including this node, print out all the root-leaf paths
+// void printPathsRecur(Node node, int path[], int pathLen) {
+// if (node == null) {
+// return;
+// }
 
-    // append this node to the path array
-    path[pathLen] = node.data;
-    pathLen++;
+// // append this node to the path array
+// path[pathLen] = node.data;
+// pathLen++;
 
-    // it's a leaf, so print the path that lead to here
-    if (node.left == null && node.right == null) {
-      printArray(path, pathLen);
-      System.out.println(Arrays.toString(path));
-    } else {
-      // other wise try both subtrees
-      printPathsRecur(node.left, path, pathLen);
-      printPathsRecur(node.right, path, pathLen);
-    }
-  }
+// // it's a leaf, so print the path that lead to here
+// if (node.left == null && node.right == null) {
+// printArray(path, pathLen);
+// System.out.println(Arrays.toString(path));
+// } else {
+// // other wise try both subtrees
+// printPathsRecur(node.left, path, pathLen);
+// printPathsRecur(node.right, path, pathLen);
+// }
+// }
 
-  // function that prints out an array on a line
-  void printArray(int ints[], int len) {
-    int i;
-    for (i = 0; i < len; i++) {
-      System.out.print(ints[i] + " ");
-    }
-    System.out.println("");
-  }
+// // function that prints out an array on a line
+// void printArray(int ints[], int len) {
+// int i;
+// for (i = 0; i < len; i++) {
+// System.out.print(ints[i] + " ");
+// }
+// System.out.println("");
+// }
 
-  // driver code
-  public static void main(String args[]) {
-    BinaryTree tree = new BinaryTree();
-    tree.root = new Node(10);
-    tree.root.left = new Node(8);
-    tree.root.right = new Node(2);
-    tree.root.left.left = new Node(3);
-    tree.root.left.right = new Node(3);
-    tree.root.right.left = new Node(2);
+// // driver code
+// public static void main(String args[]) {
+// BinaryTree tree = new BinaryTree();
+// tree.root = new Node(10);
+// tree.root.left = new Node(8);
+// tree.root.right = new Node(2);
+// tree.root.left.left = new Node(3);
+// tree.root.left.right = new Node(3);
+// tree.root.right.left = new Node(2);
 
-    tree.printPaths(tree.root);
-  }
+// tree.printPaths(tree.root);
+// }
 
-}
+// }
 
 // Time Complexity: O(N), where n is number of nodes.
 // Space Complexity: O(h), where h is height of a Binary Tree.
@@ -418,3 +418,218 @@ class BinaryTree {
 
 // Time Complexity: O(n)
 // Auxiliary Space: O(h) where h is the height of the binary tree
+
+////////////////////////////////////////////////////////////////
+// Print left view of Binary Tree
+// class Node {
+// int data;
+// Node left, right;
+
+// public Node(int item) {
+// data = item;
+// left = right = null;
+// }
+// }
+
+// class BinaryTree {
+// Node root;
+// static int max_level = 0;
+
+// // recursive function to pritn left view
+// void leftViewUtil(Node node, int level) {
+// // base case
+// if (node == null) {
+// return;
+// }
+
+// // if this is the first node of its level
+// if (max_level < level) {
+// System.out.print(node.data + " ");
+// max_level = level;
+// }
+
+// // recur for left and right subtrees
+// leftViewUtil(node.left, level + 1);
+// leftViewUtil(node.right, level + 1);
+// }
+
+// // a wrapper over leftViewUtil()
+// void leftView() {
+// max_level = 0;
+// leftViewUtil(root, 1);
+// }
+
+// public static void main(String[] args) {
+// BinaryTree tree = new BinaryTree();
+// tree.root = new Node(10);
+// tree.root.left = new Node(2);
+// tree.root.right = new Node(3);
+// tree.root.left.left = new Node(7);
+// tree.root.left.right = new Node(8);
+// tree.root.right.right = new Node(15);
+// tree.root.right.left = new Node(12);
+// tree.root.right.right.left = new Node(14);
+
+// tree.leftView();
+
+// }
+// }
+
+// Time Complexity: O(N), The function does a simple traversal of the tree. So
+// the complexity is O(n).
+// Auxiliary Space: O(h), due to stack spacing during recusvie call. 'h' is the
+// height of the binary tree.
+
+// Method 2: Using Level Order Traversal:
+// import java.util.*;
+
+// import java.util.*;
+
+// class BST {
+// private static class Node {
+// int data;
+// Node left, right;
+
+// public Node(int data) {
+// this.data = data;
+// this.left = left;
+// this.right = right;
+// }
+// }
+
+// // function to print the left view of binary tree
+// private static void printLeftView(Node root) {
+// if (root == null) {
+// return;
+// }
+
+// Queue<Node> queue = new LinkedList<>();
+// queue.add(root);
+
+// while (!queue.isEmpty()) {
+// // number of nodes at current level
+// int n = queue.size();
+
+// // traverse all nodes of current
+// for (int i = 1; i <= n; i++) {
+// Node temp = queue.poll();
+
+// // pritn the left most element at
+// // the level
+// if (i == 1) {
+// System.out.print(temp.data + " ");
+// }
+
+// // add the left to queeue
+// if (temp.left != null) {
+// queue.add(temp.left);
+// }
+
+// // add the right node to queue
+// if (temp.right != null) {
+// queue.add(temp.right);
+// }
+// }
+
+// }
+// }
+
+// public static void main(String[] args) {
+// Node root = new Node(10);
+// root.left = new Node(2);
+// root.right = new Node(3);
+// root.left.left = new Node(7);
+// root.left.right = new Node(8);
+// root.right.right = new Node(15);
+// root.right.left = new Node(12);
+// root.right.right.left = new Node(14);
+
+// printLeftView(root);
+
+// }
+// }
+
+// Time Complexity: O(N), where n is the number of nodes in the binary tree.
+// Auxiliary Space: O(N), since using space for auxiliary queue.
+
+////////////////////////////
+// Method 3: Using queue and a null pointer
+// import java.util.*;
+
+// class BinaryTree {
+// static class Node {
+// int data;
+// Node left, right;
+
+// public Node(int item) {
+// data = item;
+// left = right = null;
+// }
+// }
+
+// // function to print the left view of binary tree
+// public static ArrayList<Integer> leftView(Node root) {
+// ArrayList<Integer> ans = new ArrayList<>();
+
+// if (root == null) {
+// return ans;
+// }
+
+// Queue<Node> q = new LinkedList<>();
+
+// q.add(root);
+// q.add(null);
+// boolean ok = true;
+
+// while (!q.isEmpty()) {
+// Node it = q.poll();
+
+// if (it == null) {
+// if (ok == false) {
+// ok = true;
+// }
+
+// if (q.size() == 0) {
+// break;
+// } else {
+// q.add(null);
+// }
+// } else {
+// if (ok) {
+// ans.add(it.data);
+// ok = false;
+// }
+
+// if (it.left != null) {
+// q.add(it.left);
+// }
+
+// if (it.right != null) {
+// q.add(it.right);
+// }
+// }
+
+// }
+// return ans;
+// }
+
+// public static void main(String[] args) {
+// Node root = new Node(10);
+// root.left = new Node(2);
+// root.right = new Node(3);
+// root.left.left = new Node(7);
+// root.left.right = new Node(8);
+// root.right.right = new Node(15);
+// root.right.left = new Node(12);
+// root.right.right.left = new Node(14);
+
+// ArrayList<Integer> vec = leftView(root);
+// for (int x : vec) {
+// System.out.print(x + " ");
+// }
+// System.out.println();
+// }
+// }
+
+// Time Complexity: O(N), where N is the total number of nodes.
+// Auxiliary Space: O(N) due to space occupied by queue.

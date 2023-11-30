@@ -161,3 +161,35 @@
  * To check whether it is the Right Right case or not, compare the newly
  * inserted key with the key in the right subtree root.
  */
+
+/*
+ * The rotation operations (left and right rotate) take constant time as only a
+ * few pointers are being changed there.
+ * 
+ * Updating the height and getting the balance factor also takes constant time.
+ * 
+ * So the time complexity of the AVL insert reamins the same as teh BST insert
+ * which is O(h) where h is the height of the tree.
+ * 
+ * Since the AVL tree is balanced, the height is O(log n).
+ * 
+ * So time complexity of AVL insert is O(Log n).
+ */
+
+///////////////////////////////////
+// Comparison with Red-Black Tree:
+/*
+ * The AVL tree and other self-balancing search tree like Red Black are useful
+ * to get all basic operations done in O(log n) time.
+ * 
+ * The AVL trees are more balanced compared to Red-Black Trees, but they may
+ * cause more rotations during insertion and deletion.
+ * 
+ * So, if you application involves many frequent insertions and deletions, then
+ * Red Black Trees should be preferred.
+ * 
+ * And if the insertions and deletions are less frequent and search is the more
+ * frequent operation, then the AVL tree should be preffered over Red Black
+ * Tree.
+ * 
+ */

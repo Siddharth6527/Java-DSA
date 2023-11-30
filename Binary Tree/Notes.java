@@ -49,3 +49,45 @@
  * While traversing, store data of all nodes in current path in array path[].
  * When we reach a leaf node, print the path array.
  */
+
+///////////////////////////////////////////////////////////////
+// Print Left View of a Binary Tree
+/*
+ * Given a Binary Tree, the task is to pritn the left vie of the binary tree.
+ * The left view of a binary tree is a set of leftmost nodes for every level.
+ */
+
+// Method 1: Using Recursion
+/*
+ * Keep track of the level of a node by passing the level as a parameter to all
+ * recursive calls and also keep track of the maximum level.
+ * 
+ * Whenever, we see a node whose level is more than maximum level so far, we
+ * print the node because this is the first node in its level.
+ * 
+ * Note: We traverse the left subtree before right subtree.
+ */
+
+//////////////////////////////
+// Method 2: Using Level Order Traversal:
+/*
+ * The left view contains all nodes that are the first nodes in their levels.
+ * A simple solution is to do level order traversal and print the first node in
+ * every level.
+ */
+
+/*
+ * Algorithm:
+ * Do level order traversal of the tree
+ * for Each level keep a track of the current level and print the first
+ * encountered node of this level.
+ * Move to the next level.
+ */
+
+////////////////////////////
+// Method 3: Using queue and a null pointer
+/*
+ * Use queue and a null pointer to mark the first element of each level.
+ * Insert a null pointer in the first and as the null pointer is reached mark
+ * bool as true and take the next element as left view element.
+ */
