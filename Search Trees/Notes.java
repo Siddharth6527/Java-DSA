@@ -153,3 +153,96 @@ class Node {
  * Not the best for all cases.
  * Slow in comparision to other data structures.
  */
+
+/////////////////////////////////////////
+// Searching:
+/*
+ * Searching a B-Tree is similar to searching a binary tree.
+ * The algorithm is similar and goes with recursion.
+ * 
+ * At each level, searchy is optimized as if the key value is not present in the
+ * range of the parent then the key is present in another branch.
+ * 
+ * As these values limit the search they are also known as limitng values or
+ * separation valules.
+ * 
+ * If we reach a leaf node and don't find the desired key the it will display
+ * NULL.
+ */
+
+/////////////////////////////////////////////////////////////////
+// Insertion Operation in B-Tree
+/*
+ * A new key is always inserted at the leaf node.
+ * Let the key to be inserted be k.
+ * Like BST, we start from the root and traverse down till we reach a leaf node.
+ * 
+ * Once we reach a leaf node, we insert the key in that leaf node.
+ * 
+ * Unlike BSTs, we have a predefined range on the number of keys that a node can
+ * contain.
+ * 
+ * So before inserting a key to the node, we make sure that the node has extra
+ * space.
+ * 
+ */
+
+/*
+ * How to make sure that a node has space available for a key before the key is
+ * inserted?
+ * We use an operation called splitChild() that is used to split a child of a
+ * node.
+ * 
+ * In the following diagram, child y of x is being split into two nodes y and z.
+ * 
+ * Note: The splitChild() operation moves a key up and this is the reason
+ * B-Trees grow up, unlike BSTs which grow down.
+ */
+
+/*
+ * To insert a new key, we go down from root to leaf.
+ * Before traversing down to a node, we first check if the node is full.
+ * 
+ * If the node is full, we split it to create space.
+ */
+
+// Insertion Algorithm:
+/*
+ * 1) Initialize x as root.
+ * 2) When x is not leaf, do follwing
+ * ..a) Find the child of x that is going to be traversed next. Let the child be
+ * y.
+ * ..b) if y is not full, change x to point to y.
+ * ..c) if y is full, split it and change x to point to one of the two parts of
+ * y.
+ * If k is smaller than mid key in y, we move a key from y to its parent x.
+ * 
+ * 3) The loop in step 2 stops when x is leaf. x must have space for 1 extra key
+ * as we have been splitting all nodes in advance.
+ * So simply insert k to x.
+ */
+
+/*
+ * Note that the algorithm follows the Cormen book.
+ * It is acutally a proactive insertion algorithm where before going down to a
+ * node, we split it if it is full.
+ * 
+ * The advantage of splitting before is, we never traverse a node twice.
+ * 
+ * If we don't split a node before going down to it and split it only if a new
+ * key is inserted (reactive), we may end up traversing all nodes again from
+ * leaf to root.
+ * 
+ * This happens in cases when all nodes on the path from the root to leaf are
+ * full.
+ * 
+ * So, when we come to the leaf node, we split it and move a key up.
+ * 
+ * Moving a key up will cause a split in parent node (because the parent was
+ * already full).
+ * 
+ * This cascadin effect never happens in this proactive insertion algorithm.
+ * 
+ * There is a disadvantage of this proactive insertion though, we may do
+ * unnecessary splits.
+ */
