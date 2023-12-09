@@ -149,3 +149,89 @@
  * 
  * 6. Repeat steps 2 to 5 till the property of the heap is restored.
  */
+
+/*
+ * Applications of Heap Data Structure:
+ * 1. Priority Queues: Priority queues can be efficiently implemented using
+ * Binary Heap because it supports insert(), delete() and extractmax(),
+ * decreaseKey() operaions in O(log N) time.
+ * 
+ * 2. Binomial Heap and Fibonacci Heap are variations of Binary Heap. These
+ * variations perform union also in O(log N) time which is an O(N) operation in
+ * Binary Heap.
+ * 
+ * 3. Order statistics: The Heap data structure can be used to efficiently find
+ * the kth smallest (or largest) element in an array.
+ */
+
+//////////////////////////
+// Advantages of Heaps:
+/*
+ * 1. Fast access to maximum/minimum element O(1).
+ * 2. Efficient Insertion and Deletion operations (O(log N)).
+ * 3. Flexible Size.
+ * 4. Can be efficiently implemented as an array.
+ * 5. Suitable for real-time applications.
+ * 
+ */
+
+////////////////////////
+// Disadvantages of Heaps:
+/*
+ * 1. Not suitable for seraching for an element other than maximum/ minimum
+ * (O(n) in worst case).
+ * 
+ * 2. Extra memeory overhead to maintain heap structure.
+ * 
+ * 3. Slower than other data structures like arrays and liked lists for
+ * non-priority queue operations.
+ */
+
+/////////////////////////////////////////////////////////////////
+// Deletion in Heap:
+/*
+ * Given a Binary Heap and an element present in the given Heap.
+ * The task is to delete an element from this Heap.
+ */
+
+/*
+ * The standard deletion operations on Heap is to delete the element present at
+ * the root node of the Heap.
+ * 
+ * That is if it is a Max Heap, the standard deletion operation will delete the
+ * maximum element and if it is a Min heap, it will delete the minimum element.
+ */
+
+// Process Of Deletion:
+/*
+ * Since deleting an element at any intermediary position in the heap can be
+ * costly, so we can simply replace the element to be deleted by the last
+ * element and delete the last element of the Heap.
+ * 
+ * 1. Replace the root or element to be deleted by the last element.
+ * 2. Delete the last element from the Heap.
+ * 3. Since, the last element is now places at the position of the root node.
+ * So, it may not follow the heap property.
+ * Therefore, heapify the last node placed at the position of root.
+ * 
+ */
+
+////////////////////////////////////////
+// Insertion in Heaps:
+/*
+ * Given a Binary Heap and a new element to be added to his Heap.
+ * The task is to insert the new element to the Heap maintaining the properties
+ * of Heap.
+ */
+
+// Process of Insertion:
+/*
+ * 1. First increase the heap size by 1, so that it can store the new element.
+ * 
+ * 2. Insert the new element at the end of the Heap.
+ * 
+ * 3. This newly inserted element may distort the properties of Heap for its
+ * parents.
+ * So, in order to keep the properties of Heap, heapify this newly inserted
+ * element following a bottom-up approach.
+ */
