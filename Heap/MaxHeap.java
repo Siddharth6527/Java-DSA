@@ -358,75 +358,75 @@
 
 //////////////////////////////////////////////////////////////////
 // Heap Sort:
-public class MaxHeap {
-  public void sort(int arr[]) {
-    int N = arr.length;
+// public class MaxHeap {
+// public void sort(int arr[]) {
+// int N = arr.length;
 
-    // build heap (rearramge array)
-    for (int i = N / 2 - 1; i >= 0; i--) {
-      heapify(arr, N, i);
-    }
+// // build heap (rearrange array)
+// for (int i = N / 2 - 1; i >= 0; i--) {
+// heapify(arr, N, i);
+// }
 
-    // one by one extract an element from heap
-    for (int i = N - 1; i > 0; i--) {
-      // move current root to end
-      int temp = arr[0];
-      arr[0] = arr[i];
-      arr[i] = temp;
+// // one by one extract an element from heap
+// for (int i = N - 1; i > 0; i--) {
+// // move current root to end
+// int temp = arr[0];
+// arr[0] = arr[i];
+// arr[i] = temp;
 
-      // call max heapify on the reduced heap
-      heapify(arr, i, 0);
-    }
-  }
+// // call max heapify on the reduced heap
+// heapify(arr, i, 0);
+// }
+// }
 
-  // ot heapify a subtree rooted with node i
-  // which is an index in arr[]. n is size of heap
-  void heapify(int arr[], int N, int i) {
-    int largest = i; // initialize largest as root
-    int l = 2 * i + 1; // left
-    int r = 2 * i + 2; // right
+// // ot heapify a subtree rooted with node i
+// // which is an index in arr[]. n is size of heap
+// void heapify(int arr[], int N, int i) {
+// int largest = i; // initialize largest as root
+// int l = 2 * i + 1; // left
+// int r = 2 * i + 2; // right
 
-    // if left child is larger than root
-    if (l < N && arr[l] > arr[largest]) {
-      largest = l;
-    }
+// // if left child is larger than root
+// if (l < N && arr[l] > arr[largest]) {
+// largest = l;
+// }
 
-    // if right child is larger than largest so far
-    if (r < N && arr[r] > arr[largest]) {
-      largest = r;
-    }
+// // if right child is larger than largest so far
+// if (r < N && arr[r] > arr[largest]) {
+// largest = r;
+// }
 
-    // if largest is not root
-    if (largest != i) {
-      int swap = arr[i];
-      arr[i] = arr[largest];
-      arr[largest] = swap;
+// // if largest is not root
+// if (largest != i) {
+// int swap = arr[i];
+// arr[i] = arr[largest];
+// arr[largest] = swap;
 
-      // recursively heapify the affected sub-tree
-      heapify(arr, N, largest);
-    }
-  }
+// // recursively heapify the affected sub-tree
+// heapify(arr, N, largest);
+// }
+// }
 
-  static void printArray(int arr[]) {
-    int N = arr.length;
+// static void printArray(int arr[]) {
+// int N = arr.length;
 
-    for (int i = 0; i < N; ++i) {
-      System.out.print(arr[i] + " ");
-    }
-    System.out.println();
-  }
+// for (int i = 0; i < N; ++i) {
+// System.out.print(arr[i] + " ");
+// }
+// System.out.println();
+// }
 
-  public static void main(String[] args) {
-    int arr[] = { 12, 11, 13, 5, 6, 7 };
-    int N = arr.length;
+// public static void main(String[] args) {
+// int arr[] = { 12, 11, 13, 5, 6, 7 };
+// int N = arr.length;
 
-    MaxHeap ob = new MaxHeap();
-    ob.sort(arr);
+// MaxHeap ob = new MaxHeap();
+// ob.sort(arr);
 
-    System.out.println("Sorted array is: ");
-    printArray(arr);
-  }
-}
+// System.out.println("Sorted array is: ");
+// printArray(arr);
+// }
+// }
 
 /*
  * Complexity Analysis of Heap Sort:
