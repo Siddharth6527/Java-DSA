@@ -235,3 +235,74 @@
  * So, in order to keep the properties of Heap, heapify this newly inserted
  * element following a bottom-up approach.
  */
+
+//////////////////////////////////////////////////////////////////
+// Heap Sort:
+/*
+ * Heap sort is a comparison-based sorting technique based on Binary Heap data
+ * structure.
+ * 
+ * It is similar to the selection sort where we first find the minimum element
+ * and place the minimum element at the beginning.
+ * 
+ * Repeat the same process for remaining elements.
+ */
+
+/*
+ * Algorithm:
+ * First convert the array into heap data structure using heapify, then one by
+ * one delete the root node of the Max-heap and replace it with the last node in
+ * the heap and then heapify the root of the heap.
+ * 
+ * Repeat this process until size of heap is greater than 1.
+ * 
+ * 1. Build a heap from the given heap input array.
+ * 
+ * 2. Repeat the following steps until the heap contains only one element:
+ * a) Swap the root element of the heap (which is the largest element) with the
+ * last element of the heap.
+ * b) Remove the last element of the heap (which is now in the correct
+ * position).
+ * c) Heapify the remaining elements of the heap.
+ * 
+ * 3. The sorted array is obtained by reversing the order of the elements in the
+ * input array.
+ */
+
+/////////////////////////////////////
+// Important points about Heap Sort:
+/*
+ * Heap sort is an in-place algorithm.
+ * Its typical implementation is not stable but can be made stable.
+ * Typically 2-3 times slower than well-implemented QuickSort.
+ * The reason for slowness is a lack of locality of reference.
+ */
+
+/////////////////////////////////
+// Advantages of Heap Sort:
+/*
+ * 1. Efficient Time Compleixty: Heap Sort has a time complexity of O(n log n)
+ * in all cases.
+ * This makes it efficient for sorting large datasets.
+ * The (log n) factor comes from the height of the binary heap, and it ensures
+ * that the algorithm maintains good performance even with a large number of
+ * elements.
+ * 
+ * 2. Memory Usage: Memeory usage can be minimal because apart from what is
+ * necessary to hold the initial list of items to be sorted, it needs no
+ * additional memory space to work.
+ * 
+ * 3. Simplicity: It is simpler to understand than other eqaully efficient
+ * sorting algorithms because it does not use advanced computer science concepts
+ * such as recusion.
+ * 
+ */
+
+///////////////////////////////
+/*
+ * Disadvantages of Heap Sort:
+ * 1. Costly: Heap sort is costly.
+ * 2. Unstable: Heap sort is unstable. It might rearrange the relative order.
+ * 3. Efficent: Heap Sort is not very efficient when working wiht highly complex
+ * data.
+ */

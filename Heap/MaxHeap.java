@@ -264,94 +264,173 @@
 
 ////////////////////////////////////////////////////
 // Insertion in Heap
-public class MaxHeap {
+// public class MaxHeap {
 
-  // function to heapify ith node in a heap
-  // of size n following a Bottom-up approach.
-  static void heapify(int[] arr, int n, int i) {
-    // find parent
-    int parent = (i - 1) / 2;
+// // function to heapify ith node in a heap
+// // of size n following a Bottom-up approach.
+// static void heapify(int[] arr, int n, int i) {
+// // find parent
+// int parent = (i - 1) / 2;
 
-    if (parent >= 0) {
-      // for Max-Heap
-      // if current node is greater than its parent
-      // Swap both of them and call heapify again
-      // for the parent
-      if (arr[i] > arr[parent]) {
-        // swap arr[i] and arr[parent]
-        int temp = arr[i];
-        arr[i] = arr[parent];
-        arr[parent] = temp;
+// if (parent >= 0) {
+// // for Max-Heap
+// // if current node is greater than its parent
+// // Swap both of them and call heapify again
+// // for the parent
+// if (arr[i] > arr[parent]) {
+// // swap arr[i] and arr[parent]
+// int temp = arr[i];
+// arr[i] = arr[parent];
+// arr[parent] = temp;
 
-        // Recursively, heapify the parent node
-        heapify(arr, n, parent);
-      }
-    }
-  }
+// // Recursively, heapify the parent node
+// heapify(arr, n, parent);
+// }
+// }
+// }
 
-  // function to insert a new node to the heap
-  static int insertNode(int[] arr, int n, int key) {
-    // increase the siz of heap by 1
-    n = n + 1;
+// // function to insert a new node to the heap
+// static int insertNode(int[] arr, int n, int key) {
+// // increase the siz of heap by 1
+// n = n + 1;
 
-    // insert the element at the end of heap
-    arr[n - 1] = key;
+// // insert the element at the end of heap
+// arr[n - 1] = key;
 
-    // heapify the new node following a
-    // bottom-up approach
-    heapify(arr, n, n - 1);
+// // heapify the new node following a
+// // bottom-up approach
+// heapify(arr, n, n - 1);
 
-    // return new size of heap
-    return n;
-  }
+// // return new size of heap
+// return n;
+// }
 
-  /* A utility function to print array of size n */
-  static void printArray(int[] arr, int n) {
-    for (int i = 0; i < n; ++i)
-      System.out.println(arr[i] + " ");
+// /* A utility function to print array of size n */
+// static void printArray(int[] arr, int n) {
+// for (int i = 0; i < n; ++i)
+// System.out.println(arr[i] + " ");
 
-    System.out.println();
-  }
+// System.out.println();
+// }
 
-  // Driver Code
-  public static void main(String args[]) {
-    // Array representation of Max-Heap
-    // 10
-    // / \
-    // 5 3
-    // / \
-    // 2 4
+// // Driver Code
+// public static void main(String args[]) {
+// // Array representation of Max-Heap
+// // 10
+// // / \
+// // 5 3
+// // / \
+// // 2 4
 
-    // maximum size of the array
-    int MAX = 1000;
-    int[] arr = new int[MAX];
+// // maximum size of the array
+// int MAX = 1000;
+// int[] arr = new int[MAX];
 
-    // initializing some values
-    arr[0] = 10;
-    arr[1] = 5;
-    arr[2] = 3;
-    arr[3] = 2;
-    arr[4] = 4;
+// // initializing some values
+// arr[0] = 10;
+// arr[1] = 5;
+// arr[2] = 3;
+// arr[3] = 2;
+// arr[4] = 4;
 
-    // Current size of the array
-    int n = 5;
+// // Current size of the array
+// int n = 5;
 
-    // the element to be inserted
-    int Key = 15;
+// // the element to be inserted
+// int Key = 15;
 
-    // The function inserts the new element to the heap and
-    // returns the new size of the array
-    n = insertNode(arr, n, Key);
+// // The function inserts the new element to the heap and
+// // returns the new size of the array
+// n = insertNode(arr, n, Key);
 
-    printArray(arr, n);
-    // Final Heap will be:
-    // 15
-    // / \
-    // 5 10
-    // / \ /
-    // 2 4 3
-  }
-}
+// printArray(arr, n);
+// // Final Heap will be:
+// // 15
+// // / \
+// // 5 10
+// // / \ /
+// // 2 4 3
+// }
+// }
 
 // Time Complexity: O(Log(N)), where n is no of elements in the heap.
 // Auxiliary Space: O(n).
+
+//////////////////////////////////////////////////////////////////
+// Heap Sort:
+public class MaxHeap {
+  public void sort(int arr[]) {
+    int N = arr.length;
+
+    // build heap (rearramge array)
+    for (int i = N / 2 - 1; i >= 0; i--) {
+      heapify(arr, N, i);
+    }
+
+    // one by one extract an element from heap
+    for (int i = N - 1; i > 0; i--) {
+      // move current root to end
+      int temp = arr[0];
+      arr[0] = arr[i];
+      arr[i] = temp;
+
+      // call max heapify on the reduced heap
+      heapify(arr, i, 0);
+    }
+  }
+
+  // ot heapify a subtree rooted with node i
+  // which is an index in arr[]. n is size of heap
+  void heapify(int arr[], int N, int i) {
+    int largest = i; // initialize largest as root
+    int l = 2 * i + 1; // left
+    int r = 2 * i + 2; // right
+
+    // if left child is larger than root
+    if (l < N && arr[l] > arr[largest]) {
+      largest = l;
+    }
+
+    // if right child is larger than largest so far
+    if (r < N && arr[r] > arr[largest]) {
+      largest = r;
+    }
+
+    // if largest is not root
+    if (largest != i) {
+      int swap = arr[i];
+      arr[i] = arr[largest];
+      arr[largest] = swap;
+
+      // recursively heapify the affected sub-tree
+      heapify(arr, N, largest);
+    }
+  }
+
+  static void printArray(int arr[]) {
+    int N = arr.length;
+
+    for (int i = 0; i < N; ++i) {
+      System.out.print(arr[i] + " ");
+    }
+    System.out.println();
+  }
+
+  public static void main(String[] args) {
+    int arr[] = { 12, 11, 13, 5, 6, 7 };
+    int N = arr.length;
+
+    MaxHeap ob = new MaxHeap();
+    ob.sort(arr);
+
+    System.out.println("Sorted array is: ");
+    printArray(arr);
+  }
+}
+
+/*
+ * Complexity Analysis of Heap Sort:
+ * Time Complexity: O(N log N)
+ * Auxiliary Space: O(log n), due to recursive call stack.
+ * However, auxiliary space can be O(1) for iterative implementation.
+ */
