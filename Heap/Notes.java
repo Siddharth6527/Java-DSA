@@ -306,3 +306,55 @@
  * 3. Efficent: Heap Sort is not very efficient when working wiht highly complex
  * data.
  */
+
+//////////////////////////////////////////////////////////////////// Building
+//////////////////////////////////////////////////////////////////// Heap from
+//////////////////////////////////////////////////////////////////// Array:
+/*
+ * Given an arrya of N elements.
+ * The task is to build a Binary Heap from the given array.
+ * The heap can be either Max Heap or Min Heap.
+ */
+
+/*
+ * Naive Approach:
+ * To build a Max-Heap from the above-given array elements, it can be clearly
+ * seen that the above complete binary tree found does not follow the heap
+ * property.
+ * 
+ * So, the idea is to heapify the complete binary tree formed from the array in
+ * reverse level order following a top-down approach.
+ * 
+ * That is first heapify, the last node in level order traversal of the tree,
+ * then heapify the second last node and so on.
+ * 
+ */
+
+/*
+ * Time Complexity Analysis: Heapify a single node takes O(log N) time
+ * complexity where N is the total number of nodes.
+ * 
+ * Therefore, building the entire heap will take N heapify operations and the
+ * total time complexity will be O(N*log(N)).
+ */
+
+/*
+ * Efficient Approach:
+ * The above approach can be optimized by observing the fact that the leaf nodes
+ * need not to be heapifed as they already follow the heap property.
+ * 
+ * Also, the array representation of the complete binary tree contains the level
+ * order traversal of the tree.
+ * 
+ * So, the idea is to find the postion of the last non-leaf node and perform the
+ * hepify operation of each non-leaf node in reverse level order.
+ * 
+ * We will be following 0-based indexing.
+ * 
+ * Last non-leaf ndoes = parent of last-node
+ * or, Last non-lead node = parent of node at (n-1)th index.
+ * or, Last non-leaf node = Node at index ((n-1)-1)/2 = (n/2)-1.
+ * 
+ */
+
+// refer to BUILDHEAP.java
