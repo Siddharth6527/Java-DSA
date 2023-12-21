@@ -1,0 +1,16 @@
+////////////////
+// Introduction to Knapsack Problem, its types, and How to solve them.
+ The Knapsack problem is an example of the combinaltional optimization problem.
+ This problem is also commonly known as the "Rucksack Problem".
+ The name of the problem is defined from the maximization problem as mentioned below:
+
+ Given a bag with maximum weight capacity of W and a set of items, each having a weight and a value associated with it.
+ Decide the number of each item to take in a collection such that the total weight is less than the capacity and the total value is maximized.
+
+//////////////////////////////////
+// Types of Knapsack Problems:
+ 1. Fractional Knapsack Problem
+ 2. 0/1 Knapsack problem
+ 3. Bounded Knapsack problem
+ 4. Unbounded Knapsack Problem
+
