@@ -1,0 +1,51 @@
+########### JavaFX #################
+ JavaFX is a Java library and a GUI toolkit designed to develop and facilitate Rich Internet applications, web applications, and desktop applictions.
+ The most significant perk of using JavaFx is that the applications written using this library can run on multiple operating systems like Windows, Linux, iOS, Android, and several platforms like Desktops, Web, Moible Phones, TVs, Tablets, etc.
+ This characteristic of the JavaFX library makes it very versatile across operating system.
+
+ Sun MicroSystems (now acquired by Oracle Coporation) released a toolkit known as JavaFX to promote desktop and rich internet applications (RIA) that can be accessed from the category of devices.
+ After the arrival of JavaFX, Java developers and programmers werer able to develop the GUI applications more effectively and more productively.
+
+ Note: Rich Internet Applications are those web applications that allow alike characteristics and expertise as that of destop applications.
+ These applications contribute more satisfying visual experience to the users when compared to the standard web applications.
+
+ JavaFX was introduced to supersede the Java Swing GUI Framework.
+ Neverthless, the JavaFX provides more enhanced functionalities and features than the Java Swing.
+ Similar to the Java Swing, the JavaFX also implements its own components.
+ The components of the JavaFx are irrespective of the Operating system.
+ JavaFx is considered to be lightweight and hardware stimulated.
+
+////////////////////////////////////
+// Need for JavaFX
+ Before JavaFX, developing the client base applications was a very complicated adn cumbersome task.
+ Programmers and developers used to require several libraries for addding various functionalities like media, UI controls, animations and effects, 2D and 3D shape, etc., in their applications.
+
+ This issue was resolved when JavaFX came into the picture, which changed the whole scenario of the development of web applications by bringing in all the pecularities into one single library.
+ Apart from this, the programmers can also utilize all the existing perks of the order libraries like Java Swing, and Advanced Windowing Tool kit.
+
+ JavaFx also displays a valuable collection of graphics and various media APIs, which can further help in designing smooth applications.
+ JavaFX also leverages the improved Graphical Processing Unit (GUI) with the help of hardware-accelerated graphics.
+ If a developer wants to combine the graphics animations and UI control in their applications, then they can use the various interfaces provided by the JavaFX.
+
+/////////////////////////////////////////
+// Features of JavaFX:
+ JavaFx is an open-source framework based on Java, used for advancing rich client applications.
+ JavaFX is recognized as the replacement or successor of the Java Swing in the field of graphical user interface (GUI) development technology in the platform of Java.
+ The JavaFx library is available as a public Java application programming interface (API).
+
+ Features are:
+ 1. Java Library: JavaFX is a Java Library, which allows the user to gain the support of all Java characteristics such as multithreading, generics, lambda expressions, and many more.
+ The user can also use any of the Java editors or IDE's of their choice, such as Eclipse, NetBeans, to write, compile, run, debug, and package their javaFx application.
+
+ 2. Platform Independent: The rich internet applications made using JavaFx are platform independent.
+ The JavaFX library is open for all the scripting languages that can be administered on a JVM, whic comprise - Java, Groovy, Scala, and JRuby.
+
+ 3. FXML: JavaFX emphasizes an HTML - like declarative markup language known as FXML.
+ FXML is based on extensible mark language (XML).
+ The sole object of this markup language is to specify a user interface (UI).
+ In FXML, the programming can be done to accomodate the user with an improved GUI.
+
+
+
+
+
