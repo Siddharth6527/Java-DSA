@@ -39,6 +39,11 @@
 // Algorithm: 
  1. Sort all jobs in decreasing order of profit.
  2. Iterate on jobs in decreasing order of profit. For each job, do the following:
-  i. Find a time slot i, such that slot is empty and i<deadline and i it greatest.
-  Put the job in this slot and mark this slot filled.
-  ii. if no such i exits, then ignore the job.
+  i. Find a time slot i, such that slot is empty and i<deadline and i is greatest. Put the job in this slot and mark this slot filled.
+  ii. if no such i exists, then ignore the job.
+
+// refer to jobsequencing.java for code.
+
+///////////////
+// Time Complexity: O(N^2)
+// Auxiliary Space: O(N)
