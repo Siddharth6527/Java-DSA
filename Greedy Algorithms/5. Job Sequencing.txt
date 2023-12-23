@@ -1,0 +1,44 @@
+############### Job Sequencing #####################
+ Given an array of jobs where every job has a deadline and associated profit if the job is finished before the deadline.
+ It is also given that every job takes a single unit of time, so minimum possible deadline for any job is 1.
+ Maximize the total porfit if only one job can be scheduled at at time.
+
+ Examples: Four Jobs with following deadlineis and profits:
+
+ JobID   Deadline     Profit
+
+  a           4          20   
+  b           1          10
+  c           1          40  
+  d           1          30 
+
+  Output: Following is maximum profit sequence of jobs: c, a
+
+  Input: Five jobs with following deadlines and profits:
+
+  JobID   Deadline  Profit
+
+  a            2          100
+  b            1          19
+  c            2          27
+  d            1          25
+  e            3          15
+
+  Output: Following is maximum profit sequence of jobs: c, a, e
+
+////////////////////
+// Naive Approach: To solve the problem follow this algo:
+ Generate all subets of a given set of jobs and check indiviual subsets for the feasibility of jobs in that subset.
+ Keep track of maximum profit among all feasible subsets.
+
+// Greedy Approach:
+ Greedily choose the jobs with maximum profit first, by sorting the jobs in decreasing order of their profit.
+ This would help to maximize the total profit as choosin the the job with maximum profit for every time slot will eventually maximize the total profit.
+
+///////////
+// Algorithm: 
+ 1. Sort all jobs in decreasing order of profit.
+ 2. Iterate on jobs in decreasing order of profit. For each job, do the following:
+  i. Find a time slot i, such that slot is empty and i<deadline and i it greatest.
+  Put the job in this slot and mark this slot filled.
+  ii. if no such i exits, then ignore the job.
