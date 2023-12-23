@@ -1,0 +1,42 @@
+############ Optimal File Merge Pattern #################
+ Given n number of sorted files, the task is to find the minimum computations done to reach the Optimal Merge Pattern.
+ When two or more sorted files are to merged altogether to form a single file, the minimum computations are done to reach this file are known as Optimal Merge Pattern.
+
+ If more than 2 files need to be merged then it can be done in pairs. For example, if need to merge 4 files A,B,C,D.
+ First Merge A with B to get X1, merge X1 with C to get X2, merge X2 with D to get X3 as the output file.
+
+ If we have two files of sizes m and n, the total computations time will be m+n.
+ Here, we use the greedy strategy by merging the two smallest size files among all the files present.
+
+ Examples: 
+ Given 3 files with sizes 2,3,4 units.
+ Find an optimal way to combine these files.
+ Output: 14
+
+ Input: n=6, size={2,3,4,5,6,7}
+ Output: 68
+
+ Input: n=5, size ={5,10,20,30,30}
+ Ouput: 205
+
+//////////
+// Observations: 
+ From the above results, we may conclude that for finding the minimum cost of computation we need to have our array always sorted, i.e., add the minimum possible computation cost and remove the files from the array.
+ We can achieve this optimally using a min-heap (priority-queue) data structure.
+
+//////////
+// Approach:
+ Node represents a file with a given size also given nodes are greater than 2.
+ 1. Add all the nodes in a priority queue (Min Heap).{ pq.poll = filesize}
+ 2. Initailize count =0 // variable to store file computations.
+ 3. Repeat while(size of priority Queue is greater than 1)
+   a. int weight = pq.poll(); // pq denoes the priortity queue, 
+   remove 1st smallest and pop(remove) it out.
+   b. weight += pq.poll() && pq.pop(); // add the second element and then pop(remove) it out.
+   c. count += weight;
+   d. pq.add(weight) // add this combined cost to pripority queue.
+
+4. count is the final answer
+
+// refer to OptimalMergePattern.java
+
