@@ -1,0 +1,78 @@
+##################### Dijkstra's Algorithm ###############
+ Dikstra's algorithm is a popular algorithms for solving many single-source shortest path problems having non-negative edge weight in the graphs i.e., it is to find the shortest distance between two vertices on a graph.
+ It was conceived by Dutch compute scienties Edsger W.Dijkstra in 1956.
+
+ The algorithms maintains a set of visited vertices and a set of unvisited vertices.
+ It starts at the source vertex and iteratively selects the unvisited vertex with the smallest tentative distance from the source.
+ If itehn vists the neighbors of this vertex and updates their tentative distance if a shorter path if found.
+ This process continues until the destination vertex is reached, or all reachable vertices have been visited.
+
+////////////////////////////////
+// Need for Dijkstra's Algorithm (Purpose and Use-cases):
+ The need for Dijkstra's algorithms arises in many applications where finding the shortest path between two points is crucial.
+
+ For example, it can be used in the routing protocols for computer networks and also used by map systems to find the shortest path between starting point and the destination.
+
+//////////////////////////////
+// Can Dijkstra's Algorithm work on both Directed and unDirected graphs?
+ Yes, Dijkstra's algorithm can work on both directed graphs and undirected graphs as this algorithm is designed to work on any type of graph as long as it meets the requirements of having non-negative edge weights and being connected.
+
+ 1. In a directed graph, each edge has a direction, indicating the direction to travel between the vertices connected by the edge.
+ In this case, the algorithm follows the direction of the edges when searching for the shortest path.
+
+ 2. In an undirected graph, the edges have no direction, and the algorithm can traverse both forward and backward along the edges when searchin for the shortest path.
+
+/////////////////////////
+// Algorithm for Dijkstra's Algorithm:
+ 1. Mark the source node with a current distance of 0 and the rest with infinity.
+
+ 2. Set the non-visited node with the smallest current distance as the current node.
+
+ 3. For each neighbor, N of the current node adds the current distance of the adjacent node with the weight of the edge connecting 0->1. If it is smaller than the current distance of Node, set it as the new current distance of N.
+
+ 4. Mark the current node 1 as visited.
+
+ 5. Go to step 2 if there are any node are unvisited.
+
+///////////////////////////////////////
+// Pseduo Code for Dijkstra's Algorithm:
+ function Dijkstra(Graph, source):
+ // Initialzie distances to all node as infinity, except for the source node.
+ distances = map infinity to all nodes.
+ distances = 0
+
+ // initialize an empty set of visited nodes and a priority queue to keep track of the nodes to visit.
+ visited = empty set
+ queue = new PriorityQueue()
+ queue.enqueue(source, 0)
+
+ // loop until all nodes have been visite
+ while queue is not empty:
+   // dequeue the node with the smallest distance from the priority queue.
+   current = queue.dequeue()
+
+   // if the nodes has already been vistied, skip it
+   if current in visited:
+    continue;
+
+   // mark the node as visited
+   visited.add(current)
+
+   // check all neighbouring nodes to see if their distances need to be updated.
+   for neighbor in Graph.neighbors(current):
+    // calculate the tentative distance to the neighbor throuogh the current node
+    tentative_distance = distances[current]+Graph.distance(current, neighbor);
+
+    // if the tentative distance is smaller than the current distance to the neighbor, update the distance.
+     if tentative_distance < distances[neighbor]:
+      distances[neighbor] = tentative_distance
+
+      // Enqueue the neighbor with its new distance to be considered for visitation in the future.
+      queue.enqueue(neighbor, distances[neighbor])
+
+    // retunr the calculated distance from the source to all other nodes in the grapj
+     return distances.
+
+ 
+
+

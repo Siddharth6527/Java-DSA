@@ -1,0 +1,91 @@
+############### Memoization ################
+ The term "Memoization" comes from the Latin word "memorandum" (to remember), which is commonly shortened to "memo" in American English, and which means "to transform the result of a function into something to remember".
+
+ In computing, memoization is used to speed up computer programs by eliminating the repetitive computation of results, and by avoiding repeated calls to functions that proces the same input.
+
+//////////////////////
+// Why is Memoization used?
+ Memoization is a specific form of caching that is used in dynamic programming.
+ The purpose of caching is to improve the performance of our programs and keep data accessible that can be used later.
+ 
+ It bascially stores the previously calculated result of the subproblem and uses the stored result for the same subproblem.
+
+ This removes the extra effort to calculate again and again for the same problem.
+ And we already know that if the same problem occurs again and again, then that problem is recursive in nature.
+
+///////////////////
+// Where to use Memoization?
+ We can use the memoization technique where the use of previously-calculated results comes into picture.
+ This kind of problem is mostly used in context of recursion, espically with problems that involve overlappig subproblems.
+
+//////////////////////////////
+// Factorial of n using DP:
+ It is safe that for finding factorial of numbers K numbers, the time complexity need will be O(N*K).
+ 1. O(N) to find the factorial of a particular number, and
+ 2. O(K) to call the factorial() method K different times.
+
+//////////
+// How Memoization can help with such problems?
+ If we notice in the above problem, while calculating factorial of 9:
+ 1. We are calculating factorial of 2.
+ 2. We are also calculating the factorial of 3,
+ 3. and We are calculating the factorial of 5 as well.
+
+ Therefore if we store the result of each individual factorial at the first time of calculation, we can easily return the factorial of any required number in just O(1) time.
+ This process is known as Memoization.
+
+///////////////////
+// Solution using Memoization?
+ If we find the factorial of 9 first and store the results of individual sub-problems, we can easily print the factorial of each input in O(1).
+
+ Therefore the time complexity to find factorial numbers using meomoization will be O(N).
+ 1. O(N) to find the factorial of the largest input.
+ 2. O(1) to print the factorial of each input.
+
+/////////////////////////////////////
+// Types of Memoization:
+ The implementation of memoization depends upon the changing parameters that are responsible for solving the problem.
+ There are various dimensions of caching that are used in memoization technique, Below are some of them:
+ 1. 1D Memoization: The recursive function that has only one argument whose value was not constant after every function call.
+
+ 2. 2D Memoization: The recursive function that has only two arguments whose value was not constant after every function call.
+
+ 3. 3D Memoization: The recursive function that has only 3 arguments whose values were not constant after every function call. 
+
+//////////////////////////////////
+// How Memoization technique is used in Dynmaic Programming?
+ Dynamic Programming helps to efficiently solve problems that have overlapping subproblems and optimal substructure properties.
+
+ The idea behind dynamic programming is to break the problem into smaller sub-problems and save result for future use, thus eliminating the need to compute the result repeatedly.
+
+ There are two approaches to formulate a dynamic programming solution:
+ 1. Top-Down Approach: This approach follows the memoization technique.
+ It consists of recursion and caching.
+ In computation, recursion represents the process of calling functions repeatedly, whereas cache refers to teh process of storing intermediate results.
+
+ 2. Bottom-Up Approach: This approach uses the tabulation technique to implement the dynamic programming solution.
+ It addresses the same problem as before, but without recursion.
+ In this approach, iteration replaces recursion.
+ Hence, there is no stack overflow error, or overhead of recursive procedures.
+
+//////////////////////////////////////
+// Differnces between tabulation adn Memoization:
+a. Tabulation: 
+ 1. State: State Transaction relation to think.
+ 2. Code: Code gets complicated when a lot of condition are required.
+ 3. Speed: Fast, as we directly access previous states from the table.
+ 4. Subproblem Solving: If all subproblems must be solved at least once, a bottom-up dynamic-programming algorithm usually outperforms a top-down memoized algorithm by a constant factor.
+ 5. Table Entries: In Tabulated version, starting from the first entry, all entries are filled one by one.
+
+b. Memoization:
+ 1. State: State transaction relation is easy to think.
+ 2. Code: Code is easy and less complicated.
+ 3. Speed: Slow due to lot of recusive calls and return statements.
+ 4. Subproblem Solving: If some subproblems in the subproblem space need not to be solved at all, the memoized solution has the advantage of solving only those subproblems that are definitely required.
+ 5. Table Entries: Unlike the Tabulated version, all entris of the lookup table are not necessarily filled in Memoized version.
+ The table is filled on demand.
+
+
+
+
+

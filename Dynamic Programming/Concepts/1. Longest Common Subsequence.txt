@@ -1,0 +1,60 @@
+###################### Longest Common Subsequence ############
+ Given two strings, S1 and S2, the task is to find the length of the Longest Common Subsequence, i.e. longest subsequence present in both of the strings.
+
+ A longest common subsequence (LCS) is defined as the longest subsequence which is common in all given input sequences.
+
+ Example:
+ Input: S1= "AGGTAB", S2="GXTXAYB"
+ Output: 4
+ Explanation: The longest subsequence which is present in both strings is "GTAB".
+
+ Input: S1= "BD", S2="ABCD"
+ Ouput: 2
+ Explanation: The longest subsequence which is present in both strings is "BD".
+
+//////////////////
+// Longest Common Subsequence (LCS) using Recursion:
+ Generate all the possible subsequence and find the longest among them that is present in both strings using recursion.
+
+ algorithm:
+ 1. Create a recursive function [say lcs()].
+ 2. Check the relation between the first characters of the strings that are not yet processed.
+   Depending on the above call the next recursive function as mentioned above.
+
+ 3.Return the length of the LCS received as the answer.
+
+/// refer LCSRecursion.java for code
+
+ Time Complexity: O(2^(m*n))
+ Auxiliary Space: O(1)
+
+///////////////////////////////////////////////////////////////
+// Longest Common Subsequence (LCS) using Memoization:
+ If we notice carefully, we can observe that the above recursive solution holds the following two properties:
+
+ 1. Optimal Substructure:
+  See for solving the structure of L(X[0,1,...m-1], Y[0,1,...n-1]) we are taking the help of the substructure of X[0,1 ... m-2], Y[0,1,...n-2],
+  depending on the situation (i.e., using them optimally) to find the solution of the whole.
+
+ 2. Overlapping Subproblems: 
+  If we use the above recursive appraoch for Strigs "BD" and "ABCD", we will get a partial recursion tree as shown below.
+  Here we can see that the subproblem L("BD", "ABCD") is being calculated more than once.
+  If the total tree is considered there will be several such overlapping subproblems.
+
+  Approach: Because of the presence of these two properties we can use Dynmaic Programming or Memoziation to solve the problem.
+  Below is the approach for the solution using recurion:
+  1. Create a recursive function. Also create a 2D array to store the result of a unique state.
+  2. During the recurison call, if the same state is called more than once, then we can directly return the answer for that state instead of calculating again.
+
+// refer LCSdp.java for code
+
+ Time Complexity: O(m * n), where m and n are the string lengths.
+ Auxiliary Space: O(m*n), here the recursive stack space is ignored.
+
+
+
+
+  
+
+
+
