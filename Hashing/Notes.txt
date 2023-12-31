@@ -57,6 +57,48 @@
 
  6. Security and encryption: Hashing is essential for secure data storage and integrity verification.
 
+///////////////////////////////////////////////////////////////
+###################### INDEX MAPPING (or Trivial Hashing) with negatives allowed #####################################
+
+ Index Mapping (also known as Trivial Hashing) is a simple form of hashing where the data is directly mapped to an index in a hash table.
+ The hash function used in this method is typically the identity function, which maps the input data to itself.
+ In this case, the key of the data is used as the index in the hash table, and the value is stored at that index.
+
+ For example, if we have a hash table of size 10 and we want to store the value "apple" with the key "a", the trivial hashing function would simply map the key "a" to the index "a" in the hashtable, and store the value "apple" at that index.
+
+ One of the main advantages of Index Mapping is its simplicity.
+ The hash function is easy to understand and implement, and the data can be easily retireved using the key.
+ However, it has some limitations. 
+ The main disadvantage is that it can only be used for small data sets, as the size of the hash table has to be the same as the number of keys.
+ Additionally, it doesn't handle collisions, so if two keys map to same index, one of the data would be overwritten.
+
+ Given a limited range array contains both positive and non-positive number, i.e., elements are in the range from -MAX to +MAX.
+ Out task is to search if some number is present in the array or not in O(1) time.
+ Since the range is limited, we can use index mapping (or trivial hashing).
+ We use values as the index in a big array.
+ Therefore we can search and insert elements in O(1) time.
+
+ How to handle negative numbers?
+ The ides is to use a 2D array of size hash[MAX+1][2].
+
+ Algorithm: 
+ Assign all the values of the hash matrix as 0.
+ Traverse the given array:
+  If the element ele is non negative Assign 
+   hash[ele][0] as 1.
+  Else take the absolute value of ele and 
+   assign hash[ele][1] as 1.
+
+  To search any element x in the array:
+  1. If X is non-negative check if hash[X][0] is 1 or not.
+  If hash[X][0] is one then the number is present else not present.
+  2. If X is negative take the absolute value of X and then check if hash[X][1] is 1 or not.
+  If hash[X][1] is one then the number is present.
+
+// refer IndexMapping.java for code
+ 
+ Time Complexity: The time complexity of the above algorithms is O(N), where N is the size of the given array.
+ Space Complexity: The space complexity of the above algorithm is O(N), because we are using an array of max size.
 
 
 
