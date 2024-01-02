@@ -100,6 +100,154 @@
  Time Complexity: The time complexity of the above algorithms is O(N), where N is the size of the given array.
  Space Complexity: The space complexity of the above algorithm is O(N), because we are using an array of max size.
 
+/////////////////////////////////////////////////////////////////#### Separate Chaining Collision Handling Technique in Hahing ####
+ What is Collision?
+ Since a hash function gets us a small number for a key which is a big integer or string, there is a possibility that the two keys result in the same value.
+ The situation where a newly inserted key maps to an already occupied slot in the hash table is called collision and must be handled using some collision handling technique.
+
+ What are the chances of collisions with the large table?
+ Collisions are very likly even if we have a big table to store keys.
+ An important observation is Birthday Paradox.
+ With only 23 persons, the probability that two poeple will have the same birthday is 50%.
+ 
+ How to handle Collisions?
+ There are mainly two methods to handle collisons:
+ 1. Separate Chaining
+ 2. Open Addressing
+
+////////////////////////////////////////
+// Separate Chainging:
+ The idea behind separate Chainging is to implement the array as linked list called as Chain.
+ Separate chaining is one of the most popular and commonly used techniques in order to handle collisions.
+
+ The linked list data structure is used to implement this technique.
+ So what happens is, when multiple elements are hashed into the same slot index, then these elements are inserted into a singly-linked list which is known as a chain.
+
+ Here, all those elements that hash into the same slot index are inserted into a linked list.
+ Now, we can use a key K to search in the linked list by just linearly traversing.
+ It we have reached the end of the linked list and yet we haven't found our entry then it means that the entry does not exist.
+ Hence, the conclusion is that in separate chaining, if two different elements have the same hash value then we store both the elements in the same linked list one after the other.
+
+ example: Let us consider a simple hash function as "key mod 7" and a sequence of keys as 50,700,76,85,92,73,101.
+
+ Advantages:
+  1. Simple to implement.
+  2. Hash table never fills up, we can always add more elements to the chain.
+  3. Less sensitive to the hash function or load factors.
+  4. It is mostly used when it is unkown how many and how frequently keys may be inserted or deleted.
+
+ Disadvantages:
+  1. The cache performance of chaining is not good as keys are stored using a linked list.
+  Open addressing provides better cache performance as everything is stored in the same table.
+
+  2. Wastage of Space (Some parte of the hash table are never used.)
+
+  3. If the chain becomes long, then search time can become O(n) in the worst case.
+
+  4. Uses extra space for links.
+
+////////////////////////////////////////////////////////////////
+// Open Addressing Collision Handling technique in Hashing
+ Open Addressing:
+ Like separte chaining, open addressing is a method for handling collisions.
+ In Open Addressing, all elements are stored in the hash table itself.
+ So at any point, the size of the table must be greater than or equal to the total number of keys (Note that we can increase table size by copying old data if needed).
+ This approach is also known as closed hashing.
+ This entire procedure is based upon probing.
+ We will understand the types of probing ahead:
+
+ 1. Insert(k): Keep probing until an empty slot is found.
+ Once empty slot is found insert k.
+
+ 2. Search(k): Keep probing until the slot's key doesn't become equal to k or an empty slot is reached.
+
+ 3. Delete(k): Delete operation is interesting.
+ If we simply delete a key, then the search may fail.
+ So, slots of deleted keys are marked specially as "Deleted".
+ The insert can insert an item in a deleted slot, but the searched doesn't stop at a deleted slot.
+
+ Different Ways of Open Addressing:
+ 1. Linear Probing:
+  In linear probing, the hash table is searched sequentially that starts from the original location of the hash.
+  If in case the location that we get is already occupied, then we check for the next location.
+
+  The function used for rehashing is as follows:
+  rehash(key)=(n+1)%table-size
+
+  For example, The typical gap between two probes is 1 as seen in the example below:
+
+  Let hash(x) be the slot index computed using a hash function and S be the table size.
+
+  If slot hash(x)%S is full, then we try (hash(x)+1)%S
+  If (hash(x)+1)%S is also full, then we try (hash(x)+2)%S
+  If (hash(x)+2)%S is also full, then we try (hash(x)+3)%S
+  ..................
+  ..................
+
+  Let us consider a simple hash function as "key mod 7" and a sequence of keys as 50,700,76,85,92,73,101.
+
+  which means hash(key)=key%S, here S=size of the table=7,
+  indexed from 0 to 6.
+  We can define the hash function as per our choice if we want to create a hash table, although it is fixed internally with a pre-defined formula.
+
+////////////////////////////////////
+// Applications of Linear Probing:
+ Linear probing is a collision handling technique used in hashing, where the algorithm looks for the next available slot in the hash table to store the collided key.
+ Some of the applications of linear probing include:
+ 1. Symbol Tables: Linear probing is commonly used in symbol tables, which are used in compilers and interpreters to store variables and their associated values.
+ Since symbol can grow dynamically, linear probing can be used to handle collisions and ensure that variables are stored efficiently.
+
+ 2. Caching: Linear probing can be used in caching systems to store frequently accessed data in memory.
+ When a cache miss occurs, the data can be loaded into the cache using linear probing, and when a collision occurs, the next available slot in the cache can be used to store the data.
+
+ 3. Databases: Linear probing can be used in databases to store records and their associated keys.
+ When a collision occurs, linear probing can be used to find the next available slot to store the record.
+
+ 4. Compiler design: Linear probing can be used in compiler design to implement symbol tables, error recovery mechanisms, and syntax analysis.
+
+ 5. Spell checking: Linear probing can be used in spell-checking software to store the dictionary of words and their associated frequency counts.
+ When a collision occurs, linear probing can be used to store the word in the next available slot.
+
+Overall, linear probing is a simple, and efficient method for handling collisions in hash tables, and it can be used in a variety of applications that require efficient storage and retrieval of data.
+
+//////////////////////////////////////
+// Chanllenges in Linear Probing:
+ 1. Primary Clustering: One of the problems with linear probing is Primary clustering, many consecutive elements form groups and it starts taking time to find a free slot or to search for an element.
+
+ 2. Secondary Clustering: Secondary clustering is less severe, two records only have the same collision chain (Probe Sequence)
+ if their initial position is the same.
+
+///////////////////////////////////////////////////////////////
+// Java Program to Implement HashTables with Linear Probing:
+ Hashing is a technique that is used to uniquely identify a specific object from a group of similar objects.
+ Suppose an object is to be assigned a key to it to make searching easy.
+ To store the key/value pair, one can use a simple array like a data structure where keys (integers) can be used directly as an index to store values.
+ However, in cases where the keys are large and cannot be used directly as an index, one should use hasing.
+
+ In hashing, large keys are converted into small keys by using hash functions.
+ The values are then stored in a data structure called hash table.
+ Linear probing, it may happen that the hashing technique is used to create an already used index of the array.
+ In such a case, we can search for the next empty location in the array by looking into the next cell until we find an empty cell.
+ This technique is called linear probing.
+
+ There are three basic operations linked with linear probing which are as follows:
+ 1. Search
+ 2. Insert
+ 3. Delete
+
+ Implementation: Hash tables with linear probing by making a helper class and testing this in the main class.
+
+ // refer linearprobinghashtable.java for code
+
+
+
+
+
+
+
+
+
+
 
 
 
