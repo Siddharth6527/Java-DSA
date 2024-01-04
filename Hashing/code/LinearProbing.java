@@ -1,3 +1,4 @@
+package code;
 // Java program to implement hash tables with Linear Probing
 
 import java.util.*;

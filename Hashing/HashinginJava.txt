@@ -1,0 +1,68 @@
+############ HashTable in java #######################
+ The Hashtable class implements a hash table, which maps keys to values.
+ Any non-null object can be used as a key or as a value.
+ To successfully store and retrieve objects from a hashtable, the objects used as keys must implement the hashCode method and the equals method.
+
+ The java.util.Hashtable class is class in Java that provides a key-value data structure, similar to the Map interface.
+ It was part of the original Java Collections framework and was in introduced in Java 1.0.
+
+ However, the Hashtable class has since been considered obsolete and its use is generally discouraged.
+ This is because it was designed proior to the introduction of the Collections framework and does not implement the Map interface, which makes it difficult to use in conjunction with other parts of the framework.
+ In addition, the Hashtable class is synchorinized, which can result in slower performance compared to other implementations of the Map interface.
+
+ In general, it's recommended to use Map interface or one of its implementation (such as HashMap or ConcurrentHashMap) instead of the Hashtable class.
+
+/// refer HashTable.java for code
+ 
+ In conclusion, while the Hashtable class still exitsts in java and can still be used, it's generally recommended to use the Map interface or one of its implementations instead.
+
+////////////////////////////
+// Features of Hashtable:
+ 1. It is similar to HashMap, but is synchorinized.
+ 2. Hashtable stores key/value pair in hash table.
+ 3. In Hashtable we specify an object that is used a key, and the value we want to associate to that key.
+ The key is then hashed, and the resulting hashCode is used as the index at which the value is stored withing the table.
+ 4. The initial default capacity of Hashtable class is 11 whereas loadFactor is 0.75.
+ 5. HashMap doesn't provide any Enumeration, while Hashtable provides not fail-fast Enumeration.
+
+ Hashtable implements Serializable, Cloneable, Map<K,V> interfaces and extends Dictionary<K,V>.
+ The direct subclasses are properties, UIDefaults.
+
+//////////////////////////////
+// Internal Working Of Hashtable:
+ Hashtable datastructure is an array of buckets which stores the key/value pairs in them.
+ It makes use of hashCode() method to determine which bucket the key/ value pair should map.
+
+ The hash function helps to determine the location for a given key in the bucket list.
+ Generally, hashcode ia non-negative integer that is equal for equal objects and may or may not be equal for unequal objects.
+ To determine whether two objects are equal or not, hashtable makes use of the equals() method.
+
+ It is possible that two unequal objects have the same hashcode.
+ This is called a collision.
+ To resolve collisions, hashtable uses an array of lists.
+ The pairs mapped to a single bucket (array index) are stored in a list and list reference is stored in the array index.
+
+////////////////////////////////////////
+// Advantages of Hashtable:
+ 1. Thread-safe: The HashTable class is thread-safe, meaning that multiple threads can access it simultaneously without causing data corruption or other synchorinization issues.
+
+ 2. Simple to use: The HastTable class is simple to use and provides basic key-value data structure functionally, which can be useful for simple cases.
+
+/////////////////////////////////////
+// Disadvantages of Hashtable:
+ 1. Obsolete: The HashTable class is considered obsolete and its use is generally discouraged.
+ This is because it was designed prior to the introduction of the Collections framework and does not implement the Map interface, which makes it difficult to use in conjunction with other parts of the framework.
+
+ 2. Limited functionality: The Hashtable class provides basic key-valye data structure functionally, but does not provide the full range of functionality that is available in the Map interface and its impelementations.
+
+ 3. Poor Performance: The Hashtable class is synchorinized, which can result in slower performance compared to other implementations of the Map interface, such as HashMap or ConcurrentHashMap.
+
+
+ 
+
+
+ 
+
+
+
+

@@ -1,3 +1,5 @@
+package code;
+
 // java programt to implement direct index
 // mapping with negative values allowed.
 public class IndexMapping {
