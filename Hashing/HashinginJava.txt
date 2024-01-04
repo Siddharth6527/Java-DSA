@@ -57,6 +57,82 @@
 
  3. Poor Performance: The Hashtable class is synchorinized, which can result in slower performance compared to other implementations of the Map interface, such as HashMap or ConcurrentHashMap.
 
+////////////////////////////////////////////////////////////////
+// HashMap and TreeMap in Java
+ HashMap and TreeMap are part of collection framwork.
+ HashMap java.util.HashMap class is a Hashing based implementation.
+
+ HashMap<K,V> hmap = new HashMap<K,V>();
+
+// refer CountFreq.java for example code
+
+ Key Points:
+ 1. HashMap does not maintain any order neither based on key nor on basis of value, If we want the keys to be maintained in a sorted order, we need to use TreeMap.
+
+ 2. get/put/containsKey() operations are O(1) in average case but we can't guarantee that since it all depeneds on how much time does it take to compute the hash.
+
+ Application: HashMap is bascially an implementation of hashing.
+ So wherever we need hashing with key value pairs, we can use HashMap.
+ For example, in Web Applications username is stored in a key and user data is stored as value in the HashMap, for faster retrieval of user data corresponding to a username.
+
+//////////////////////////////////////////
+ TreeMap: TreeMap can be a bit handy when we only need to store unique elements in sorted order.
+ Java.util.Treemap uses a red-black tree in the background which makes sure that there are no duplicates; additionally it also maintains the elements in a sorted order.
+
+ TreeMap<K,V> hmap = new TreeMap<K,V>();
+
+ Below is TreeMap based implementations of same problem.
+ This solution has more time complexity O(nLogn) compared to previous one which has O(N).
+ The advantage of this method is, we get elements in sorted order.
+
+ // refer CountFreq.java for TreeMap example
+
+ Key Points:
+ 1. For operations like add, remove, containsKey, time complexity if O(log n), where n is number of elements present in TreeMap.
+ 2. TreeMap always keeps the elements in a sorted (increasing) order, while the elements in a HashMap have no order.
+ TreeMap also provides some cool methods for first, last, floor and ceiling of keys.
+
+//////////////////////////////////////
+// Difference Btw HashMap and TreeMap:
+ HashMap:
+ 1. It does not provide any order for elements.
+ 2. It's speed is fast.
+ 3. It allows one key as null and also allows multiple values.
+ 4. It consumes more memeory space.
+ 5. It has only basic features.
+ 6. For comparing keys, equals() is used.
+ 7. It's compleixty is O(1).
+
+ TreeMap:
+ 1. It provides orders for elements.
+ 2. It's speed is slow.
+ 3. It does not allow key as null but it allows multiple null values.
+ 4. It consumes less memeory space.
+ 5. It has advanced features.
+ 6. For comparing keys, compare or compareTo() is used.
+ 7. It's complexity is O(Logn).
+
+////////////////////////////////////
+// Overview:
+ 1. HashMap implements Map interface while TreeMap implements SortedMap interface.
+ A Sorted Map interface is a child of Map.
+
+ 2. HashMap implements Hashing, while TreeMap implements Red-Black Tree(a self Balancing Binary Search Tree).
+
+ 3. Both HashMap and TreeMap have their counterparts HashSets and TreeSet.
+ HashSet and TreeSet impelement Set interface.
+ In HashSet and TreeSet, we have only key, no value, these are mainly used to see presence/absence in a set.
+ For the above probblem, we can't use HashSet (or TreeSet) as we can't store counts.
+
+ An example problem where we would profer HashSet (or TreeSet) over HashMap (or TreeMap) is to print all distinct elements in an array.
+ 
+ 
+
+
+
+
+
+
 
  
 
