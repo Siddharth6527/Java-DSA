@@ -1,0 +1,19 @@
+####### Java Threads ########################### 
+ Threads allows a program to operate more efficiently by doing multiple things at the same time.
+ Threads can be used to perform complicated tasks in the background without interrupting the main program.
+
+///////// 
+ Creating a Thread:
+ There are two ways to create a thread:
+ It can be created by extending the Thread class and overriding its run() method:
+
+ // refer main.java for code
+
+ Another way to create a thread is to implement the Runnable interface:
+
+ // refer main.java for code
+
+ Runnings Threads:
+ If the class extends the thread class, the thread can be run by creating an instance of the class and call its start() method:
+
+
