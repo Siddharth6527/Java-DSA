@@ -1,0 +1,49 @@
+### Spring Boot Tuturial ###
+ Spring Boot is a Java framework that makes it easier to create and run Java applications.
+ It simplifies the configuration and setup process, allowing developers to focus on writing code for their applications.
+
+ Spring Boot, a module of the Spring framework, facilitates Rapid Application Developement (RAD) capabilties.
+
+ This Spring tutuorial includes basic to advanced topics of Spring Boot, like Basics of Spring Boot, Spring Boot core, Spring Boot with Microservices, Spring Boot with kafka, Spring Boot with Database and Data JPA, etc.
+
+ What is Spring Boot?
+ Spring Boot is an open-source Java framework used to create a Micro Service.
+ Spring boot is developed by Pivotal Team, and it provides a faster way to set up and an easir, configure, and run both simple and web-based applications.
+ It is a combination of Spring Framework and Embedded Servers.
+ The main goal of Spring Boot is to reduce development, unit test, and integration test time and in Spring Boot, there is no requirement for XML configuration.
+
+ What You Can Do with Spring Boot:
+ Spring Boot allows for the rapid development of apps.
+ It examines your classpath and the bean you've configured, makes educated guesses about what you're missing, and adds those objects.
+ With Spring Boot, you can concetrate on business aspects rather than infrastructure.
+
+ Spring Boot Features:
+ Web Developement
+ Spring Application
+ Applications events and listeneres
+ Admin Features
+ Externalized Configuration
+ Properties Files 
+ YAML Support
+ Type-safe Configuration
+ Logging 
+ Security
+
+ Spring Boot Advantages:
+ It generates standalone Spring applications that are launched with the Java -jar command.
+
+ It easily tests web applications using several Embedded HTTP servers like Tomcat, Jetty, and others.
+ We don't need to distribute WAR files.
+
+ It provides 'starter' POMs with strong opinions to help us simiplify our Maven settings.
+
+ It includes features that are ready for production, such as metrics, health checks, and externalised settings.
+
+ There is no need for XML configuration.
+
+ It includes a command-line utility for designing and testing Spring Boot applications.
+
+ It provides a number of plug-ins.
+ It also minimizes writing muliple boilerplate code, XML configuratin, and annotations.
+ It boosts productivity while decreasing developement time. 
+
