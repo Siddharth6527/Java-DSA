@@ -1,0 +1,21 @@
+#### Environment Variable in Windows ###
+ 
+ In Microsoft Windows, environment variables are dynamic named valued that can affect the way running porcesses behave.
+ They are essentailly placeholders for information that the operating system can use to control various aspects of its environement.
+
+ Here's a breakdown of some key points regarding environmetn variables in Windows:
+
+ 1. Definition: Environment variables are essentially key-value pairs that store information about the environment in which processes run.
+
+ 2. System Variables vs User Variables: Environment variables in windows can be categorized into two types: systems variables and user variables.
+ System variables apply globally to all users on the system, while user variables are specific to each user account.
+
+ 3. Common Environment Variables: Windows includes several common enviroment variables that are frequently used by application and scripts.
+ Some examples include:
+ 'PATH': Specifies a set of directories where executable programs are located.
+ 'TEMP' and 'TMP': Point to directories where temporary files are stored.
+ 'USERNAME': Stores the name of the currently logged-in user.
+ 'OS': Indiciates the name of the operating system.
+ 'COMPUTERNAME': Stores the name of the computer.
+
+ 

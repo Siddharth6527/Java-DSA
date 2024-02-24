@@ -109,12 +109,12 @@
  * 
  */
 
-class Node {
-  int n;
-  int[] key = new int[MAX_KEYS];
-  Node[] child = new Node[MAX_CHILDREN];
-  boolean leaf;
-}
+// class Node {
+// int n;
+// int[] key = new int[MAX_KEYS];
+// Node[] child = new Node[MAX_CHILDREN];
+// boolean leaf;
+// }
 
 //////////////////////////////////////////
 // Applications of B-Trees:

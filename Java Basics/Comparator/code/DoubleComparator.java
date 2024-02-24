@@ -1,3 +1,5 @@
+package Comparator.code;
+
 import java.util.*;
 
 class Student {
