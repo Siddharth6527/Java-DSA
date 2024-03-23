@@ -1,0 +1,144 @@
+### Priority Queue in Java ###
+
+ A PriorityQueue is used when the objects are supposed to be processed based on the priority.
+ It is known that a Queue follows the First-In-First-Out algorithm, but sometimes the elements of the queue are needed to be processed according to the priority, that's when the PriorityQueue comes into play.
+ 
+ The PriorityQuerue is based on the Priority heap.
+ The elements of the priority queue are ordered according to the natural ordering, or by a Comparator provided at queue construction time, depending on which contructor is used.
+
+ In the below priority queue, an element with a maximum ASCII value will have the highest priority.
+
+ The class implements Serializable, Iterable<E>, Collection<E>, Queue<E> interfaces.
+
+ /////////////
+ A few important points on Priority Queue are as follows:
+ 1. PriorityQueue doesn't premit null.
+ 2. We can't create a PriorityQueue of Objects that ar non-comparable.
+ 3. PriorityQueue are unbound queues.
+ 4. The head of this queue is the least element with respect to the specified ordering.
+ If multiple elements are tied for the least value, the head is one of those elements - ties are broken arbitrarily.
+ 5. Since PriorityQueue is not thread-safe, java provides PriorityBlockingQueue class that implements the BlockingQueue interface to use in java multithreading environment.
+ 6. The queue retrieval operations poll, remove, peek, and element access the element at the head of the queue.
+ 7. It provides O(log(n)) time for add and poll methods.
+ 8. It inheris methods from AbstractQueue, AbstractCollections, Collection, and Object class.
+
+ ///////////////////////////////////
+ Constructors:
+ 1. PriorityQueue():
+ Creates a PriorityQueue with the default initial capacity (11) that orders its elemetns according to their natural ordering.
+ eg. 
+ PriorityQueue<E> pq = new PriorityQueue<E>();
+
+ 2. PriorityQueue(Collection<E> c): Creates a PriorityQueue containing the elements in the specified collection.
+ eg. 
+ PriorityQueue<E> pq = new PriorityQueue<E>(Collection<E> c);
+
+ 3. PriorityQueue(int initialCapacity): 
+ Creates a PriorityQueue with the specified initial capacity that orders its elements according to their natural ordering.
+ eg.
+ PriorityQueue<E> pq = new PriorityQueue<E>(in initialCapacity);
+
+ 4. PriorityQueue(int initialCapacity, Comparator<E> comparator):
+ Creates a PriorityQueue with the specified initial capacity that orders its elements according to the specified comparator.
+ eg.
+ PriorityQueue<E> pq = new PriorityQueue(int initialCapacity, Comparator<E> comparator);
+
+ 5. PriorityQueue(PriorityQueue<E> c):
+ Creates a PriorityQueue containing the elements in the specified priority queue.
+ eg.
+ PriorityQueue<E> pq = new PriorityQueue(PriorityQueue<E> c);
+
+ 6. PriorityQueue(SortedSet<E> c):
+ Creates a PriorityQueue containing the elements in the specified sorted set.
+ eg.
+ PriorityQueue<E> pq = new PriorityQuerue<E>(SortedSet<E> c);
+
+ 7. PriorityQueue(Comparator<E> comparator): 
+ Creates a PriorityQueue with the default initial Capacity and whose elements are ordered according to the specified comparator.
+ eg.
+ PriorityQueue<E> pq = new PriorityQueue<E>(Comparator<E> c);
+
+ //////////////////////////////////
+ Example:
+ The example below explains the following basic operations of the priority queue.
+ 1. Boolean add(E element): This method inserts the specified element into this priority queue.
+ 2. Public peek(): This method retrieves, but does not remove, the head of this queue, or returns null if this queue is empty.
+ 3. Public poll(): This method retrieves and removes the head of this queue, or returns null if this queue is empty.
+
+ /////////////////////////////////
+ Operations on Priority Queue:
+ 1. Adding Elements:
+ In order to add an element in a priority queue, we can use the add() method.
+ The insertion order is not retained in the PriorityQueue.
+ The elements are stored based on priority order which is ascending by default.
+
+ We will get sorted elements by printing PriorityQueue.
+
+ 2. Removing Elements:
+ In order to remove an element from a priority queue, we can use th remove() method.
+ If there are multiple such objects, then the first occurrence of the object is removed.
+ Apart from that the poll() method is also used to remove the head and return it.
+
+ 3. Accessing the elements:
+ Since Queue follows the First In First Out principle, we can access only the head of the queue.
+ To access elements from a priority queue, we can use the peek() method.
+
+ 4. Iterating the PriorityQueue:
+ There are multiple ways to iterate through the PriorityQueue.
+ The most famous way is converting the queue to the array and traversing using the for loop.
+ However, the queue also has an inbuilt iterator which can be used to iterate though the queue.
+
+ /////////////////////////////////////
+ Real Time Examples:
+ Priority Queue is a data structure in which elements are ordered by priority, with the highest-priority elements appearing at the front of the queue.
+ Here are some real-world examples of where priority queeues can be used.
+
+ 1. Task Scheduling: 
+ In operating systems, priority queue are used to schedule tasks based on their priority levels.
+ For example, a high-priority task like a critical system update may be scheduled ahead of a lower-priority task like a background backup process.
+
+ 2. Emergency Rooom:
+ In a hospital emergency room, paitents are triaged based on the severity of their condition, with those in critical condition being treated first.
+ A priority queue can be used to manage the order in which patients are seen by doctors and nurses.
+
+ 3. Networking Routing:
+ In computer networks, priority-queue are used to manage the flow of data packets.
+ High-priority packets like voice and video data may be given priority over lower-priority data like email and file transfers.
+
+ 4. Transportation:
+ In Traffice management systems, priority queues can be used to manage traffic flow.
+ For example, emergency vehciels like ambulances may be given priority over other vehicles to ensure that they reach their destination quickly.
+
+ 5. Job Scheduling: 
+ In job scheduling systems, priority queues can be used to manage the order in which jobs are executed. High-priority jobs like critical system updates may be scheduled ahead of lower-priority jobs like data backups.
+
+ 6. Online Marketplaces:
+ In online marketplaces, priority queues can be used to the delivery of products to customers.
+ High-priority orders like express shipping may be given priority over standard shipping orders.
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+ 

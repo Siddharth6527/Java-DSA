@@ -1,3 +1,5 @@
+package Heap;
+
 public class BuildHeap {
 
   // to heapify a subtree rooted with node i

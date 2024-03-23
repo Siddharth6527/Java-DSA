@@ -1,0 +1,12 @@
+### The Knight's Tour problem ###
+
+ Problem Statement:
+ Given a N*N board with the Knight Places on the first block of an empty board.
+ Moving according to the rules of the chesss knight must visit each squares exactly once.
+ Print the order of each cell in which they are visited.
+
+ ////////////////////////////////////
+ Naive Algorithm For Knight's Tour:
+ 
+
+ 

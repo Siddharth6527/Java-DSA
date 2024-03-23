@@ -1,0 +1,43 @@
+#### Bitwise Operators ####
+ 
+ Operators consitute the basic building block of any programming language.
+ Java too provides many types of operators which can be used according to the need to perform various calculations and functions, be it logical, arithmetic, relational, etc.
+ They are classified based on the functionality they provide.
+ Here, are a few types:
+ 1. Arithmetic Operators
+ 2. Unary Operators
+ 3. Assignment Operators
+ 4. Relational Operators
+ 5. Logical Operators
+ 6. Ternary Operators
+ 7. Bitwise Operators
+ 8. Shift Operators
+
+ //// Bitwise Operators:
+ Bitwise operators are used to performing the manipulation of individual bits of a number.
+ They can be used with any integral type (char, short, int, etc.).
+ They are used when performing update and query operations of the Binary indexed trees.
+
+ Now let's look at each of the bitwise operators in Java:
+ 1. Bitwise OR(||):
+ This operator is a binary operator, denoted by '|'.
+ It returns bit by bit OR of input values, i.e., if either of bits is 1, gives 1, else it shows 0.
+
+ 2. Bitwise AND(&):
+ This operator is a binary operator, denoted by '&'. 
+ It returns bit by bit AND of input values, i.e., if both bits are 1, it gives 1, else it shows 0.
+
+ 3. Bitwise XOR(^):
+ This operator is a binary operator, denoted by '^'.
+ It returns bit by bit XOR of input values, i.e., if corresponding bits are different, it gives 1, else it shows 0.
+
+ 4. Bitwise Complement(~):
+ This operator is a unary operator, denoted by '~'.
+ It returns the one's complement representation of the input value, i.e., with all bits inverted, which means it makes every 0 to 1, and every 1 to 0.
+
+
+
+
+
+
+

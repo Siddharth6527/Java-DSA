@@ -1,0 +1,131 @@
+### BackTracking ###
+ 
+ Backtracking is like trying different paths, when you hit a dead end, you backtrack to the last choice and try a different route.
+
+ Backtrakcing is a proble-solving algorithmic technique that involves finding a solution incrementally by trying different options and undoing them if they lead to a dead end.
+ It is commonly used in situations where you need to explore multiple possibilities to solve a problem, like searchin a path in a maze, or solving puzzles like Sudoku.
+ When a dead end is reached, the algorithm backtracks to the preivous decisions point and explores a different path until a solution is found or all possibilities have been exhausted.
+
+ Backtracking can be defined as a general algorithmic technique that considers seraching every possible combination in order to solve a computational problem.
+
+ Basic Terminologies:
+ 1. Candidate: A candidate is a potential choice or element that can be added to the current solution.
+
+ 2. Solution: The solution is a valid and complete configuration that satisfies all problem constraints.
+
+ 3. Partial Solution: A partial solution is an intermediate or incomplete configuration being constructed during the backtracking process.
+
+ 4. Decisioni Space: The decision space is the set of all possible candidates or choice at each decision point.
+
+ 5. Decision Point: A decision point is a specific step in the alogrithm where a candidate is choseon and added to the paritial solution.
+
+ 6. Feasible Solution: A feasible solution is a partial or complete solutin that adheres to all constraints.
+
+ 7. Dead End: A dead end occurs when a partial solution cannot be extended without violating constraints.
+
+ 8. Backtrack: Backtrakcing involves undoing previous decisions and returning to a prior decisoin point.
+
+ 9. Search Space: The search space includes all possible combinations of candidates and choices.
+
+ 10. Optimal Solution: In optimization problems, the optimal solution is the best possible solution.
+
+ ////////////////
+ Types of Backtracking Problems:
+ Problems associated with backtracking can be categorized into 3 categories:
+ 1. Decision Problems: Here, we search for a feasible solution.
+ 2. Optimization Problems: For this type, we search for the best solution.
+ 3. Enumeration Problems: We find set of all possible feasible solutions to the problems to this type. 
+
+ //////////////////
+ How does Backtracking works?
+ As we know backtrakcing algorithm explores each each and every possible path in order to find the a valid solution, this exploration of path can be easily understood:
+
+ IS: Represents the Initial State where the recursion call starts to find a valid solution.
+
+ C: It represents different Checkpoints for recursive calls.
+
+ TN: It represents the Terminal Nodes where no further recursive calls can be made, these nodes act as base case of recursion and we determine whether the current solution is valid or not at this state.
+
+ At each Checkpoint, our program makes some decisions and move to other checkpoints until it reaches a terminal Node, after determining whether a solution is valid or not, the program starts to revert vack to the checkpoints and try to explore other paths.
+ For example in the above Image TN1... TN5 are the terminal node where the solutin is not acceptable, while TN6 is the sate where we found a valid solution.
+
+ The back arrows in the images shows backtracking in actions, where we rever the changes made by some checkpoint.
+
+ /////////////////////////////////////
+ Determining Backtracking Problems:
+ Generally every constraint satisfaction problem can be solved using backtracking but, is it optimal to use backtracking every time?
+ Turns out NO, there are vast number of problem that can be solved using Greedy or Dynamic Progarmming in logrithimic or polynomial time compleixty.
+ However, many problems still exits that can be only solved using Backtracking.
+
+ Technically, for backtracking problems:
+ The algorithm builds a solutin by exploring all possible paths created by the choices in the problem, this solutioin begins with an empty set S = {}.
+
+ Each choice creates a new sub-tree 's' which we add into are set.
+
+ Now there exit two cases:
+ S+s is valid set.
+ S+s is not valid set.
+
+ In case the set is valid then we further make choices and repeat the process until a solution is found, otherwise we backtrack our decision of including 's' and explore other paths until a solution is found or all the possible paths are exhausted.
+
+ ///////////////////////////////////
+ Pseudocode for Backtracking:
+ The best way to implement backtraking is through recursion, and all backtracking code can be summarized as as per:
+
+ void FIND_SOLUTION(parameters):
+ if(valid solution):
+  store the solution 
+  return;
+
+ for (all choice):
+  if(valid choice):
+    APPLY(choice):
+    FIND_SOLUTION(parameters)
+    BACKTRACK(remove choice)
+
+ return
+
+ //////////////////////////////////////////
+ Complexity Ananlysis of Backtracking:
+ Since backtracking algorithm is purely brute force therefore in terms of time complexity, it performs very poorly.
+ Generally backtracking can be seen having below mentioned time complexities:
+ 1. Exponentail (O(K^N))
+ 2. Factorial (O(N!))
+
+ These complexities are due to the fact that at each state we have multiple choices due to which the number of paths increases and sub-trees expand rapidly.
+
+ /////////////////////////////////////
+ How Backtracking is different from Recursion?
+
+ Recursion: 
+ 1. Recursion does not always need backtracking.
+ 2. Solving problems by breaking them into smaller, smaller subproblems and solving them recursively.
+ 3. Controlled by function calls and call stack.
+ 4. Applications of Recursion:
+ Tree and Graph Traversal, Towers of Hanoi, Divide and Conquer Algorithms, Merge Sort, Quick Sort, Quick Sort, and Binary Serach.
+
+ 
+ Backtracking: 
+ 1. Backtracking always uses recursion to solve problems.
+ 2. Solving problems with multiple choices and exploring options systematically, backtracking when needed.
+ 3. Managed explicilty with loops and state.
+ 4. Application of Backtracking:
+ N Queen problem, Rat in a Maze problem, Knight's Tour Problem, Sudoku solver, and Graph coloring problems.
+
+ ////////////////////////////////////////
+ Applications of Backtracking:
+ 1. Creating smart bots to play Board Games such as Chess.
+ 2. Solving mazes and puzzles such as N-Queen problem.
+ 3. Network Routing and Congestion Control.
+ 4. Decryption
+ 5. Text Justification
+
+
+
+
+
+
+
+ 
+
+
