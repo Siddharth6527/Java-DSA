@@ -1,0 +1,128 @@
+### Sliding Window Technique ###
+ 
+ Sliding Window problems are problems in which a fixed or variable-size window is moved through a data structure, typically an array or string, to solve problems efficiently based on continuous subsets of elements.
+ This technique is used when we need to find subarrys or substrings according to a given set of conditions.
+
+ /////////////////
+ What is Sliding Window Techniuqe?
+ Sliding window technique is a mehtod used to efficiently solve problems that involve defining a window or range in the input data (arrays or strings) and then moving that window across the data to perform some operation within the window.
+ This technique is commonly used in algorithms like findings subarrays with a specific sum, finding the longest substring with unique characters, or solving problems that require a fixed-size window to process elements efficiently.
+
+ ///////////////////////////////
+ Example:
+ Let's take an example to understand this properly, say we have an array of size N and also an interger, K.
+ Now, we have to calculate the maximum sum of subarray having size exactly K.
+ Now how should we approach this problem? 
+
+ One way to do this by taking each subarary of size K from the array and find out the maximum sum of these subarrays.
+ This can be done using Nested loops which will result into O(N^2) Time Complexity.
+
+ But can we optimize this approach? 
+ The answer is Yes, instead of taking each K sized subarary, and calculatinig its sum, we can just take one K size subarray from 0 to K-1 index, and calculate its sum now shift range one by one along with the iterations and update the result, like in next iteration increase the left and right pointer and update the previous sum as shown in the below image:
+
+ So, we can see that instead of recalculating the sum of each K sized subarray we are using previous window of size K and using its resutl we update the sum and shift the window righ tby moving left and right pointers, this operation is optimal because it take O(1) time to shift the range instead of recalculating.
+
+ This approach of shifting the pointers, and calculating the results accordingly is known as Sliding Window Technique.
+
+ ////////////////////////////
+ How to use Sliding Window Technique?
+ There are basically two types of sliding window:
+
+ 1. Fixed Size Sliding Window:
+ The general steps to solve these questions by following below steps:
+ Find the size of the window required, say K.
+ Compute the result of 1st window, i.e. include the first K elements of the data structure.
+ Then use a loop to slide the window by 1 and keep computing the result window by window.
+
+ 2. Variable Size Sliding Window:
+ The general steps to solve these questions by following below steps:
+ In this type of sliding window problem, we increase our right pointer one by one till our condition is true.
+ At any step if our condition does not match, we shrink the size of our window by increasing left pointer.
+ Again, when our condition statisfies, we start increasing the right pointer and follow step 1.
+ We follow these steps until we reach to the end fo the array.
+
+ ///////////////////////////////
+ How to identify Sliding Window Problems:
+ These probles genrally require Finding Maximum/Minimum Subarray, Substrings which statisfy some specific condition.
+
+ The size of the subarray or substring 'K' will be given in some of the problems.
+
+ These problems can easily be solved in O(N^2) time complexity using nested loops, using sliding window we can solve these in O(N) time compleixty.
+
+ Required Time Complexity: O(N) or O(N logN).
+
+ Constraints: N<=10^6, if N is the size of the Array/String.
+
+ //////////////////////////////////
+ Use cases of Sliding Window Technique:
+ 1. To find the maximum sum of all subarray of size K:
+
+ Given an array of integers of size 'n', Our aim is to calculate the maximum sum of 'k' consecutive elements in the array.
+
+ Naive Approach:
+ So, let's analyze the problem with Brute Force Approach.
+ We start the first index and sum till the kth element.
+ We do it for all possible consecutive blocks or groups of k elements.
+ This method requries a nested for loop, the outer for loop starts with the starting element of the block of k elements, and the innter or the nested loop will add up till the kth element.
+
+ Time complexity: O(k*n) as it conatins two nested loops.
+ Auxiliary Space: O(1)
+
+ Applying the sliding window technique:
+ We compute the sum of the first k elements out  n terms using a linear loop and store the sum in variable window_sum.
+
+ Then we will traverse linearly over the array till it reaches the end and simultaneously keep track of the maximum sum.
+
+ To get the current sum of a block of k elements just subtract the first element from the previous block and add the last element of the current block.
+
+ Time Complexity: O(N), where n is the input array arr[].
+ Auxiliary Space: O(1)
+
+ /////////////////////////////////////
+ 2. Smallest subarray with sum greater then a given value:
+
+ Given an array arr[] of intergers and a number X, the task is to find the smallest subarray with a sum greater than the given value.
+
+ Approach:
+ We can solve this problem using Sliding window Technique and maintaining two pointers: 
+ start and end to mark the starting and ending of the window.
+ We can keep incremening the end pointer till the sum of the window is less than or equal to X.
+ When, the sum of window becomes greater than X, we record teh length of the window and start moving the start pointer till the sum of window becomes smaller than or equal to X.
+ Now, when the sum becomes smaller then equal to X, again start incrementing the end pointer.
+ Keep on moving the start and end pointer till we have reached the end of the array.
+
+ //////////////////////////////////
+ 3. Find subarray with given sum in an array of non-negtative integers:
+ Given an array arr[] of non-negative intergers and an integers sum, find a subarray that adds to a given sum.
+
+ Approach:
+ The idea is simple as we know that all the elements in subarray are positive so, If a subarray has sum greater than the given sum then there is no possibility that adding elements to the current subarray will be equal to the given sum.
+ So, the Idea is to use a similar appraoch to a sliding window.
+
+ Start with an empty subarray.
+ Add elements to the subarray until the sum is less than x(given sum).
+ If the sum is greater than x, remove elements from the start of the current subarray.
+
+ 4. Smallest window that contains all characters of string itself:
+ 
+ Approach:
+ Basically a window of character is maintainted by using two pointers namely start and end.
+ These start and end pointers can be used to shrink and increase the size of the window respectively.
+ Whenever the window contains all characters of given string, then window is shrinked from left side to remove extra characters and then its length is compared within the smallest window found so far.
+ 
+ If in the present start increasing the size of the window using the end until all the characters present in the string are also there in the window.
+ Finally, find the minimum size of each window.
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
