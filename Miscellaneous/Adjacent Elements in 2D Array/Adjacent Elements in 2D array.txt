@@ -1,0 +1,26 @@
+### Find all adjacent elements of given element in a 2D Array or Matrix ###
+ 
+ Given a two-dimensional integer array arr[][], return all the adjacent elements of particular integer whose position is given as (x,y)
+
+ Adjacent elements are all the elements that share a common side or point, i.e. they have a vertical, horizontal or diagonal distance of 1.
+
+ //////////////////////
+ Method 1: In this approach, we have to check for all the possible adjacent positions and print them as the adjacent elements of the given elements.
+
+ The only problem is this approach is that a possible adjacent position may not be a valid position of the matrix, i.e. the index may be out of bound for the 2-dimensioal array.
+ So we have to keep checking for every adjacent position if that is a valid position or not.
+
+ Time Complexity: O(1)
+ Auxiliary Space: O(1)
+
+ /////////////////////////////////
+ Method 2: In this approach, we will not check for every adjacent element whether it is a valid position or not, we will directly code in a way that it will only print the valid elements.
+
+ We will iterate using two loops, where the outer loop dentoes deviation in a row number and the inner loop denotes deviation in column number.
+ The deviation is in the range of -1 to 1 and gets adjusted based on the provided position.
+
+ Here is only one special case: if both the deviations are 0 then it denotes the same element.
+
+ 
+
+

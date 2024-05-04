@@ -1,0 +1,35 @@
+### Types of Shift Operators ###
+ 
+ Signed Left Shift(<<): 
+ The left shift operator moves all bits by a given number of bits to the left.
+
+ Signed Right Shift(>>):
+ The right shift operator moves all bits by a given number of bits to the right.
+
+ Unsigned Right Shift(>>>):
+ It is the sames as the signed right shift, but the vacant leftmost position is filled with 0 instead of the sign bit.
+
+ 1. Signed Left Shift Operator in Java:
+ This operator is represented by a symbol <<, read as double less than.
+ Syntax:
+ left_operant << number
+
+ Calculating the value of number<<2 if number = 2.
+ When the value of a number is shifted to the left two places, the leftmost two bits are lost.
+ The number has value of two.
+ 0010 is the binary representation of the number 2.
+
+ /////////////////////////////////
+ 2. Signed Right Shift Operator in java:
+ The Right Shift Operator moves the bits of a number in a given number of places to the right.
+
+ When we shfit a number to the right, the least significant bits (rightmost) are deleted, and the sign bit is filled in the most considerable place (leftmost).
+
+ 3. Unsigned Right Shift Operator in Java:
+ Unsigned Right Shift Operator moves the bit of the integer a given number of places to the right.
+ The sign bit was filled with 0s.
+
+ Note: For Negative bits, the signed and unsigned right shift operators provide different results.
+
+ 
+  

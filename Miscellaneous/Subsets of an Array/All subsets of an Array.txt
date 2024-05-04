@@ -1,0 +1,10 @@
+### Printing all subsets using Bit Manipulation ###
+ 
+ Below are the step-by-step appraoch:
+ 1. Iterate numbers from 0 to (2^n)-1.
+ 2. Generate binary representation of that number and include the elements of array as per below cases:
+  If the i'th bit is 1, then include i'th element of the array into the current subset.
+  If the i'th bit is 0, do nothing and continue.
+
+ Each bit representation of the number will give a unique subset.
+
