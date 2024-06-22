@@ -1,0 +1,172 @@
+### Binary Tree ###
+ 
+ Binary Tree is a non-linear data strucutre where each node has at most two children.
+
+ Binary Tree is a tree data strucutre (non-linear) in which each node can have at most two children which are reffered to as the left child and the right child.
+
+ The topmost node in a binary tree is called the root, and the bottom-most nodes are called leaves.
+ A binary tree can be visulaized as a hierarchical structure with the root at the top and the leaves at the bottom.
+
+ ///////////////////////////////
+ Representation of Binary Tree:
+ Each node in a binary tree has three parts:
+ 1. data
+ 2. Pointer to the left child
+ 3. Pointer to the right child
+
+ Beloe is the representation of Node of Binary Tree in different languages:
+
+ class Node{
+  int key;
+  Node left, right;
+
+  public Node(int item){
+    key = item;
+    left = right = null;
+  }
+ }
+
+ /////////////////////////////////////
+ Types of Binary Tree:
+ 1. On the basis of Number of Children:
+ a. Full Binary Tree
+ b. Degenerate Binary Tree
+ c. Skewed Binary Tree
+
+ 2. On the basis of Completion of Levels:
+ a. Complete Binary Tree
+ b. Perfect Binary Tree
+ c. Balanced Binary Tree
+
+ 3. On the basis of Node Values:
+ a. Binary Search Tree
+ b. AVL Tree
+ c. Red Black Tree
+ d. B Tree
+ e. B+ Tree
+ f. Segment Tree
+
+ //////////////////////////////////
+ Operations on Binary Tree:
+ 1. Insertion in Binary Tree:
+ We can insert a node anywhere in a binary tree by inserting the node as the left or right child of any node or by making the node as root of the tree.
+
+ Algorithm to insert a node in a Binary Tree:
+ a. Check if there is a node in the binary Tree, which has missing left child.
+ If such a nodoe exists, then insert the new node as its left child.
+ 
+ b. Check if there is a node in the binary tree, which has missing right child.
+ If such a node exists, then insert the new node as its right child.
+
+ c. If we don't find any node with missing left or right child, then find the node which has both the children missing and insert the node as its left or right child.
+
+ ////////////////////////////////
+ 2. Traversal of Binary Tree:
+ Traversal of Binary Tree involves visiting all the nodes of the binary tree.
+ Tree traversal algorithms can be classified broadly into two categories:
+
+ a. Depth-First Search (DFS) algorithms
+ b. Breath-First Search (BFS) algorithms
+
+ /////////////////
+ Depth-First Search (DFS) algorithms:
+ 1. Preorder Traversal (current-left-right):
+ Visit the current node before visiting any nodoes inside the left or right subtrees.
+ Here, the traversal is root - left child - right child.
+ It means that the root node is traversed first then its left child and finally the right child.
+
+ 2. Inorder Traversal (left-current-right):
+ Visit the current node after visiting all nodes inside the left subtree but before visiting any node within the right subtree.
+ Here, the traversal is left child - root - right child.
+ It means that the left child is traversed first then its root node and finally the right child.
+
+ 3. Postorder Traversal (left-right-current):
+ Visit the current node after visiting the nodes of the left and right subtrees.
+ Here, the traversal is left child - right child - root.
+ It means that the left child has traversed firs then the right child and finally its root node.
+
+ ////////
+ Breath-First Search (BFS) algorithms:
+ Level Order Traversal:
+ Visit nodes level-by-level and left-to-right fashion at the same level.
+ Here, the traversal is level-wise.
+ It means that the most left child has traversed first and then the other children of the same level from left to right have traversed.
+
+ Algorithms to delete a node in a Binary Tree:
+ a. Starting at the root, find the deepest and rightmost node in the binary tree and the node which we want to delete.
+ b. Replace the deepest rightmost node's with the node to be deleted.
+ c. Then delete the deepest rightmost node.
+
+ /////////////////////////////////
+ 4. Searching in Binary Tree:
+ We can search for an elemetn in the node by using any of the traversal techniques.
+
+ Algorithm to search a node in a Binary Tree:
+ Start from the root node.
+ Check if the current node's value is equal to the target value.
+ If the current node's value is equal to the target value, then this node is the required node.
+ Otherwise, if the node's value is not equal to the target value, start the search in the left and right child.
+ If we do not find any node whose value is equal to target, then the value is not present in the tree.
+
+ //////////////////////////////////
+ Auxiliary Operations on Binary Tree:
+ 1. Finding the height of the tree.
+ 2. Find level of a node in a Binary Tree.
+ 3. Finding the size fo the entire tree.
+
+ //////////////////////////////
+ Complexity Analysis of Binary Tree Operations:
+ All the operations of insertion, traversal, Searching and Deletion takes place in O(N) in time as well as O(N) in space.
+
+ //////////////////////////////
+ Advantages of Binary Tree:
+ 1. Efficient Search:
+ Binary trees are efficient when searching for a specific element, as each node has at most two child nodes, allowing for binary search algoritms to be used.
+
+ 2. Memory Efficient:
+ Binary trees require lesser memeory as compared to other tree data strucutres, therefore they are memory-efficient.
+
+ 3. Binary trees are relatively easy to implement and understand as each node has at most two children, left child and right child.
+
+ ///////////////////////////////////
+ Disadvantages of Binary Tree:
+ 1. Limited structure:
+ Binary trees are limited to two child nodes per node, which can limit their usefulness in certain applications.
+ For example, if a tree requires more than two child nodes per node, a different tree structure may be more suitable.
+
+ 2. Unbalanced Trees:
+ Unbalanced binary trees, where one subtree is significantly larger than the other, can lead to inefficient search opeations.
+ This can occur if there is not properly balanced or if data is inserted in a non-random order.
+
+ 3. Space inefficiency:
+ Binary trees can be space inefficient when compared to other data structures.
+ This is because each node requires two child pointers, which can be a significant amount of memory overhead for large trees.
+
+ 4. Slow Performance in worst-case scenarios:
+ In the worst-case scenario, a binary tree can become degenerate or skewed, meaning that each node has only one child.
+ In this case, search opeartions can degrade to O(n) time complexity, where n is the number of nodes in the tree.
+
+ /////////////////////////////////////
+ Applications of Binary Tree:
+ 1. Binary Tree can be used to represent hierarchical data.
+ 2. Huffman Coding trees are used in data compression algoritms.
+ 3. Priority Queue is another application of binary tree that is used for searching maximum or minimum in O(1) time complexity.
+ 4. Useful for indexing segmented at the database is useful in storing cache in the system.
+ 5. Binary trees can be used to implement decision trees, a type fo machine learning algorithm used for classification and regression analysis.
+
+ //////////////////////
+ Complexity Analysis of Binary Tree Operations:
+ Insertion: O(N)  O(N)
+ Preorder Traversal: O(N)  O(N)
+ Inorder Traversal: O(N) O(N)
+ Postorder Traversal: O(N) O(N)
+ Level Order Traversal: O(N) O(N)
+ Deletion: O(N) O(N)
+ Searching: O(N) O(N)
+
+ We can use Morris Traversal to traverse all the nodes of the binary tree in O(1) tree.
+
+ 
+
+ 
+

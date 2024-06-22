@@ -1,0 +1,19 @@
+### Height and Depth of a node in a Binary Tree ###
+ 
+ Given a Binary Tree cosisting of N nodes and a integer K, the task is to find the depth and height of the node with value K in the Binary Tree.
+
+ The depth of a node is the number of edges present in path from the root node of a tree to that node.
+ The height of a node is the number of edges present in the longest path connecting that node to a leaf node.
+
+ Depth of a node K (of a Binary Tree) = Number of edges in the path connecting the root to the node K = Number of ancestors of K (excluding K itself).
+
+ Follow the steps to find the depth of the given node:
+ If the tree is empty, print -1
+ Otherwise, perform the following steps:
+  Initialize a variable, say dist as -1.
+  Check if the node K is equal to the given node.
+  Otherwise, check if it is present in either of the subtrees, by recursively checking for the left and right subtrees respectively.
+  If found to be true, print the value of dist+1.
+  Otherwise, print dist.
+
+  
