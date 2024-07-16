@@ -1,0 +1,51 @@
+### Boundary Traversal ###
+ 
+ It includes:
+ 1. Boundary Traversal:
+ a. Left boundarry (nodes on left excluding leaf nodes)
+ b. leaves (consist of ony the leaf nodes)
+ c. right boundary (nodes on right excluding leaf nodes)
+
+ The left boundary is defined as the path from the root to the left-most node.
+ The right boundary is defined as the path from the root to the right-most node.
+ If the root doesn't have left subtree or right subtree, then the root itself is left boundary or right boundary.
+ Note: This definition only applies to the input binary tree, and not apply to any subtrees.
+
+ The left-most node is defined as a leaf node you could reach when you always firstly travel to the left subtree if it exists.
+ If not, travel to the right subtree.
+ Repeat until you reach a leaf node.
+ The right-most node is also defined in the same way with left and right exchanged.
+
+ /////////////////////////
+ Algorithm for Boundary Traversal:
+ if root is not null:
+  Print root's data
+  PrintLeftBoundary(root->left) // print the left boundary nodes
+  PrintLeafNodes(root->left) // print the leaf nodes of left subtree
+  PrintLeafNodes(root->right) // print the leaf nodes or right subtree
+  PrintRightBoundary(root->right) // print the right boundary nodes
+
+ ///////////////////
+ Uses of Boundary Traversal:
+ Boundary Traversal helps visualize the outer structure of a binary tree, providing insights into its shape and boundaries.
+ 
+ Boundary Traversal provides a way to access and modify these nodes, enalbing operations such as pruning or repositioning of boundary nodes.
+
+ ////////////////
+ We break the problem in 3 parts:
+ Print the left boundary in top-down manner.
+ Print all leaf nodes from left or right, which can again be sub-divided into sub-parts:
+  Print all leaf nodes of left sub-tree from left to right.
+  Print all leaf nodes of right subtree from left to right.
+ Print the right boundary in bottom-up manner.
+
+ We need to take care of one thing that nodes are not printed again.
+ eg. The left most node is also the leaf node of the tree.
+
+
+ 
+  
+
+
+
+ 
