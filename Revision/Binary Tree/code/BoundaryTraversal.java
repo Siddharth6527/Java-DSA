@@ -101,5 +101,4 @@ class BoundaryTraversal {
     tree.root.right.right = new Node(25);
     tree.printBoundary(tree.root);
   }
-
 }

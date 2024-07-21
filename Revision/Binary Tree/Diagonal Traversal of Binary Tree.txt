@@ -1,0 +1,14 @@
+### Diagonal Traversal of Binary Tree ###
+ 
+ Consider lines with a slope of -1 that cross through nodes.
+ Print all diagonal elements in a binary tree that belong to the same line, given a binary tree.
+
+ Observation: root and root->right values will be prioritized over all root->left values.
+
+ The plan is to make use of a map.
+ Different slope distances are used in the map as a key.
+ The map's value is a node vector (or dynamic array).
+ To save values in the map, we traverse the tree.
+ We print the content of the map after it has been constructed.
+
+ 

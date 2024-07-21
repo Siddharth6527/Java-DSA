@@ -1,0 +1,69 @@
+### Topics in Dynamic Programming ###
+ 
+ Learning dynamic programming (DP) involves understanding both the theory and the practical application of the technique.
+
+ //////////////////////////////
+ Fundamental Concepts:
+ 1. Optimal Substructure:
+ Learn how to identify if a problem has on optimal substructure property.
+
+ Understand how the solution to a problem can be constructed from solutions to its subproblems.
+
+ 2. Overlapping Subproblems:
+ Recognize problems that can be broken down into overlapping subproblems.
+
+ Understand how memoization (Storing results of subproblems) can be used to improve efficiency.
+
+ 3. Memoization vs Tabluation:
+ Memoization: Top-down approach where recursive calls are used, and resutls are stored.
+
+ Tabulation: Bottom-up approach where you build a table (usually an array) from the base case to the solutino of the problem.
+
+ ///////////////////////////////
+ Problem-Solving Techniques:
+ 1. Identify Subproblems:
+ Practice breaking down a problem into smaller subproblems.
+ Learn to define state variables that represent these subproblems.
+
+ 2. State Transition:
+ Understand how to transition from one state to another.
+ Formulate the recurrence relation that related the solution of a problem to the solutions of its subproblems.
+
+ 3. Base Cases:
+ Identify and handle the base cases that terminate the recursion or iteration.
+
+ 4. Storing and Using results:
+ Lean to store results of subproblems using appropritate data structures (arrays, hashtables).
+
+ Ensure efficient retrieval and use of stored results to construct the solution.
+
+ ///////////////////////////////////
+ Practical Applications:
+ 1. Classical Problems:
+ a. Fibonacci Sequence: Simple example to understand basic DP concepts.
+ 
+ b. Knapsack Problem: Learn both 0/1 knapsack and fractional knapsack variants.
+
+ c. Longest Common Subsequence (LCS): Understand how to find the longest subsequence common to two sequences.
+
+ d. Edit Distance: Practice computing the minimum number of edits required to transform one string to another.
+
+ e. Matrix Chain Multiplication: Learn to find the most efficient way to multiply a given sequence of matrices.
+
+ 2. Advanced Problems:
+ a. Dynamic Programming on Trees: Learn techniques specific to tree structures, such as finding the longest path or the diameter of a tree.
+
+ b. Dynamic Programming with Bitmasks: Useful for problems involving subsets and permutations.
+
+ c. DP on Graphs: Understand how DP can be applied to solve problems on graphs, such as shortest paths in weighted graphs.
+
+ ////////////////////////////////
+ Optimization Techniuqes:
+ 1. Space Optimization:
+ Learn techniques to reduce the space complexity of your DP solutions, such as using rolling arrays, or only storing necessary states.
+
+ 2. Time Optimization:
+ Understand how to optimize time complexity, often by avoiding redundant calculations and using efficient data structures.
+
+ 
+

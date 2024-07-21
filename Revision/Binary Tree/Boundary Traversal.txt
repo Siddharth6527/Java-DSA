@@ -42,8 +42,26 @@
  We need to take care of one thing that nodes are not printed again.
  eg. The left most node is also the leaf node of the tree.
 
+ /////////////////////////////////////// 
+ Clean code with returning the traversal: 
+ [No direct printing + Iterative Version of the code]
+
+ Algorithm:
+ 1. Right Boundary - Go Right right until no right.
+ Dont include leaf nodes. (as it leads to dupication)
+
+ 2. Left Boundary - Go Left left until no left.
+ Dont include leaf nodes.
+
+ 3. Leaf Boundary - Do inorder/preorder, if leaf node add to the List.
+
+ 4. We pass the array as refernce, so its the same memory location used by all functions, to coordinate the result at one place.
 
  
+
+
+
+
   
 
 

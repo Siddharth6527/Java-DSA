@@ -1,0 +1,35 @@
+### Dynamic Programming ### 
+
+ Dynamic Programming is a method for solving complex problems by breaking them down into simpler subproblems and storing the results of these subproblems to avoid redundant computations.
+ It is particularly useful for optimization problems where the problem can be divided into overlapping subproblems that can be solved independenlty.
+
+ ///////////////////////////
+ Key Concepts of Dynamic Programming:
+ 1. Optimal Substructure: The solutin to a problem can be constructed efficiently from solutions to its subproblems.
+
+ 2. Overlapping Subproblems: The problem can be broken down into subproblems which are reused several times.
+
+ //////////////////////////
+ Steps to Implement Dynamic Programming:
+ 1. Define the subproblems.
+ 2. Express the solution of the original problem in terms of the solutions for the subproblems.
+ 3. Compute the value of each subproblem only once and store these values (usually in an array or a hash table).
+ 4.Use these stored valules to construct the solution to the original problem.
+
+ /////////////////////////////////
+ Explanation:
+ 1. Recursive Approach:
+ This is a straightforward approach but highly inefficient because it recomputes the same values multiple times, resulting in an exponential time complexity of O(2^n).
+
+ 2. Dynamic Programming Approach: 
+ This method uses an array to store the results of subproblems, ensuring each subproblem is solved only once.
+ This reduces the time complexity to O(n), making it much more efficient.
+
+ ///////////////////////////////////
+ Advantages of Dynamic Programming:
+ Efficiency: By Stroing the results of subproblems, dynamic programming avoids redundant calculations, significantly improving efficiency.
+
+ Optimal Solutions:
+ Dynamic programming ensures that the optimal solution is found by systematically exploring all possible solutions to subproblems.
+
+ 
